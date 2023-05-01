@@ -349,8 +349,7 @@ plugins:
 #   alexa:               <verification-id>
 #   yandex:              <verification-id>
 
-# Used for twitter cards
-# twitter:
+# Used for twitter cards:
 #   username:            <username>
 
 # Used for facebook open graph
@@ -360,11 +359,10 @@ plugins:
 #   admins:              <id>
 
 # Used on index and about sites
-# social:
-#   name:                <firstname> <lastname>
-#   links:
-#     - https://twitter.com/<username>
-#     - https://github.com/<username>
+social:
+  name:                <Jack> <Baker>
+  links:
+    - https://github.com/<username>
 
 
 # Plugin Configs
