@@ -4,13 +4,13 @@ The below list of publications should be up to date. Find me [Google Scholar](ht
 
 <hr style="border: 0.5px solid black;">
 
-K. Roleder, G. Catalan, A. M. Glazer, **J. S. Baker**, J.-H. Ko, F. H. Naqvi, S. B. Junaid, A. Majchrowski, Z. Trybuła, J. Zaręba, I. Lazar, D. Kajewski, J. Koperski, and A. Soszyński, [Weak low-temperature polarity in a PbZrO<sub>3</sub> single crystal](https://doi.org/10.1103/PhysRevB.107.L140102), *Physical Review B* **107**, L140102 (2023)
+K. Roleder, G. Catalan, A. M. Glazer, **J. S. Baker**, J.-H. Ko, F. H. Naqvi, S. B. Junaid, A. Majchrowski, Z. Trybuła, J. Zaręba, I. Lazar, D. Kajewski, J. Koperski, and A. Soszyński, [Weak low-temperature polarity in a PbZrO<sub>3</sub> single crystal](https://doi.org/10.1103/PhysRevB.107.L140102), *Physical Review B* **107**, L140102 (2023).
 
 **Summary:** We find experimental evidence for a new low temperature phase transition to a polar state in the purported archetypal antiferroelectric PbZrO<sub>3</sub>.
 
 <hr style="border: 0.5px solid black;">
 
-H. Guo, **J. S. Baker**, W. Wu, and K. L. Choy, [High Dielectric Constants in BaTiO<sub>3</sub> Due to Phonon Mode Softening Induced by Lattice Strains: First Principles Calculations](https://doi.org/10.1002/apxr.202300001), *Advanced Physics Research*, 2300001 (2023)
+H. Guo, **J. S. Baker**, W. Wu, and K. L. Choy, [High Dielectric Constants in BaTiO<sub>3</sub> Due to Phonon Mode Softening Induced by Lattice Strains: First Principles Calculations](https://doi.org/10.1002/apxr.202300001), *Advanced Physics Research*, 2300001 (2023).
 
 **Summary:** Hybrid DFT caclulations show there exist certain strains where the dielectric constant of BaTiO~3~ is enhanced by a zone-centre phonon mode.
 
@@ -63,3 +63,32 @@ A. Nakata, **J. S. Baker**, S. Y. Mujahed, J. TL Poulton, S. Arapan, J. Lin, Z. 
 **Summary:** Using a selection of technologically relevant ferroelectric and antiferroelectric perovskite oxides, we study the suitability of DFT simulations using pseudoatomic orbital basis sets to describe their properties.
 
 <hr style="border: 0.5px solid black;">
+
+**J. S. Baker**, [Long Range Order in Ferroelectric and Antiferroelectric Perovskites Meets Large Scale Density Functional Theory](https://discovery.ucl.ac.uk/id/eprint/10118419/) University of London, University College London (United Kingdom), (2020).
+
+**Summary:** My Ph.D. thesis. I studied long range behaviour in ferroelectric and antiferroelectric perovskite oxides using conventional and large scale DFT simulations. Systems of interest include bulk PZT, PbZrO<sub>3</sub>, PbHfO<sub>3</sub> and thin films of PbTiO<sub>3</sub>. New emergent behviours were found including exotic polarization textures, new complex low energy structures in PbZrO<sub>3</sub> and uncovering the mechanism behind the alignment of ferroelectric domain walls with engineered surface trenches.
+
+<hr style="border: 0.5px solid black;">
+
+**J. S. Baker** and D. R. Bowler, [First-principles soft-mode lattice dynamics of PbZr<sub>0.5</sub>Ti<sub>0.5</sub>O<sub>3</sub> and shortcomings of the virtual crystal approximation](https://doi.org/10.1103/PhysRevB.100.224305) *Physical Review B* **100**, 224305 (2019)
+
+**Summary:** New long wavelength crystal vibrations are found in the industrial piezoelectric PZT using DFT-based phonon calculations. We describe why the popular virtual crystal approximation cannot be used to accurately describe such patterns in PZT and similar materials.
+
+<hr style="border: 0.5px solid black;">
+
+D. R. Bowler, **J. S. Baker**, J. T. Poulton, S. Y. Mujahed, J. Lin, S. Yadav, Z. Raza and T. Miyazaki, [Highly accurate local basis sets for large-scale DFT calculations in CONQUEST](https://iopscience.iop.org/article/10.7567/1347-4065/ab45af/meta), *Japanese Journal of Applied Physics*, **58(10)**, 100503 (2019).
+
+**Summary:** We develop new heuristic methods for generating reliable basis sets of pseudoatomic orbitals for DFT calculations using CONQUEST. We study the accuracy of these basis sets using several popular materials.
+
+<hr style="border: 0.5px solid black;">
+
+L. K. McKemmish, K. L. Chubb, T. Rivlin, **J. S. Baker**, M. Gorman, A. Heward, W. Dunn and M.Tessenyi, [Bringing pupils into the ORBYTS of research](https://doi.org/10.1093/astrogeo/atx169), *Astronomy & Geophysics*, **58(5)**, 5-11 (2017).
+
+**Summary:** The Twinkle ORBYTS team discuss their approach to original research with school-aged scientists.
+
+<hr style="border: 0.5px solid black;">
+
+C. Sousa-Silva, L. K. McKemmish, K. L. Chubb, M. N. Gorman, **J. S. Baker**, E. J. Barton, T. Rivlin and J. Tennyson, [Original Research By Young Twinkle Students (ORBYTS): when can students start performing original research?](https://iopscience.iop.org/article/10.1088/1361-6552/aa8f2a/meta), *Physics Education*, **53(1)**, 015020 (2017).
+
+**Summary:** The Twinkle ORBYTS team get involved in teaching research skills to school-aged scientists and have them publish articles in peer reviewed journals supervised by Ph.D. students and post-docs.
+
