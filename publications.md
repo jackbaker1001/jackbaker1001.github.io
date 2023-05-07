@@ -57,3 +57,9 @@ A. Nakata, **J. S. Baker**, S. Y. Mujahed, J. TL Poulton, S. Arapan, J. Lin, Z. 
 **Summary:** A review of the large scale DFT code: CONQUEST. The theory behind the code is divulged and recent use cases are presented.
 
 <hr style="border: 0.5px solid black;">
+
+**J. S. Baker**, T. Miyazaki and D. R. Bowler, [The pseudoatomic orbital basis: electronic accuracy and soft-mode distortions in ABO<sub>3</sub> perovskites](https://iopscience.iop.org/article/10.1088/2516-1075/ab950e), *Electronic Structure*, **2(2)**, 025002 (2020).
+
+**Summary:** Using a selection of technologically relevant ferroelectric and antiferroelectric perovskite oxides, we study the suitability of DFT simulations using pseudoatomic orbital basis sets to describe their properties.
+
+<hr style="border: 0.5px solid black;">
