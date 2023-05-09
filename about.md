@@ -1,7 +1,7 @@
 # About Jack S. Baker 
 
 <div style="float:right; margin: 0 0 1em 1em; width: 200px; height: 200px; border-radius: 50%; overflow: hidden;">
-  <img src="assets/img/jack_s_baker.jpeg" style="width: 100%; height: 100%; object-fit: cover;">
+  <img src="jack_s_baker.jpeg" style="width: 100%; height: 100%; object-fit: cover;">
 </div>
 
 My name is Jack S. Baker and i'm a physicist specializing in the areas of quantum and classical computational physics, condensed matter theory and machine learning. I graduated from the [University of Leicester](https://le.ac.uk/) with a MPhys in Physics & Nanotechnology and went on to graduate with a Ph.D. in Computational Quantum Physics at [University College London](https://www.ucl.ac.uk/) & the [London Centre for Nanotechnology](https://www.london-nano.com/) under the supervision of [Prof. David R. Bowler](https://www.ucl.ac.uk/physics-astronomy/people/professor-david-bowler).
