@@ -1,7 +1,7 @@
 # Publications
 
 The below list of publications should be up to date. Find me [Google Scholar](https://scholar.google.co.uk/citations?user=Tct_ymQAAAAJ&hl=en) for more information.
-<br>
+<br><br>
 
 <div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
 K. Roleder, G. Catalan, A. M. Glazer, <b>J. S. Baker</b>, J. H. Ko, F. H. Naqvi, S. B. Junaid, A. Majchrowski, Z. Trybuła, J. Zaręba, I. Lazar, D. Kajewski, J. Koperski, and A. Soszyński, <a href="https://doi.org/10.1103/PhysRevB.107.L140102">Weak low-temperature polarity in a PbZrO<sub>3</sub> single crystal</a>, <i>Physical Review B</i> <b>107</b>, L140102 (2023).<br><br>
@@ -39,7 +39,7 @@ A. G. Hughes, <b>J. S. Baker</b>, and S. K. Radha. <a href="https://arxiv.org/ab
 <br>
 
 <div style="background-color: #f2f2f2; border-radius: 5px; padding: 10px;">
-<b>J. S. Baker</b>, M. Paściak, J. K. Shenton, P. Vales-Castro, B. Xu, J. Hlinka, P. Márton, R. G. Burkovsky, G. Catalan, A. M. Glazer, D. R. Bowler <a href="https://doi.org/10.48550/arXiv.2102.08856">A re-examination of antiferroelectric PbZrO<sub>3</sub> and PbHfO<sub>3</sub>: an 80-atom <i>Pnam</i> structure</a>, <i>arXiv preprint arXiv:2102.08856</i> (2021).br><br><br>
+<b>J. S. Baker</b>, M. Paściak, J. K. Shenton, P. Vales-Castro, B. Xu, J. Hlinka, P. Márton, R. G. Burkovsky, G. Catalan, A. M. Glazer, D. R. Bowler <a href="https://doi.org/10.48550/arXiv.2102.08856">A re-examination of antiferroelectric PbZrO<sub>3</sub> and PbHfO<sub>3</sub>: an 80-atom <i>Pnam</i> structure</a>, <i>arXiv preprint arXiv:2102.08856</i> (2021).<br><br>
 <b>Summary:</b> Surprisingly, the long-standing  antiferroelectric groundstates of PbZrO<sub>3</sub> and PbHfO<sub>3</sub> are each found with an unstable phonon mode at 0K. The displacement pattern of this mode informs a new lower symmetry structure whoose energy is lower (according to DFT) than the presently supposed ground state.
 </div>
 
@@ -53,7 +53,7 @@ A. G. Hughes, <b>J. S. Baker</b>, and S. K. Radha. <a href="https://arxiv.org/ab
 <br>
 
 <div style="background-color: #f2f2f2; border-radius: 5px; padding: 10px;">
-    <b>J. S. Baker</b> and D. R. Bowler, <a href="https://doi.org/10.1002/adts.202000154"><i>Advanced Theory and Simulations</i> <b>3(11)</b> 2000154</a> (2020).<br>
+    <b>J. S. Baker</b> and D. R. Bowler, <a href="https://doi.org/10.1002/adts.202000154"><i>Advanced Theory and Simulations</i> <b>3(11)</b> 2000154</a> (2020).<br><br>
     <b>Summary:</b> Large scale DFT simulations are used to investigate polar vortices and polar waves in thin ferroelectric films. We find that asymmetrical polar textures can arise from broken inversion symmetries.
 </div>
 
@@ -113,7 +113,7 @@ D. R. Bowler, <b>J. S. Baker</b>, J. T. Poulton, S. Y. Mujahed, J. Lin, S. Yadav
 
 <div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
 
-C. Sousa-Silva, L. K. McKemmish, K. L. Chubb, M. N. Gorman, <strong>J. S. Baker</strong>, E. J. Barton, T. Rivlin and J. Tennyson, <a href="https://iopscience.iop.org/article/10.1088/1361-6552/aa8f2a/meta">Original Research By Young Twinkle Students (ORBYTS): when can students start performing original research?</a>, <em>Physics Education</em>, <strong>53(1)</strong>, 015020 (2017).
+C. Sousa-Silva, L. K. McKemmish, K. L. Chubb, M. N. Gorman, <strong>J. S. Baker</strong>, E. J. Barton, T. Rivlin and J. Tennyson, <a href="https://iopscience.iop.org/article/10.1088/1361-6552/aa8f2a/meta">Original Research By Young Twinkle Students (ORBYTS): when can students start performing original research?</a>, <em>Physics Education</em>, <strong>53(1)</strong>, 015020 (2017). <br><br>
 
 <strong>Summary:</strong> The Twinkle ORBYTS team get involved in teaching research skills to school-aged scientists and have them publish articles in peer reviewed journals supervised by Ph.D. students and post-docs.
 
