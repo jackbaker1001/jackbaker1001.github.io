@@ -53,7 +53,7 @@ A. G. Hughes, <b>J. S. Baker</b>, and S. K. Radha. <a href="https://arxiv.org/ab
 <br>
 
 <div style="background-color: #f2f2f2; border-radius: 5px; padding: 10px;">
-    <b>J. S. Baker</b> and D. R. Bowler, <a href="https://doi.org/10.1002/adts.202000154"><i>Advanced Theory and Simulations</i> <b>3(11)</b> 2000154</a> (2020).<br><br>
+    <b>J. S. Baker</b> and D. R. Bowler, <a href="https://doi.org/10.1002/adts.202000154">Polar morphologies from first principles: PbTiO<sub>3</sub> films on SrTiO<sub>3</sub> substrates and the p(2 × Λ) surface reconstruction</a>, <i>Advanced Theory and Simulations</i> <b>3(11)</b> 2000154(2020).<br><br>
     <b>Summary:</b> Large scale DFT simulations are used to investigate polar vortices and polar waves in thin ferroelectric films. We find that asymmetrical polar textures can arise from broken inversion symmetries.
 </div>
 
@@ -92,7 +92,7 @@ A. G. Hughes, <b>J. S. Baker</b>, and S. K. Radha. <a href="https://arxiv.org/ab
 <br>
 
 <div style="background-color: #f2f2f2; border-radius: 5px; padding: 10px;">
-D. R. Bowler, <b>J. S. Baker</b>, J. T. Poulton, S. Y. Mujahed, J. Lin, S. Yadav, Z. Raza and T. Miyazaki, <a href="https://iopscience.iop.org/article/10.7567/1347-4065/ab45af/meta"><i>Japanese Journal of Applied Physics</i>, <b>58(10)</b>, 100503 (2019)</a>.<br><br>
+D. R. Bowler, <b>J. S. Baker</b>, J. T. Poulton, S. Y. Mujahed, J. Lin, S. Yadav, Z. Raza and T. Miyazaki, <a href="https://iopscience.iop.org/article/10.7567/1347-4065/ab45af/meta">Highly accurate local basis sets for large-scale DFT calculations in conquest</a>, <i>Japanese Journal of Applied Physics</i>, <b>58(10)</b>, 100503 (2019).<br><br>
 <b>Summary:</b> We develop new heuristic methods for generating reliable basis sets of pseudoatomic orbitals for DFT calculations using CONQUEST. We study the accuracy of these basis sets using several popular materials.
 </div>
 
