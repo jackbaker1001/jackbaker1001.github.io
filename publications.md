@@ -12,12 +12,10 @@ K. Roleder, G. Catalan, A. M. Glazer, <b>J. S. Baker</b>, J. H. Ko, F. H. Naqvi,
 </div>
 
 <br>
-<hr style="border: 0.5px solid black;">
-<br>
-
-H. Guo, **J. S. Baker**, W. Wu, and K. L. Choy, [High Dielectric Constants in BaTiO<sub>3</sub> Due to Phonon Mode Softening Induced by Lattice Strains: First Principles Calculations](https://doi.org/10.1002/apxr.202300001), *Advanced Physics Research*, 2300001 (2023).
-
-**Summary:** Hybrid DFT caclulations show there exist certain strains where the dielectric constant of BaTiO~3~ is enhanced by a zone-centre phonon mode.
+<div style="background-color: #f2f2f2; border-radius: 5px; padding: 10px;">
+H. Guo, <b>J. S. Baker</b>, W. Wu, and K. L. Choy, <a href="https://doi.org/10.1002/apxr.202300001">High Dielectric Constants in BaTiO<sub>3</sub> Due to Phonon Mode Softening Induced by Lattice Strains: First Principles Calculations</a>, <i>Advanced Physics Research</i>, 2300001 (2023).<br><br>
+<b>Summary:</b> Hybrid DFT caclulations show there exist certain strains where the dielectric constant of BaTiO<sub>3</sub> is enhanced by a zone-centre phonon mode.
+</div>
 
 <br>
 <hr style="border: 0.5px solid black;">
