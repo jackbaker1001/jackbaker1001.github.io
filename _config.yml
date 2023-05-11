@@ -170,6 +170,10 @@ kramdown:
   math_engine_opts:    {}
   footnote_backlink:   '&#x21a9;&#xfe0e;'
 
+liquid:
+  extensions:
+    - hydejack.tabs
+
 
 # 3rd Party Integrations
 # ----------------------------------------------------------------------------------------
