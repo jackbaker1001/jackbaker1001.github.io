@@ -7,6 +7,13 @@ The below list of publications should be up to date. Find me [Google Scholar](ht
 <br><br>
 
 <div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
+<b>J. S. Baker</b>, G. Park, K. Yu, A. Ghukasyan, O. Goktas, S. K. Radha <a href="https://doi.org/10.48550/arXiv.2305.05881">Massively parallel hybrid quantum-classical machine learning for kernelized time-series classification</a>. arXiv <i>preprint arXiv:2305.05881</i> (2023).<br><br>
+<b>Summary:</b> A trainable time-dependent inner product space is devised using time evolution operators from quantum mechanics. We use this inner product space to define a time-series Hamiltonian kernel function, which, alongside classical SVM, we use to classify time-series on 127 qubit superconducting transmon chips. We speed up the algorithm by computing the kernel matrices in parallel using many quantum threads spread throughout the chip.
+</div>
+
+<br>
+
+<div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
 K. Roleder, G. Catalan, A. M. Glazer, <b>J. S. Baker</b>, J. H. Ko, F. H. Naqvi, S. B. Junaid, A. Majchrowski, Z. Trybuła, J. Zaręba, I. Lazar, D. Kajewski, J. Koperski, and A. Soszyński, <a href="https://doi.org/10.1103/PhysRevB.107.L140102">Weak low-temperature polarity in a PbZrO<sub>3</sub> single crystal</a>, <i>Physical Review B</i> <b>107</b>, L140102 (2023).<br><br>
 <b>Summary:</b> We find experimental evidence for a new low temperature phase transition to a polar state in the purported archetypal antiferroelectric PbZrO<sub>3</sub>.
 </div>
