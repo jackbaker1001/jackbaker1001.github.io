@@ -12,13 +12,13 @@ permalink: /teaching/
 
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
-      <!-- Content for tab 1 goes here -->
+      content 1
     </div>
     <div class="tab-pane" id="tab2">
-      <!-- Content for tab 2 goes here -->
+      content 2
     </div>
     <div class="tab-pane" id="tab3">
-      <!-- Content for tab 3 goes here -->
+      content 3
     </div>
   </div>
 </div>
