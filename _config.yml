@@ -322,6 +322,7 @@ exclude:
 include:
   - .well-known
   - LICENSE.md
+  - _pages
 
 
 # Plugins
