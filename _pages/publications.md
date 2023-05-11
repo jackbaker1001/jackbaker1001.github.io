@@ -7,7 +7,7 @@ The below list of publications should be up to date. Find me [Google Scholar](ht
 <br><br>
 
 <div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
-<b>J. S. Baker</b>, G. Park, K. Yu, A. Ghukasyan, O. Goktas, S. K. Radha <a href="https://doi.org/10.48550/arXiv.2305.05881">Massively parallel hybrid quantum-classical machine learning for kernelized time-series classification</a>. arXiv <i>preprint arXiv:2305.05881</i> (2023).<br><br>
+<b>J. S. Baker</b>, G. Park, K. Yu, A. Ghukasyan, O. Goktas and, S. K. Radha <a href="https://doi.org/10.48550/arXiv.2305.05881">Massively parallel hybrid quantum-classical machine learning for kernelized time-series classification</a>. arXiv <i>preprint arXiv:2305.05881</i> (2023).<br><br>
 <b>Summary:</b> A trainable time-dependent inner product space is devised using time evolution operators from quantum mechanics. We use this inner product space to define a time-series Hamiltonian kernel function, which, alongside classical SVM, we use to classify time-series on 127 qubit superconducting transmon chips. We speed up the algorithm by computing the kernel matrices in parallel using many quantum threads spread throughout the chip.
 </div>
 
