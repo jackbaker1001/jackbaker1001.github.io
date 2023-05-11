@@ -1,3 +1,7 @@
+---
+title: About
+permalink: /about/
+---
 # About Jack S. Baker 
 
 <div style="float:right; margin: 0 0 1em 1em; width: 200px; height: 200px; border-radius: 50%; overflow: hidden;">

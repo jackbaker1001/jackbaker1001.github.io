@@ -1,3 +1,8 @@
+---
+title: Publications
+permalink: /publications/
+---
+
 # Publications
 
 The below list of publications should be up to date. Find me [Google Scholar](https://scholar.google.co.uk/citations?user=Tct_ymQAAAAJ&hl=en) for more information.
