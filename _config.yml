@@ -51,8 +51,7 @@ author:
   # # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
-include:
-  - _pages
+include: ["_pages"]
 
 # Add links to the sidebar.
 menu:
