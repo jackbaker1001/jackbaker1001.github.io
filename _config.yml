@@ -51,8 +51,6 @@ author:
   # # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
-include: ["_pages"]
-
 # Add links to the sidebar.
 menu:
   - title:             About
@@ -324,6 +322,7 @@ exclude:
 include:
   - .well-known
   - LICENSE.md
+  - _pages
 
 
 # Plugins
