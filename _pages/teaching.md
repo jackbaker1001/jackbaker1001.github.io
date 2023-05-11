@@ -3,16 +3,22 @@ title: Teaching
 permalink: /teaching/
 ---
 
-{% tabs %}
-{% tab Teaching %}
-Content for the "Teaching" tab goes here.
-{% endtab %}
+<div class="tabs">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">Tab 1</a></li>
+    <li><a href="#tab2" data-toggle="tab">Tab 2</a></li>
+    <li><a href="#tab3" data-toggle="tab">Tab 3</a></li>
+  </ul>
 
-{% tab Research %}
-Content for the "Research" tab goes here.
-{% endtab %}
-
-{% tab Contact %}
-Content for the "Contact" tab goes here.
-{% endtab %}
-{% endtabs %}
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <!-- Content for tab 1 goes here -->
+    </div>
+    <div class="tab-pane" id="tab2">
+      <!-- Content for tab 2 goes here -->
+    </div>
+    <div class="tab-pane" id="tab3">
+      <!-- Content for tab 3 goes here -->
+    </div>
+  </div>
+</div>
