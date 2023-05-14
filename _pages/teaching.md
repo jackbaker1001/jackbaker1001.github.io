@@ -40,11 +40,13 @@ My teaching philosophy centers around the belief that learning in the physical s
   <p>
     <a href="#UCL">At University College London</a> |
     <a href="#workshops">Workshops and Tutorials</a> |
-    <a href="#summerschool">Summer School Lectures</a> |
     <a href="#advocacy">Education Advocacy</a> |
-    <a href="#research">Education Research</a>
+    <a href="#research">Education Research</a> |
+    <a href="#summerschool">Summer School Lectures</a> 
   </p>
 </div>
+
+<hr>
 
   <h2 id="UCL">At University College London</h2>
   <p>
@@ -70,7 +72,7 @@ My teaching philosophy centers around the belief that learning in the physical s
 </ul>
   
 </p>
-
+<hr>
   <h2 id="workshops">Workshops and Tutorials</h2>
 
 <div style="width: 850px; height: 270px; overflow: hidden; border-radius: 30px;">
@@ -90,12 +92,15 @@ My teaching philosophy centers around the belief that learning in the physical s
   </ul>
 
   </p>
-
+<hr>
   <h2 id="advocacy">Education Advocacy</h2>
   <p>This is the content of section 3.</p>
-
+<hr>
   <h2 id="research">Education Research</h2>
   <p>This is the content of section 4.</p>
+<hr>
+  <h2 id="summerschool">Summer School Lectures</h2>
+  <p>This is the content of section 5.</p>
 
 
 
