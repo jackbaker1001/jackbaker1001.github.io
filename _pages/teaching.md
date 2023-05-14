@@ -72,12 +72,24 @@ My teaching philosophy centers around the belief that learning in the physical s
 </p>
 
   <h2 id="workshops">Workshops and Tutorials</h2>
-  <p>This is the content of section 2.</p>
 
 <div style="width: 850px; height: 270px; overflow: hidden; border-radius: 30px;">
   <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_ieee.png" alt="Banner Image" style="width: 100%; height: 100%; object-fit: cover;">
 </div>
 
+  <p>I travel within Canada and overseas to deliver workshops and tutorials on quantum algorithms, machine learning and heterogeneous workflow orchestration. Recent events are listed below with a link to content if available. 
+  <ul>
+
+  <li><b>Orchestrating and Managing Quantum Machine Learning Workflows with Covalent</b>: IEEE Quantum week, Broomfield, Colorado (2022). Learn how to use <a href="https://www.covalent.xyz">Covalent</a> to manage a run experiments to study the differences between classical and quantum methods for similarity learning of images.[<a href="https://github.com/AgnostiqHQ/tutorials_covalent_ieee_2022">Github</a>]</li><br><br>
+
+  <li><b>Interdisciplinary Quantum HACKathon (IQuHack)</b>: Massachusetts Institute of Technology (2023). We aim to bring students (high school through early-career professionals) from a diverse set of backgrounds to explore improvements and applications of near-term quantum devices. I contributed as a virtual competition judge. [<a href="https://www.iquise.mit.edu/">Web</a>] [<a href="https://github.com/iquhack">Github</a>]</li><br><br>
+
+  <li><b>Practical Quantum Machine Learning: Time Series Analysis with Pennylane and Covalent</b>:
+  IEEE Quantum week, Bellevue, Washington (2023). Learn how to analyze time-series data using hybrid quantum-classical machine learning techniques utilizing <a href="https://www.pennylane.ai">Pennylane</a> and <a href="https://www.covalent.xyz">Covalent</a>. <i>Github link coming soon</i></li>
+
+  </ul>
+
+  </p>
 
   <h2 id="advocacy">Education Advocacy</h2>
   <p>This is the content of section 3.</p>
