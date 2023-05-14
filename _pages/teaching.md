@@ -74,6 +74,11 @@ My teaching philosophy centers around the belief that learning in the physical s
   <h2 id="workshops">Workshops and Tutorials</h2>
   <p>This is the content of section 2.</p>
 
+<div style="width: 850px; height: 270px; overflow: hidden; border-radius: 30px;">
+  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_ieee.png" alt="Banner Image" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+
+
   <h2 id="advocacy">Education Advocacy</h2>
   <p>This is the content of section 3.</p>
 
