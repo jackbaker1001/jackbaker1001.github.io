@@ -28,15 +28,9 @@ My teaching philosophy centers around the belief that learning in the physical s
 <b>Use the below links to jump to teaching highlights:</b>
 
 <p>
-<style>
-  .code-box {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-  }
-</style>
 
-<div class="code-box">
+
+<div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
   <p>
     <a href="#UCL">At University College London</a> |
     <a href="#workshops">Workshops and Tutorials</a> |
