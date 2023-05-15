@@ -108,7 +108,53 @@ My teaching philosophy centers around the belief that learning in the physical s
 
 <hr>
   <h2 id="summerschool">Summer School Lectures</h2>
-  <p>This is the content of section 5.</p>
+  <br><br>
+<style>
+  .image-container {
+    float: left;
+    margin-right: 30px; /* Adjust the margin as needed */
+    border-radius: 10px; /* Adjust the border radius for rounded edges */
+    overflow: hidden;
+  }
+  .image-container img {
+    display: block;
+    width: 250px; /* Adjust the width of the image as needed */
+    height: auto;
+    border-radius: 10px; /* Match the border radius of the container */
+  }
+  .caption {
+    clear: left;
+    text-align: center;
+    max-width: 100%;
+    word-break: break-word;
+  }
+</style>
+
+<div class="image-container">
+  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_with_helen.png" alt="Jack with Helen Sharman" alt="Image">
+  <div style="width: 250px; word-wrap: break-word;">
+  <i>Jack giving out awards with astronaut <a href="https://en.wikipedia.org/wiki/Helen_Sharman">Helen Sharman</a> at the 2017 ORBYTS Summer School hosted at University College London.</i>
+  </div>
+</div> 
+
+I have delievered undergraduate level lectures at summer schools in the UK. The scope of these lectures was to provide a spring-board into the first year of undergraduate physics, chemistry and computer science. <br><br>
+
+
+<ul>
+<li><b>Debtate Chamber: Introduction to Computer Science</b>:
+I designed and delivered a week-long lecture series on introductory topics in computer science for <a href="https://debatechamber.com/summerschools/">Debate Chamber Summer Schools</a>. This course covered introductory logic, the history of computer science, complexity analysis, programming in Java and smartphone app design. </li><br><br>
+
+<li><b>Original Research by Young Twinkle Students (ORBYTS): diatomic constants</b>:</li> After my first year of being an ORBYTS tutor (detailed in the previous section), I supervised and lectured students on molecular physics in the first ORBYTS summer school. This school focussed on building research skills to create a database of molecular diatomic constants. This course covered techniques for organizing and digesting scientific literature, presentation skills and vibrational properties of molecules. 
+</ul>
+
+<br><br>
+
+
+
+
+
+
+
 
 
 
