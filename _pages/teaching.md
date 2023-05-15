@@ -77,7 +77,11 @@ My teaching philosophy centers around the belief that learning in the physical s
 <div style="max-width: 100%; height: auto; overflow: hidden; border-radius: 10px;">
   <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_ieee.png" alt="Banner Image" style="width: 100%; height: 100%; object-fit: cover;">
 </div>
+<div style="text-align: center;">
+  <figcaption style="display: block;"><i>IEEE Quantum week 2022, Broomfield Colarado.</i></figcaption>
+</div>
 <br><br>
+
   <p>I travel within Canada and overseas to deliver workshops and tutorials on quantum algorithms, machine learning and heterogeneous workflow orchestration. Recent events are listed below with a link to content if available. 
   <ul>
 
@@ -103,6 +107,9 @@ My teaching philosophy centers around the belief that learning in the physical s
 
 <div style="max-width: 100%; height: auto; overflow: hidden; border-radius: 10px;">
   <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_univ_punjab.png" alt="Banner Image" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+<div style="text-align: center;">
+  <figcaption style="display: block;"><i>Pak-UK education gateway 2019, University of the Punjab.</i></figcaption>
 </div>
 
 <hr>
