@@ -40,8 +40,7 @@ My teaching philosophy centers around the belief that learning in the physical s
   <p>
     <a href="#UCL">At University College London</a> |
     <a href="#workshops">Workshops and Tutorials</a> |
-    <a href="#advocacy">Education Advocacy</a> |
-    <a href="#research">Education Research</a> |
+    <a href="#advocacy">Education Advocacy and Research</a> |
     <a href="#summerschool">Summer School Lectures</a> 
   </p>
 </div>
@@ -93,11 +92,19 @@ My teaching philosophy centers around the belief that learning in the physical s
 
   </p>
 <hr>
-  <h2 id="advocacy">Education Advocacy</h2>
-  <p>This is the content of section 3.</p>
-<hr>
-  <h2 id="research">Education Research</h2>
-  <p>This is the content of section 4.</p>
+  <h2 id="advocacy">Education Advocacy and Research</h2>
+  <p>Educators should strive to achieve a world where access to education is maximized and equalized for all and should be looking for new and innovative ways to deliver education. In recent years, I have made my contributions to this goal by volunteering in education programs and conducting fundamental science education research. Ongoing projects are summarized below: </p>
+
+<ul>
+<li><b>Original Research by Young Twinkle Students (ORBYTS)</b>: ORBYTS is a <a href="https://www.orbyts.org/">multi-award winning science outreach and education program</a>. The goal of the ORBYTS project is two-fold: (1) To widen access to physics & chemistry education particulary focussing on promoting participation from women and other under represented groups in STEM. (2) To have students participate in peer-reviewed science and answer education research questions related to different age groups abilities to do so. I participated in this program for two years as a tutor but remain an advocate. Check out the education research articles I was involved with: [<a href="https://iopscience.iop.org/article/10.1088/1361-6552/aa8f2a/meta"> Phys. Educ. 2018</a>] [<a href="https://doi.org/10.1093/astrogeo/atx169"> A&G Mag. 2017</a>] </li><br><br>
+
+<li><b>Pak-UK Education Gateway</b>: The <a href="https://www.britishcouncil.pk/programmes/education/higher-education/pak-uk-education-gateway">Pak-UK Education Gateway</a> aims to enhance partnership between the higher education sectors of Pakistan and the UK. Key areas of collaboration under this umbrella framework are: innovative and collaborative research, higher education leadership, quality assurance and standard setting, distance learning, international mobility and transnational education. I have travelled to Pakistan as an advocate for this program and continue to support its success. The trip was documented by <a href="https://iconn2019.lums.edu.pk/">Lahore University of Management Sciences</a> and <a href="http://pu.edu.pk/home/section/allpress/10034">University of the Punjab</a>. </li>
+</ul><br><br>
+
+<div style="max-width: 100%; height: auto; overflow: hidden; border-radius: 10px;">
+  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_univ_punjab.png" alt="Banner Image" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+
 <hr>
   <h2 id="summerschool">Summer School Lectures</h2>
   <p>This is the content of section 5.</p>
