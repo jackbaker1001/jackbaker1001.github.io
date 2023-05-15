@@ -137,7 +137,7 @@ My teaching philosophy centers around the belief that learning in the physical s
   </div>
 </div> 
 
-I have delievered undergraduate level lectures at summer schools in the UK. The scope of these lectures was to provide a spring-board into the first year of undergraduate physics, chemistry and computer science. <br><br>
+<p>I have delievered undergraduate level lectures at summer schools in the UK. The scope of these lectures was to provide a spring-board into the first year of undergraduate physics, chemistry and computer science.</p> <br><br>
 
 
 <ul>
