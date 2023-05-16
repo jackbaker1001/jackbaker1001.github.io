@@ -15,7 +15,7 @@ Broadly speaking, if quantum theory can be advantageously used or applied to a d
     <a href="#textures">Polar textures on supercomputers</a> |
     <a href="#phasetransitions">Phase transitions in antiferroelectrics</a> |
   </p>
-</div><br><br>
+</div><br>
 <hr>
 
 <h2 id="quantum">Quantum Algorithms</h2><br><br>
@@ -26,7 +26,7 @@ Broadly speaking, if quantum theory can be advantageously used or applied to a d
 <div style="text-align: center;">
   <figcaption style="display: block;"><i>APS March Meeting 2023, Las Vegas, Nevada.</i></figcaption>
 </div>
-<br><br>
+<br>
 Now that noisy intermediate scale quantum (NISQ) computers have been built, I am working towards making them more than mere physics experiments. While <i>quantum supremacy</i> has now been demonstrated using NISQ hardware for various sampling experiments, the practical use of this supremacy is limited. Therefore, the challenge is to use the limited number of noisy qubits we have at hand to do something really useful.<br><br> 
 
 One promizing area is quantum machine learning (QML). I have developed various QML algorithms suited for NISQ hardware for time-series analysis, outlier detection, and others utilizing novel hybrid-quantum classical neural network architectures and multiple kernel learning. As I have already stressed, practical quantum advantage is the end goal, but there are many obstacles along the way. There are, for example, many unsolved problems in fundamental QML research for which I am also interested in finding solutions to. <br><br>
