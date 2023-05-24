@@ -210,4 +210,4 @@ googlescholar:
   name: Google Scholar
   icon: icon-googlescholar
   prepend: "https://scholar.google.co.uk/citations?hl=en&user="
-  append: "&view_op=list_works&sortby=pubdate"
+  append: "&hl=en"
