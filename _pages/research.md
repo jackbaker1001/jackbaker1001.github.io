@@ -41,13 +41,13 @@ Now that noisy intermediate scale quantum (NISQ) computers have been built, I am
 </figure> -->
 One promizing area is quantum machine learning (QML). I have developed various QML algorithms suited for NISQ hardware for time-series analysis, outlier detection, and others utilizing novel hybrid-quantum classical neural network architectures and multiple kernel learning. As I have already stressed, practical quantum advantage is the end goal, but there are many obstacles along the way. There are, for example, many unsolved problems in fundamental QML research for which I am also interested in finding solutions to. <br><br>
 
-<figure style="float: right; margin: 0 0 1em 1em; width: 350px;">
+<figure style="float: left; margin: 1em 1em 0 0; width: 350px;">
   <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/qaoa_mvpo.png" alt="Image Description" style="width: 100%;">
   <figcaption style="text-align: center;">A schematic demonstrating the quantum approximate optimization algorithm applied to portfolio optimization.</figcaption>
 </figure>
 Another area which intrigues me is the potential for algorithms suitable for NISQ hardware to approximately solve NP-hard combinatorial optimization problems. Such problems appear everywhere from finance to route optimization so these algorithms are researched heavily. There are very well-known algorithms for this task (notably the quantum approximate optimization algorithm and quantum annealing) but they face problems at scale. I am therefore interested in (i) enhancing existing approaches using classical deep learning techniques and others (ii) working towards new optimization algorithms in general. My recent research in this area revolves around benchmarking quantum optimization on NISQ hardware for finance applications like portfolio optimization and diversification and exploring new ways for assesing the quality of solutions yielded from these methods.<br><br> 
 
-<figure style="float: left; margin: 1em 1em 0 0; width: 350px;">
+<figure style="float: right; margin: 0 0  1em 1em; width: 350px;">
   <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/qmp_washington.png" alt="Image Description" style="width: 100%;">
   <figcaption style="text-align: center;">Many parallelized quantum circuits spread throughout the 127 qubit superconducting transmon quantum computer: ibm_washington.</figcaption>
 </figure>
@@ -68,15 +68,15 @@ Where do I fit in to all of this? Well, from an atomistic perspective, simulatio
   <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/scaling_behaviour.png" alt="Image Description" style="width: 100%;">
   <figcaption style="text-align: center;">Scaling behaviour of the CONQUEST code for different numbers of atoms and cores using PbTiO<sub>3</sub> as a model system. (a) strong scaling behaviour vs ideal. (b) Linear scaling with system size. (c) Weak scaling behaviour with up to 200,000 physical cores.</figcaption>
 </figure>
-Using these large-scale techniques, I have unveiled the mechanism causing the formation polar-wave textures in thin ferroelectric films and determined critical thicknesses for the formation of polar flux-closure domains. I have also contributed towards answering some long standing questions regarding the orientation of ferroelectric domains in thin films in the presence of surface trenches. Using large-scale DFT, we discovered that the alignment is due to a favorable arrangement of electrical dipole moments which minimize trench-induced depolarizing fields. This mechanism has broad applicability and can be used to engineer other polar textures in various ferroelectric nanostructures. In the future, I am looking towards conducting the first quantum-mechanical simulations of polar skyrmions using large scale DFT and/or other first principles-derived methods. This will require <i>exascale</i> supercomputing.
+Using these large-scale techniques, I have unveiled the mechanism causing the formation polar-wave textures in thin ferroelectric films and determined critical thicknesses for the formation of polar flux-closure domains. I have also contributed towards answering some long standing questions regarding the orientation of ferroelectric domains in thin films in the presence of surface trenches. Using large-scale DFT, we discovered that the alignment is due to a favorable arrangement of electrical dipole moments which minimize trench-induced depolarizing fields. This mechanism has broad applicability and can be used to engineer other polar textures in various ferroelectric nanostructures. In the future, I am looking towards conducting the first quantum-mechanical simulations of polar skyrmions using large scale DFT and/or other first principles-derived methods. This will require <i>exascale</i> supercomputing. <br><br><br>
 
 <hr>
 
-<h2 id="phasetransition">Phase transitions in antiferroelectrics</h2>
+<h2 id="phasetransitions">Phase transitions in antiferroelectrics</h2>
 
 Perhaps the most remarkable thing about antiferroelectric (AFE) materials is how little we know about them. Despite antiferroelectricity being discovered over 70 years ago in the perovskite PbZrO<sub>3</sub>, we neither fully understand the mechanism for the paraelectric to antiferroelectric phase transition nor have we even come to a consensus on a formal definition for antiferroelectricity. There are therefore many areas to expore in the antiferroelectrics and I shall remark on a few related to my own research interests.<br><br>
 
-<figure style="float: right; margin: 0 0 1em 1em; width: 350px;">
+<figure style="float: left; margin: 1em 1em 0 0; width: 350px;">
   <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/SoftDispersion.png" alt="Image Description" style="width: 100%;">
   <figcaption style="text-align: center;">Unstable phonon modes in PbZrO<sub>3</sub> and PbHfO<sub>3</sub> (a) In the high temperature cubic paraelectric structures. (b) In the low temperature antiferroelectric structures. This sturcture is presently regarded as the ground state but clearly there is an instability near the Z-point in both materials.</figcaption>
 </figure>
