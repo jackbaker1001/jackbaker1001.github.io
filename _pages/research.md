@@ -2,9 +2,9 @@
 title: Research
 permalink: /research/
 ---
-<figure style="float: right; margin: 0 0 1em 1em; width: 300px;">
+<figure style="float: right; margin: 0 0 1em 1em; width: 350px;">
   <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/vortex_pzo.png" alt="Image Description" style="width: 100%;">
-  <figcaption style="text-align: center;">A dipolar vortex in perovskite material PbZrO<sub>3</sub> and PbHfO<sub>3</sub>.</figcaption>
+  <figcaption style="text-align: center;">Dipolar vortices in antiferroelectric perovskite materials PbZrO<sub>3</sub> and PbHfO<sub>3</sub>.</figcaption>
 </figure>
 
 Broadly speaking, if quantum theory can be advantageously used in/applied to a domain, I will pursue it. This can be considered the unifying theme of my research interests, bringing together the trifecta of large-scale first principles simulations of solids, quantum machine learning and quantum optimization under the same banner. The first of these topics was covered in my Ph.D. research. I used massively parallel density functional functional theory codes on large supercomputers to simulate ferroelectric and antiferroelectric systems at unprecedented scale. These simulations provided accurate charecterizations of topological polar textures and revealed new phase transition behaviour in antiferroelectrics. I am still involved in this area, but now spend most of my time ideating and implementing new algorithms for noisy intermediate scale quantum computers. In particular, I am interested in using quantum machine learning and optimization in materials science and finance. Lastly, from the perspective of pure computational science, I am working towards the realization of the much anticipated joining of classical high performance computing and quantum computing.
