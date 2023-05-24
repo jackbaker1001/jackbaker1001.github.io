@@ -35,10 +35,10 @@ Broadly speaking, if quantum theory can be advantageously used in/applied to a d
 Now that noisy intermediate scale quantum (NISQ) computers have been built, I am working towards making them more than mere physics experiments. While <i>quantum supremacy</i> has now been demonstrated using NISQ hardware for various sampling experiments, the practical use of this supremacy is limited. Therefore, the challenge is to use the limited number of noisy qubits we have at hand to do something really useful.<br><br> 
 
 
-<figure style="float: left; margin: 1em 1em 0 0; width: 350px;">
+<!-- <figure style="float: left; margin: 1em 1em 0 0; width: 350px;">
   <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/qvr_loop.png" alt="Image Description" style="width: 100%;">
   <figcaption style="text-align: center;">The training cycle for the quantum variational rewinding algorithm; a quantum time series anomaly detection algorithm.</figcaption>
-</figure>
+</figure> -->
 One promizing area is quantum machine learning (QML). I have developed various QML algorithms suited for NISQ hardware for time-series analysis, outlier detection, and others utilizing novel hybrid-quantum classical neural network architectures and multiple kernel learning. As I have already stressed, practical quantum advantage is the end goal, but there are many obstacles along the way. There are, for example, many unsolved problems in fundamental QML research for which I am also interested in finding solutions to. <br><br>
 
 <figure style="float: right; margin: 0 0 1em 1em; width: 350px;">
@@ -56,30 +56,29 @@ A final important topic I will mention is levaraging algorithm-agnostic tricks f
 <hr>
 
 <h2 id="textures">Polar morphologies from first principles</h2>
-
-Broadly, a polar morphology is a distinct pattern of electrical dipole moments arranged in a solid or nanostructure. These (admittedly visually mesmerizing) objects can give rise to novel materials properties including (but not limited to) negative capacitance and giant electromechanical responses. Some of these properties are the direct result of of their unique topologies. Indeed, topological phases like polar skyrmions, polar waves and chiral bubble domains have all been found in the now widely studied PbTiO<sub>3</sub>/SrTiO<sub>3</sub> heterostructure. <br><br>
-
-<figure style="float: right; margin: 0 0 1em 1em; width: 400px;">
-  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/scaling_behaviour.png" alt="Image Description" style="width: 100%;">
-  <figcaption style="text-align: center;">Scaling behaviour of the CONQUEST code for different numbers of atoms and cores using PbTiO<sub>3</sub> as a model system. (a) strong scaling behaviour vs ideal. (b) Linear scaling with system size. (c) Weak scaling behaviour with up to 200,000 physical cores.</figcaption>
-</figure>
-Where do I fit in to all of this? Well, from an atomistic perspective, simulations able to capture these polar morphologies need thousands if not millions of atoms. This puts standard implementations of first principles density functional theory (DFT) well out of reach and leaves most practitioners dealing with second principles methods and phase-field modelling. However, using large-scale first principles DFT methods, we <i>can</i> simulate these systems provided we have huge computational resources (thousands to millions of physical cores) to lean on. This is what I am involved with; massively parallel simulations of polar textures using large supercomputers.<br><br>
-
 <figure style="float: left; margin: 1em 1em 0 0; width: 350px;">
   <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/flux_closure_pto_sto.png" alt="Image Description" style="width: 100%;">
   <figcaption style="text-align: center;">Polar vortex-antivortex pairs in PbTiO<sub>3</sub> films on SrTiO<sub>3</sub> substrates. These vector fields were calculated using aotmic sturctures from first principles DFT.</figcaption>
 </figure>
+Broadly, a polar morphology is a distinct pattern of electrical dipole moments arranged in a solid or nanostructure. These (admittedly visually mesmerizing) objects can give rise to novel materials properties including (but not limited to) negative capacitance and giant electromechanical responses. Some of these properties are the direct result of of their unique topologies. Indeed, topological phases like polar skyrmions, polar waves and chiral bubble domains have all been found in the now widely studied PbTiO<sub>3</sub>/SrTiO<sub>3</sub> heterostructure. <br><br>
+
+Where do I fit in to all of this? Well, from an atomistic perspective, simulations able to capture these polar morphologies need thousands if not millions of atoms. This puts standard implementations of first principles density functional theory (DFT) well out of reach and leaves most practitioners dealing with second principles methods and phase-field modelling. However, using large-scale first principles DFT methods, we <i>can</i> simulate these systems provided we have huge computational resources (thousands to millions of physical cores) to lean on. This is what I am involved with; massively parallel simulations of polar textures using large supercomputers.<br><br>
+
 Using these large-scale techniques, I have unveiled the mechanism causing the formation polar-wave textures in thin ferroelectric films and determined critical thicknesses for the formation of polar flux-closure domains. I have also contributed towards answering some long standing questions regarding the orientation of ferroelectric domains in thin films in the presence of surface trenches. Using large-scale DFT, we discovered that the alignment is due to a favorable arrangement of electrical dipole moments which minimize trench-induced depolarizing fields. This mechanism has broad applicability and can be used to engineer other polar textures in various ferroelectric nanostructures. In the future, I am looking towards conducting the first quantum-mechanical simulations of polar skyrmions using large scale DFT and/or other first principles-derived methods. This will require <i>exascale</i> supercomputing.
+<figure style="float: right; margin: 0 0 1em 1em; width: 400px;">
+  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/scaling_behaviour.png" alt="Image Description" style="width: 100%;">
+  <figcaption style="text-align: center;">Scaling behaviour of the CONQUEST code for different numbers of atoms and cores using PbTiO<sub>3</sub> as a model system. (a) strong scaling behaviour vs ideal. (b) Linear scaling with system size. (c) Weak scaling behaviour with up to 200,000 physical cores.</figcaption>
+</figure>
 
 
 <hr>
 
 <h2 id="phasetransition">Phase transitions in antiferroelectrics</h2>
 
-Perhaps the most remarkable thing about antiferroelectric (AFE) materials is how little we know about them. Despite antiferroelectricity being discovered over 70 years ago in the perovskite PbZrO<sub>3</sub>, we neither fully understand the mechanism for the paraelectric to antiferroelectric phase transition nor have we even come to a consensus on a formal definition for antiferroelectricity. There are therefore many areas to expore in the antiferroelectrics and I shall remark on a few related to my own research interests.
+Perhaps the most remarkable thing about antiferroelectric (AFE) materials is how little we know about them. Despite antiferroelectricity being discovered over 70 years ago in the perovskite PbZrO<sub>3</sub>, we neither fully understand the mechanism for the paraelectric to antiferroelectric phase transition nor have we even come to a consensus on a formal definition for antiferroelectricity. There are therefore many areas to expore in the antiferroelectrics and I shall remark on a few related to my own research interests.<br><br>
 
 
-Most of my ventures into this area revolve around the study of phonon modes. In atomistic simulations, should phonon modes be found with imaginary frequencies, this indicates a <i>dynamical instability</i> in the crystal structure. Simply put, the the nuclear displacement patterns associated with the unstable modes define a potential symmetry lowering phase transiton pathway. After having noticed particularly long wavelength patterns with such a property in PbZrO<sub>3</sub> (and the well-known piezoelectric PZT), we found structures of PbZrO<sub>3</sub> and PbHfO<sub>3</sub> more stable than their at-the-time accepted ground state phase. 
+Most of my ventures into this area revolve around the study of phonon modes. In atomistic simulations, should phonon modes be found with imaginary frequencies, this indicates a <i>dynamical instability</i> in the crystal structure. Simply put, the the nuclear displacement patterns associated with the unstable modes define a potential symmetry lowering phase transiton pathway. After having noticed particularly long wavelength patterns with such a property in PbZrO<sub>3</sub> (and the well-known piezoelectric PZT), we found structures of PbZrO<sub>3</sub> and PbHfO<sub>3</sub> more stable than their at-the-time accepted ground state phase. <br><br>
 
 <figure style="float: right; margin: 0 0 1em 1em; width: 350px;">
   <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/SoftDispersion.png" alt="Image Description" style="width: 100%;">
