@@ -9,4 +9,6 @@ no_excerpt: false
 hide_image: false
 cover: true
 ---
-<h1>Some text </h1>
+## Hello text
+
+lorem ipsum
