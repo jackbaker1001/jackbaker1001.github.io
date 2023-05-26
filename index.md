@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: blog
 title: Jack S. Baker
 description: >
@@ -8,7 +8,7 @@ no_link_title: false
 no_excerpt: false 
 hide_image: false
 cover: true
----
+--- -->
 ## Hello text
 
 lorem ipsum
