@@ -20,7 +20,7 @@ permalink: /teaching/
 </style>
 
 <div class="oval-image">
-  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_lahore.png" alt="Jack at IEEE">
+  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_lahore.png" alt="Jack S. Baker in Pakistan at LUMS university, ICONN conference 2019">
 </div>
 
 My teaching philosophy centers around the belief that learning in the physical sciences is most effective when students actively engage in hands-on projects, particularly within the realm of programming. I firmly believe that undertaking these projects not only develops technical skills but also fosters a deeper understanding of concepts and nurtures cognitive connections within physics and mathematics. By immersing students in project-based learning experiences, I aim to create an environment where they can explore and apply theoretical knowledge in practical ways. Students develop problem-solving skills, critical thinking abilities, and gain a sense of accomplishment as they witness the direct application of physics principles. Moreover, such projects encourage collaboration, creativity, and curiosity, empowering students to actively construct their own knowledge and develop a lifelong passion for both computer science and physics.
@@ -114,7 +114,7 @@ My teaching philosophy centers around the belief that learning in the physical s
   <h2 id="workshops">Workshops and Tutorials</h2>
 
 <div style="max-width: 100%; height: auto; overflow: hidden; border-radius: 10px;">
-  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_ieee.png" alt="Banner Image" style="width: 100%; height: 100%; object-fit: cover;">
+  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_ieee.png" alt="Jack S. Baker at IEEE quantum week 2022 in Broomfield Colarado giving a talk on workflow orchestration in quantum machine learning and classical machine learning" style="width: 100%; height: 100%; object-fit: cover;">
 </div>
 <div style="text-align: center;">
   <figcaption style="display: block;"><i>IEEE Quantum week 2022, Broomfield Colarado.</i></figcaption>
@@ -145,7 +145,7 @@ My teaching philosophy centers around the belief that learning in the physical s
 </ul><br><br>
 
 <div style="max-width: 100%; height: auto; overflow: hidden; border-radius: 10px;">
-  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_univ_punjab.png" alt="Banner Image" style="width: 100%; height: 100%; object-fit: cover;">
+  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_univ_punjab.png" alt="Jack S. Baker in Pakistan at the university of the punjab as part of the Pak-UK education gateway" style="width: 100%; height: 100%; object-fit: cover;">
 </div>
 <div style="text-align: center;">
   <figcaption style="display: block;"><i>Pak-UK education gateway 2019, University of the Punjab.</i></figcaption>
@@ -176,7 +176,7 @@ My teaching philosophy centers around the belief that learning in the physical s
 </style>
 
 <div class="image-container">
-  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_with_helen.png" alt="Jack with Helen Sharman" alt="Image">
+  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_with_helen.png" alt="Jack S. Baker with astronaut Helen Sharman at the ORBYTS summer school at university college london">
   <div style="width: 250px; word-wrap: break-word;">
   <i>Jack giving out awards with astronaut <a href="https://en.wikipedia.org/wiki/Helen_Sharman">Helen Sharman</a> at the 2017 ORBYTS Summer School hosted at University College London.</i>
   </div>
