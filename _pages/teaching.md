@@ -46,16 +46,69 @@ My teaching philosophy centers around the belief that learning in the physical s
   
   I have several years of experience teaching undergraduate and graduate level physics courses at <a href="https://www.ucl.ac.uk/">University College London</a>. While my role in each course varied, in general, I gave lectures, led problem solving seminars, guided students through practical workshops and marked coursework material. The relevant course codes are provided below with a short description and are linked to the full course content: <br>
 
-| **Course**                        | **Course code**           | **Level of study**                | **Description**                                                                                                                                                                                                                                                         | **Link**                                                                                                                          |
-|-----------------------------------|---------------------------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| Practical Physics and Computing 1 | PHAS0007                  | 1<sup>st</sup> year undergraduate | A two-term course with programming elements and a practical laboratory component with a focus on data analysis skills. I taught this course for two consecutive years.                                                                                                  | [<a href="https://www.ucl.ac.uk/module-catalogue/modules/practical-physics-and-computing-1-PHAS0007">Full course description</a>] |
-| Practical Physics and Computing 2 | PHAS0029                  | 2<sup>nd</sup> year undergraduate | A sequel to PHAS0007 above, but covering more advanced topics in the second year undergraduate course. There is also a considerable coursework component on digital thermometer electronics. I taught the computing component of this course for two consecutive years. | [<a href="https://www.ucl.ac.uk/module-catalogue/modules/practical-physics-and-computing-2-PHAS0029">Full course description</a>] |
-| Computational Physics             | PHAS0030                  | 3<sup>rd</sup> year undergraduate | An advanced third year course in computational physics aimed at providing students with a deep understanding of the strengths and weaknesses of numerical simulations and an introduction to research software engineering.                                             | [<a href="https://moodle.ucl.ac.uk/course/info.php?id=6767">Full course description</a>]                                          |
-| Practical Skills 1P               | PHAS0008                  | 1<sup>st</sup> year undergraduate | A one term course taught after PHAS0007. This course focuses on practical laboratory skills especially experiment planning and execution. I also taught this course for two consecutive years.                                                                          | [<a href="https://www.ucl.ac.uk/module-catalogue/modules/practical-skills-1p-PHAS0008">Full course description</a>]               |
-| Practical Physics 2A              | PHAS0028                  | 2<sup>nd</sup> year undergraduate | A sequel to PHAS0008 above where experiments are now related to more advanced topics covered in the second year of undergraduate studies.                                                                                                                               | [<a href="https://www.ucl.ac.uk/module-catalogue/modules/practical-physics-2a-PHAS0028">Full course description</a>]              |
-| Solid State Physics               | PHAS0041                  | 3<sup>rd</sup> year undergraduate | A third year option module covering electronic and magnetic properties of materials, crystallography and the behaviour of superconducutors.                                                                                                                             | [<a href="https://www.ucl.ac.uk/module-catalogue/modules/solid-state-physics-PHAS0041">Full course description</a>]               |
-| Advanced Quantum Field Theory     | MSci 4245/QMUL PHY7007U/P | Postgraduate (Master's level)     | A Master’s level course in quantum field theory. This course also allowed participants from Queen Mary University London.                                                                                                                                               | [<a href="https://ph.qmul.ac.uk/sites/default/files/AQFT-courseinfo.pdf">Full course description</a>]                             |
-  
+<table>
+<thead>
+  <tr>
+    <th><strong>Course</strong></th>
+    <th><strong>Course code</strong></th>
+    <th><strong>Level of study</strong></th>
+    <th><strong>Description</strong></th>
+    <th><strong>Link</strong></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Practical Physics and Computing 1</td>
+    <td>PHAS0007</td>
+    <td>1<sup>st</sup> year undergraduate</td>
+    <td>A two-term course with programming elements and a practical laboratory component with a focus on data analysis skills. I taught this course for two consecutive years.</td>
+    <td><a href="https://www.ucl.ac.uk/module-catalogue/modules/practical-physics-and-computing-1-PHAS0007">Full course description</a></td>
+  </tr>
+  <tr>
+    <td>Practical Physics and Computing 2</td>
+    <td>PHAS0029</td>
+    <td>2<sup>nd</sup> year undergraduate</td>
+    <td>A sequel to PHAS0007 above, but covering more advanced topics in the second year undergraduate course. There is also a considerable coursework component on digital thermometer electronics. I taught the computing component of this course for two consecutive years.</td>
+    <td><a href="https://www.ucl.ac.uk/module-catalogue/modules/practical-physics-and-computing-2-PHAS0029">Full course description</a></td>
+  </tr>
+  <tr>
+    <td>Computational Physics</td>
+    <td>PHAS0030</td>
+    <td>3<sup>rd</sup> year undergraduate</td>
+    <td>An advanced third year course in computational physics aimed at providing students with a deep understanding of the strengths and weaknesses of numerical simulations and an introduction to research software engineering.</td>
+    <td><a href="https://moodle.ucl.ac.uk/course/info.php?id=6767">Full course description</a></td>
+  </tr>
+  <tr>
+    <td>Practical Skills 1P</td>
+    <td>PHAS0008</td>
+    <td>1<sup>st</sup> year undergraduate</td>
+    <td>A one term course taught after PHAS0007. This course focuses on practical laboratory skills especially experiment planning and execution. I also taught this course for two consecutive years.</td>
+    <td><a href="https://www.ucl.ac.uk/module-catalogue/modules/practical-skills-1p-PHAS0008">Full course description</a></td>
+  </tr>
+  <tr>
+    <td>Practical Physics 2A</td>
+    <td>PHAS0028</td>
+    <td>2<sup>nd</sup> year undergraduate</td>
+    <td>A sequel to PHAS0008 above where experiments are now related to more advanced topics covered in the second year of undergraduate studies.</td>
+    <td><a href="https://www.ucl.ac.uk/module-catalogue/modules/practical-physics-2a-PHAS0028">Full course description</a></td>
+  </tr>
+  <tr>
+    <td>Solid State Physics</td>
+    <td>PHAS0041</td>
+    <td>3<sup>rd</sup> year undergraduate</td>
+    <td>A third year option module covering electronic and magnetic properties of materials, crystallography and the behaviour of superconductors.</td>
+    <td><a href="https://www.ucl.ac.uk/module-catalogue/modules/solid-state-physics-PHAS0041">Full course description</a></td>
+  </tr>
+  <tr>
+    <td>Advanced Quantum Field Theory</td>
+    <td>MSci 4245/QMUL PHY7007U/P</td>
+    <td>Postgraduate (Master's level)</td>
+    <td>A Master’s level course in quantum field theory. This course also allowed participants from Queen Mary University London.</td>
+    <td><a href="https://ph.qmul.ac.uk/sites/default/files/AQFT-courseinfo.pdf">Full course description</a></td>
+  </tr>
+</tbody>
+</table>
+
 </p>
 <hr>
   <h2 id="workshops">Workshops and Tutorials</h2>
