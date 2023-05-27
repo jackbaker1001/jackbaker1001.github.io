@@ -44,7 +44,7 @@ My teaching philosophy centers around the belief that learning in the physical s
   <h2 id="UCL">At University College London</h2>
   <p>
   
-  I have several years of experience teaching undergraduate and graduate level physics courses at <a href="https://www.ucl.ac.uk/">University College London</a>. While my role in each course varied, in general, I gave lectures, led problem solving seminars, guided students through practical workshops and marked coursework material. The relevant course codes are provided below with a short description and are linked to the full course content: <br>
+  I have several years of experience teaching undergraduate and graduate level physics courses at <a href="https://www.ucl.ac.uk/">University College London</a>. While my role in each course varied, in general, I gave lectures, led problem solving seminars, guided students through practical workshops and marked coursework material. The relevant course codes are provided below with a short description and are linked to the full course content: <br><br>
 
 <table>
 <thead>

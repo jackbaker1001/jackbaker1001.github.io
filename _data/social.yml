@@ -211,3 +211,7 @@ googlescholar:
   icon: icon-googlescholar
   prepend: "https://scholar.google.co.uk/citations?hl=en&user="
   append: "&hl=en"
+researchgate:
+  name: ResearchGate
+  icon: icon-researchgate
+  prepend: https://www.researchgate.net/profile/
