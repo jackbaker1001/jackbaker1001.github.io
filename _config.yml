@@ -53,14 +53,14 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title:             Blog & Tutorials
-    url:               /blog/
   - title:             Research
     url:               /research/
   - title:             Teaching
     url:               /teaching/
   - title:             Publications
     url:               /publications/
+  - title:             Blog & Tutorials
+    url:               /blog/
 
 
 # Add links to the footer.
