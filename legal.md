@@ -42,7 +42,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-The GPL is provided in this document under th header: GNU GENERAL PUBLIC LICENSE.
+The GPL is provided on this page under the header: GNU GENERAL PUBLIC LICENSE.
 
 ## Attributions
 Appropriate credit as per Creative Commons licenses.
