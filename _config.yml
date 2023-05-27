@@ -20,7 +20,7 @@
 lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 Home
+title:                 About
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
@@ -53,14 +53,15 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title:             About
-    url:               /about/
+  - title:             Blog & Tutorials
+    url:               /blog/
   - title:             Research
     url:               /research/
   - title:             Teaching
     url:               /teaching/
   - title:             Publications
     url:               /publications/
+
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -80,7 +81,7 @@ permalink:             /:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              10
-paginate_path:         /:num/
+paginate_path:         /blog/:num/
 
 
 # Theme
@@ -324,7 +325,6 @@ include:
   - .well-known
   - LICENSE.md
   - _pages
-
 
 # Plugins
 # ----------------------------------------------------------------------------------------
