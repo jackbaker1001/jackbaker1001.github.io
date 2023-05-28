@@ -8,12 +8,8 @@ author1:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    Jack S. Baker is a physicist specializing in the areas of 
-    quantum and classical computational physics, condensed matter theory 
-    and machine learning. He graduated from the University of Leicester with a
-    MPhys in Physics & Nanotechnology and went on to achieve a Ph.D. in 
-    Computational Quantum Physics at University College London under the 
-    supervision of David R. Bowler.
+    Jack S. Baker is a British-turned-Canadian computational physicist and machine learning expert living
+    in Toronto ON. Away from the blackboard (and code editor), Jack can be found fishing the Salmon run in northern Ontario.
 
   # This photo will be used in the about section
   picture:
@@ -69,17 +65,17 @@ author1:
     # download:        <url>
     # keybase          <username>
 
-# Another author (optional)
-author2:
-  name:              <firtname> <lastname>
-  email:             <mail@domain.tld>
-  about:             |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+# # Another author (optional)
+# author2:
+#   name:              <firtname> <lastname>
+#   email:             <mail@domain.tld>
+#   about:             |
+#     Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+#     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+#     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-    Open `_data/authors.yml` to edit this text.
+#     Open `_data/authors.yml` to edit this text.
 
-  picture:           https://placehold.it/128x128
-  twitter:           <username>
-  github:            <username>
+#   picture:           https://placehold.it/128x128
+#   twitter:           <username>
+#   github:            <username>
