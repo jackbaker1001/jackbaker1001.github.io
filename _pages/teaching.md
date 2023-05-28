@@ -23,7 +23,7 @@ permalink: /teaching/
   <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_lahore.png" alt="Jack S. Baker in Pakistan at LUMS university, ICONN conference 2019">
 </div>
 
-My teaching philosophy centers around the belief that learning in the physical sciences is most effective when students actively engage in hands-on projects, particularly within the realm of programming. I firmly believe that undertaking these projects not only develops technical skills but also fosters a deeper understanding of concepts and nurtures cognitive connections within physics and mathematics. By immersing students in project-based learning experiences, I aim to create an environment where they can explore and apply theoretical knowledge in practical ways. Students develop problem-solving skills, critical thinking abilities, and gain a sense of accomplishment as they witness the direct application of physics principles. Moreover, such projects encourage collaboration, creativity, and curiosity, empowering students to actively construct their own knowledge and develop a lifelong passion for both computer science and physics.
+My teaching philosophy centers around the belief that learning in the physical sciences is most effective when students actively engage in hands-on projects, particularly within the realm of programming. I firmly believe that undertaking these projects not only develops technical skills but also fosters a deeper understanding of concepts and nurtures cognitive connections within physics and mathematics. By immersing students in project-based learning experiences, I aim to create an environment where they can explore and apply theoretical knowledge in practical ways. Students develop problem-solving skills, critical thinking abilities, and gain a sense of accomplishment as they witness the direct application of physical principles. Moreover, such projects encourage collaboration, creativity, and curiosity, empowering students to actively construct their own knowledge and develop a lifelong passion for the physical sciences, mathematics and computing.
 
 <b>Use the below links to jump to teaching highlights:</b>
 
@@ -68,21 +68,21 @@ My teaching philosophy centers around the belief that learning in the physical s
     <td>Practical Physics and Computing 2</td>
     <td>PHAS0029</td>
     <td>2<sup>nd</sup> year undergraduate</td>
-    <td>A sequel to PHAS0007 above, but covering more advanced topics in the second year undergraduate course. There is also a considerable coursework component on digital thermometer electronics. I taught the computing component of this course for two consecutive years.</td>
+    <td>A sequel to PHAS0007 above, but covering more advanced topics in the second year undergraduate course. There is also a considerable coursework component based on digital thermometer electronics. I taught the computing component of this course for two consecutive years.</td>
     <td><a href="https://www.ucl.ac.uk/module-catalogue/modules/practical-physics-and-computing-2-PHAS0029">Full course description</a></td>
   </tr>
   <tr>
     <td>Computational Physics</td>
     <td>PHAS0030</td>
     <td>3<sup>rd</sup> year undergraduate</td>
-    <td>An advanced third year course in computational physics aimed at providing students with a deep understanding of the strengths and weaknesses of numerical simulations and an introduction to research software engineering.</td>
+    <td>An advanced third year course in computational physics aimed at providing students with a deep understanding of the strengths and weaknesses of numerical simulations and to introduce the field of research software engineering.</td>
     <td><a href="https://moodle.ucl.ac.uk/course/info.php?id=6767">Full course description</a></td>
   </tr>
   <tr>
     <td>Practical Skills 1P</td>
     <td>PHAS0008</td>
     <td>1<sup>st</sup> year undergraduate</td>
-    <td>A one term course taught after PHAS0007. This course focuses on practical laboratory skills especially experiment planning and execution. I also taught this course for two consecutive years.</td>
+    <td>A one term course taught after PHAS0007. This course focuses on practical laboratory skills especially experiment planning and execution. I taught this course for two consecutive years.</td>
     <td><a href="https://www.ucl.ac.uk/module-catalogue/modules/practical-skills-1p-PHAS0008">Full course description</a></td>
   </tr>
   <tr>
@@ -124,7 +124,7 @@ My teaching philosophy centers around the belief that learning in the physical s
   <p>I travel within Canada and overseas to deliver workshops and tutorials on quantum algorithms, machine learning and heterogeneous workflow orchestration. Recent events are listed below with a link to content if available. 
   <ul>
 
-  <li><b>Orchestrating and Managing Quantum Machine Learning Workflows with Covalent</b>: IEEE Quantum week, Broomfield, Colorado (2022). Learn how to use <a href="https://www.covalent.xyz">Covalent</a> to manage a run experiments to study the differences between classical and quantum methods for similarity learning of images.[<a href="https://github.com/AgnostiqHQ/tutorials_covalent_ieee_2022">Github</a>]</li><br><br>
+  <li><b>Orchestrating and Managing Quantum Machine Learning Workflows with Covalent</b>: IEEE Quantum week, Broomfield, Colorado (2022). Learn how to use <a href="https://www.covalent.xyz">Covalent</a> to manage a run experiments to study the differences between classical and quantum methods for similarity learning of images. [<a href="https://github.com/AgnostiqHQ/tutorials_covalent_ieee_2022">Github</a>]</li><br><br>
 
   <li><b>Interdisciplinary Quantum HACKathon (IQuHack)</b>: Massachusetts Institute of Technology (2023). We aim to bring students (high school through early-career professionals) from a diverse set of backgrounds to explore improvements and applications of near-term quantum devices. I contributed as a virtual competition judge. [<a href="https://www.iquise.mit.edu/">Web</a>] [<a href="https://github.com/iquhack">Github</a>]</li><br><br>
 
@@ -136,12 +136,12 @@ My teaching philosophy centers around the belief that learning in the physical s
   </p>
 <hr>
   <h2 id="advocacy">Education Advocacy and Research</h2>
-  <p>Educators should strive to achieve a world where access to education is maximized and equalized for all and should be looking for new and innovative ways to deliver education. In recent years, I have made my contributions to this goal by volunteering in education programs and conducting fundamental science education research. Ongoing projects are summarized below: </p>
+  <p>Educators should strive to achieve a world where access to education is maximized and equalized for all and should be looking for new and innovative ways to deliver education. In recent years, I have made contributions towards this goal by volunteering in education programs and conducting fundamental science education research. Ongoing projects are summarized below: </p>
 
 <ul>
-<li><b>Original Research by Young Twinkle Students (ORBYTS)</b>: ORBYTS is a <a href="https://www.orbyts.org/">multi-award winning science outreach and education program</a>. The goal of the ORBYTS project is two-fold: (1) To widen access to physics & chemistry education particulary focussing on promoting participation from women and other under represented groups in STEM. (2) To have students participate in peer-reviewed science and answer education research questions related to different age groups abilities to do so. I participated in this program for two years as a tutor but remain an advocate. Check out the education research articles I was involved with: [<a href="https://iopscience.iop.org/article/10.1088/1361-6552/aa8f2a/meta"> Phys. Educ. 2018</a>] [<a href="https://doi.org/10.1093/astrogeo/atx169"> A&G Mag. 2017</a>] </li><br><br>
+<li><b>Original Research by Young Twinkle Students (ORBYTS)</b>: ORBYTS is a <a href="https://www.orbyts.org/">multi-award winning science outreach and education program</a>. The goal of the ORBYTS project is two-fold: (1) To widen access to physics & chemistry education particulary focussing on promoting participation from women and other underrepresented groups in STEM. (2) To have students participate in peer-reviewed science. I participated in this program for two years as a tutor and remain an advocate. Check out the education research articles I was involved with during my tenure as an ORBYTS tutor: [<a href="https://iopscience.iop.org/article/10.1088/1361-6552/aa8f2a/meta"> Phys. Educ. 2018</a>] [<a href="https://doi.org/10.1093/astrogeo/atx169"> A&G Mag. 2017</a>] </li><br><br>
 
-<li><b>Pak-UK Education Gateway</b>: The <a href="https://www.britishcouncil.pk/programmes/education/higher-education/pak-uk-education-gateway">Pak-UK Education Gateway</a> aims to enhance partnership between the higher education sectors of Pakistan and the UK. Key areas of collaboration under this umbrella framework are: innovative and collaborative research, higher education leadership, quality assurance and standard setting, distance learning, international mobility and transnational education. I have travelled to Pakistan as an advocate for this program and continue to support its success. The trip was documented by <a href="https://iconn2019.lums.edu.pk/">Lahore University of Management Sciences</a> and <a href="http://pu.edu.pk/home/section/allpress/10034">University of the Punjab</a>. </li>
+<li><b>Pak-UK Education Gateway</b>: The <a href="https://www.britishcouncil.pk/programmes/education/higher-education/pak-uk-education-gateway">Pak-UK Education Gateway</a> aims to enhance partnerships between the higher education sectors of Pakistan and the UK. Key areas of collaboration under this umbrella framework are: innovative and collaborative research, higher education leadership, quality assurance and standard setting, distance learning, international mobility and transnational education. I have travelled to Pakistan as an advocate for this program and continue to support its success. Our efforts were documented by <a href="https://iconn2019.lums.edu.pk/">Lahore University of Management Sciences</a> and <a href="http://pu.edu.pk/home/section/allpress/10034">University of the Punjab</a>. </li>
 </ul><br><br>
 
 <div style="max-width: 100%; height: auto; overflow: hidden; border-radius: 10px;">
@@ -184,12 +184,11 @@ My teaching philosophy centers around the belief that learning in the physical s
 
 <p>I have delievered undergraduate level lectures at summer schools in the UK. The scope of these lectures was to provide a spring-board into the first year of undergraduate physics, chemistry and computer science.</p> <br><br>
 
-
 <ul>
 <li><b>Debtate Chamber: Introduction to Computer Science</b>:
 I designed and delivered a week-long lecture series on introductory topics in computer science for <a href="https://debatechamber.com/summerschools/">Debate Chamber Summer Schools</a>. This course covered introductory logic, the history of computer science, complexity analysis, programming in Java and smartphone app design. </li><br><br>
 
-<li><b>Original Research by Young Twinkle Students (ORBYTS): diatomic constants</b>:</li> After my first year of being an ORBYTS tutor (detailed in the previous section), I supervised and lectured students on molecular physics in the first ORBYTS summer school. This school focussed on building research skills to create a database of molecular diatomic constants. This course covered techniques for organizing and digesting scientific literature, presentation skills and vibrational properties of molecules. 
+<li><b>Original Research by Young Twinkle Students (ORBYTS): diatomic constants</b>:</li> After my first year of being an ORBYTS tutor (detailed in the previous section), I supervised and lectured students on molecular physics in the first ORBYTS summer school. This school focussed on building research skills with a goal of engineering a database of molecular diatomic constants. This course covered techniques for organizing and digesting scientific literature, presentation skills and the vibrational properties of molecules. 
 </ul>
 
 <br><br>
