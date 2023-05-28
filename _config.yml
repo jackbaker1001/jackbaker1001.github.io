@@ -26,8 +26,8 @@ title:                 About
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
   Learn about the research, teaching and outreach activities conducted by Jack S. Baker.
-  Topics include Computational Physics and Chemistry, Condensed Matter Theory, Quantum Computation,
-  Machine Learning and High Performance Computing.
+  Topics include computational physics and chemistry, condensed matter theory, quantum computation,
+  machine learning, deep learning, high performance computing, ferroelectric and antiferroelectric materials.
 
 # A shorter description for the sidebar.
 tagline:               Computational Physics, Chemistry and Machine Learning
