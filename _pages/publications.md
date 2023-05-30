@@ -8,8 +8,7 @@ The below list of publications should be up to date. Find me [Google Scholar](ht
 
 <div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
 A. Ghukasyan, <b>J. S. Baker</b>, O. Goktas, J. Carrasquilla, S. K. Radha <a href="
-https://doi.org/10.48550/arXiv.2305.17707">Quantum-Classical Multiple Kernel Learningn</a>. arXiv <i>preprint arXiv:2305.17707
-Search...
+https://doi.org/10.48550/arXiv.2305.17707">Quantum-Classical Multiple Kernel Learning</a>. arXiv <i>preprint arXiv:2305.17707
 </i> (2023).<br><br>
 <b>Summary:</b> We propose a nomenclature for classifying quantum-quantum, classical-classical and quantum-classical multiple kernel learning
 and conduct a series of numerical experiments. We introduce a new neural network architecture - quantum-classical-convex neural networks (QCC-nets) - which are able to train weighted combinations of parameterized classical and quantum kernels for any kernelized learning task.
