@@ -7,6 +7,17 @@ The below list of publications should be up to date. Find me [Google Scholar](ht
 <br><br>
 
 <div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
+A. Ghukasyan, <b>J. S. Baker</b>, O. Goktas, J. Carrasquilla, S. K. Radha <a href="
+https://doi.org/10.48550/arXiv.2305.17707">Quantum-Classical Multiple Kernel Learningn</a>. arXiv <i>preprint arXiv:2305.17707
+Search...
+</i> (2023).<br><br>
+<b>Summary:</b> We propose a nomenclature for classifying quantum-quantum, classical-classical and quantum-classical multiple kernel learning
+and conduct a series of numerical experiments. We introduce a new neural network architecture - quantum-classical-convex neural networks (QCC-nets) - which are able to train weighted combinations of parameterized classical and quantum kernels for any kernelized learning task.
+</div>
+
+<br>
+
+<div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
 <b>J. S. Baker</b>, G. Park, K. Yu, A. Ghukasyan, O. Goktas and, S. K. Radha <a href="https://doi.org/10.48550/arXiv.2305.05881">Massively parallel hybrid quantum-classical machine learning for kernelized time-series classification</a>. arXiv <i>preprint arXiv:2305.05881</i> (2023).<br><br>
 <b>Summary:</b> A trainable time-dependent inner product space is devised using time evolution operators from quantum mechanics. We use this inner product space to define a time-series Hamiltonian kernel function, which, alongside classical SVM, we use to classify time-series on 127 qubit superconducting transmon chips. We speed up the algorithm by computing the kernel matrices in parallel using many quantum threads spread throughout the chip.
 </div>
