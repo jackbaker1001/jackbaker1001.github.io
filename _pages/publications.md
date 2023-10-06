@@ -7,6 +7,16 @@ The below list of publications should be up to date. Find me [Google Scholar](ht
 <br><br>
 
 <div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
+P. A. M Casares, <b>J. S. Baker</b>, M. Medvidovic, R. D. Reis, J. M. Arrazola <a href="
+https://arxiv.org/abs/2309.15127">Grad DFT: a software library for machine learning enhanced density functional theory</a>. arXiv <i>preprint arXiv:2305.17707
+</i> (2023).<br><br>
+<b>Summary:</b> We introduce a Pythonic playground for experimentation with exchange & correlation functionals in DFT based on neural networks. <a href="
+https://github.com/XanaduAI/GradDFT">Check out the code.</a>
+</div>
+
+<br>
+
+<div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
 A. Ghukasyan, <b>J. S. Baker</b>, O. Goktas, J. Carrasquilla, S. K. Radha <a href="
 https://doi.org/10.48550/arXiv.2305.17707">Quantum-Classical Multiple Kernel Learning</a>. arXiv <i>preprint arXiv:2305.17707
 </i> (2023).<br><br>
