@@ -7,8 +7,14 @@ The below list of publications should be up to date. Find me [Google Scholar](ht
 <br><br>
 
 <div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
+<b>J S. Baker</b>, P. A. M. Casares, M. S. Zini, J. Thik, D. Banerjee, C. Ling, A. Delgado, and J. M. Arrazola <a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.110.032606">Simulating optically active spin defects with a quantum computer</a>. Phys. Rev. A 110, 032606, arXiv <i>preprint arXiv:2405.13115
+</i> (2024).<br><br>
+<b>Summary:</b> A method for calculating the emmission spectra of spin-active quantum defects in materials is developed using a combintation of quantum embedding theories and quantum phase estimation.
+</div>
+
+<div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
 P. A. M Casares, <b>J. S. Baker</b>, M. Medvidovic, R. D. Reis, J. M. Arrazola <a href="
-https://arxiv.org/abs/2309.15127">Grad DFT: a software library for machine learning enhanced density functional theory</a>. arXiv <i>preprint arXiv:2309.15127
+https://doi.org/10.1063/5.01810377">Grad DFT: a software library for machine learning enhanced density functional theory</a>. J. Chem. Phys. 160, 062501, arXiv <i>preprint arXiv:2309.15127
 </i> (2023).<br><br>
 <b>Summary:</b> We introduce a Pythonic playground for experimentation with exchange & correlation functionals in DFT based on neural networks. <a href="
 https://github.com/XanaduAI/GradDFT">Check out the code.</a>
@@ -27,7 +33,7 @@ and conduct a series of numerical experiments. We introduce a new neural network
 <br>
 
 <div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
-<b>J. S. Baker</b>, G. Park, K. Yu, A. Ghukasyan, O. Goktas and, S. K. Radha <a href="https://doi.org/10.48550/arXiv.2305.05881">Massively parallel hybrid quantum-classical machine learning for kernelized time-series classification</a>. arXiv <i>preprint arXiv:2305.05881</i> (2023).<br><br>
+<b>J. S. Baker</b>, G. Park, K. Yu, A. Ghukasyan, O. Goktas and, S. K. Radha <a href="https://doi.org/10.1007/s42484-024-00149-0">Parallel hybrid quantum-classical machine learning for kernelized time-series classification</a>. Quantum Mach. Intell. 6, 18, arXiv <i>preprint arXiv:2305.05881</i> (2023).<br><br>
 <b>Summary:</b> A trainable time-dependent inner product space is devised using time evolution operators from quantum mechanics. We use this inner product space to define a time-series Hamiltonian kernel function, which, alongside classical SVM, we use to classify time-series on 127 qubit superconducting transmon chips. We speed up the algorithm by computing the kernel matrices in parallel using many quantum threads spread throughout the chip.
 </div>
 
