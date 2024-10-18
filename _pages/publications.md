@@ -15,8 +15,7 @@ The below list of publications should be up to date. Find me [Google Scholar](ht
 <br>
 
 <div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
-P. A. M Casares, <b>J. S. Baker</b>, M. Medvidovic, R. D. Reis, J. M. Arrazola <a href="
-https://doi.org/10.1063/5.01810377">Grad DFT: a software library for machine learning enhanced density functional theory</a>. J. Chem. Phys. 160, 062501, arXiv <i>preprint arXiv:2309.15127
+P. A. M Casares, <b>J. S. Baker</b>, M. Medvidovic, R. D. Reis, J. M. Arrazola <a href="https://doi.org/10.1063/5.01810377">Grad DFT: a software library for machine learning enhanced density functional theory</a>. J. Chem. Phys. 160, 062501, arXiv <i>preprint arXiv:2309.15127
 </i> (2023).<br><br>
 <b>Summary:</b> We introduce a Pythonic playground for experimentation with exchange & correlation functionals in DFT based on neural networks. <a href="
 https://github.com/XanaduAI/GradDFT">Check out the code.</a>
@@ -25,8 +24,7 @@ https://github.com/XanaduAI/GradDFT">Check out the code.</a>
 <br>
 
 <div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
-A. Ghukasyan, <b>J. S. Baker</b>, O. Goktas, J. Carrasquilla, S. K. Radha <a href="
-https://doi.org/10.48550/arXiv.2305.17707">Quantum-Classical Multiple Kernel Learning</a>. arXiv <i>preprint arXiv:2305.17707
+A. Ghukasyan, <b>J. S. Baker</b>, O. Goktas, J. Carrasquilla, S. K. Radha <a href="https://doi.org/10.48550/arXiv.2305.17707">Quantum-Classical Multiple Kernel Learning</a>. arXiv <i>preprint arXiv:2305.17707
 </i> (2023).<br><br>
 <b>Summary:</b> We propose a nomenclature for classifying quantum-quantum, classical-classical and quantum-classical multiple kernel learning
 and conduct a series of numerical experiments. We introduce a new neural network architecture - quantum-classical-convex neural networks (QCC-nets) - which are able to train weighted combinations of parameterized classical and quantum kernels for any kernelized learning task.
