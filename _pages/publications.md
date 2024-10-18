@@ -12,6 +12,8 @@ The below list of publications should be up to date. Find me [Google Scholar](ht
 <b>Summary:</b> A method for calculating the emmission spectra of spin-active quantum defects in materials is developed using a combintation of quantum embedding theories and quantum phase estimation.
 </div>
 
+<br>
+
 <div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
 P. A. M Casares, <b>J. S. Baker</b>, M. Medvidovic, R. D. Reis, J. M. Arrazola <a href="
 https://doi.org/10.1063/5.01810377">Grad DFT: a software library for machine learning enhanced density functional theory</a>. J. Chem. Phys. 160, 062501, arXiv <i>preprint arXiv:2309.15127
