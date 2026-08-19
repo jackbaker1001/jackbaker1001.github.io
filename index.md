@@ -5,8 +5,8 @@ title: About Jack S. Baker
 hide_description: true
 cover: true
 ---
-<div style="float:right; margin: 0 0 1em 1em; width: 200px; height: 200px; border-radius: 50%; overflow: hidden;">
-  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/jack_s_baker.jpeg" alt="A picture of Jack S. Baker" style="width: 100%; height: 100%; object-fit: cover;">
+<div class="profile-portrait">
+  <img src="/jack_s_baker.jpeg" alt="Jack S. Baker">
 </div>
 
 Jack S. Baker is a specialist in quantum and classical computational physics, condensed matter theory, and machine learning. He earned his Master's in Physics & Nanotechnology from the [University of Leicester](https://le.ac.uk/) and went on to complete his Ph.D. in Computational Physics at [University College London](https://www.ucl.ac.uk/) & the [London Centre for Nanotechnology](https://www.london-nano.com/) under the supervision of [Prof. David R. Bowler](https://www.ucl.ac.uk/physics-astronomy/people/professor-david-bowler). He is presently a Senior Quantum Research Scientist at LG Electronics, leading efforts in fault-tolerant quantum simulations of chemistry at the [Toronto AI Lab](https://www.lg.com/global/newsroom/news/corporate/lg-set-to-define-future-of-artificial-intelligence-at-new-north-american-ai-research-labs/?gad_source=1&gclid=CjwKCAjwjsi4BhB5EiwAFAL0YM9MKSDkkVdif28KvU5XHt59gCDlHJvoUnAI0VvjarbWzwlksidG1RoCh_sQAvD_BwE&gclsrc=aw.ds). His previous employments include:  [Xanadu](https://www.xanadu.ai/) where he worked on quantum chemistry, [McLaren Formula 1](https://mclarenapplied.com/) where he worked on machine learning applied to biotechnologies, [Diamond Light Source](https://www.diamond.ac.uk) where he worked on nanoscale measurement techniques and [Agnostiq](https://www.agnostiq.ai/) where he developed machine learning and optimization algorithms suitable for noisy intermediate-scale quantum computers. His present research involves the development of early fault tolerant quantum algorithms for quantum chemistry and large-scale quantum mechanical simulations of condensed matter systems with a focus on ferroelectric, antiferroelectric and battery materials.
@@ -26,3 +26,4 @@ Jack contributes to and maintains several open source software projects includin
 4. [CONQUEST](http://www.order-n.org/): **C**oncurrent <b>O(N)</b> **QU**antum **E**lectronic **ST**ructure. A large-scale density functional theory code capable of simulating millions of atoms spread accross millions of physical cores on large supercomputers. \[[Github](https://github.com/OrderN/CONQUEST-release)\].
 
 5. [ASE](https://wiki.fysik.dtu.dk/ase/): Atomic Simulation Environment. A set of tools and Python modules for setting up, manipulating, running, visualizing and analyzing atomistic simulations. \[[Github](https://github.com/rosswhitfield/ase)\] \[[Gitlab](https://gitlab.com/ase/ase)\].
+{:.project-list}
