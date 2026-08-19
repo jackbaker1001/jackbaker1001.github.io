@@ -8,7 +8,7 @@
 * License does not expire
 * Commercial use allowed
 * Can modify source code
-* Parts of software are provided under [separate licenses](../NOTICE.md#licenses)
+* Parts of software are provided under [separate licenses](/licenses/)
 
 ## Terms and Conditions
 ### 1. Preamble

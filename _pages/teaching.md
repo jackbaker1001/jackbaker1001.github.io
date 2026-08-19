@@ -2,39 +2,19 @@
 title: Teaching
 permalink: /teaching/
 ---
-<style>
-  .oval-image {
-    width: 250px; /* Adjust the width and height to your desired oval size */
-    height: 320px;
-    border-radius: 50%;
-    overflow: hidden;
-    float: right;
-    margin-right: 10px; /* Adjust the margin as needed */
-  }
-  .oval-image img {
-    width: auto;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-  }
-</style>
-
-<div class="oval-image">
-  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_lahore.png" alt="Jack S. Baker in Pakistan at LUMS university, ICONN conference 2019">
+<div class="teaching-figure teaching-portrait">
+  <img src="/assets/img/jack_at_lahore.png" alt="Jack S. Baker at the ICONN 2019 conference at LUMS University in Pakistan">
 </div>
 
 My teaching philosophy centers around the belief that learning in the physical sciences is most effective when students actively engage in hands-on projects, particularly within the realm of programming. I firmly believe that undertaking these projects not only develops technical skills but also fosters a deeper understanding of concepts and nurtures cognitive connections within physics and mathematics. By immersing students in project-based learning experiences, I aim to create an environment where they can explore and apply theoretical knowledge in practical ways. Students develop problem-solving skills, critical thinking abilities, and gain a sense of accomplishment as they witness the direct application of physical principles. Moreover, such projects encourage collaboration, creativity, and curiosity, empowering students to actively construct their own knowledge and develop a lifelong passion for the physical sciences, mathematics and computing.
 
 <b>Use the below links to jump to teaching highlights:</b>
 
-<p>
-
-
-<div style="background-color: #f2f2f2; border-radius: 10px; padding: 10px;">
+<div class="section-nav">
   <p>
-    <a href="#UCL">At University College London</a> |
-    <a href="#workshops">Workshops and Tutorials</a> |
-    <a href="#advocacy">Education Advocacy and Research</a> |
+    <a href="#UCL">At University College London</a>
+    <a href="#workshops">Workshops and Tutorials</a>
+    <a href="#advocacy">Education Advocacy and Research</a>
     <a href="#summerschool">Summer School Lectures</a> 
   </p>
 </div>
@@ -42,11 +22,10 @@ My teaching philosophy centers around the belief that learning in the physical s
 <hr>
 
   <h2 id="UCL">At University College London</h2>
-  <p>
-  
-  I have several years of experience teaching undergraduate and graduate level physics courses at <a href="https://www.ucl.ac.uk/">University College London</a>. While my role in each course varied, in general, I gave lectures, led problem solving seminars, guided students through practical workshops and marked coursework material. The relevant course codes are provided below with a short description and are linked to the full course content: <br><br>
+  <p>I have several years of experience teaching undergraduate and graduate level physics courses at <a href="https://www.ucl.ac.uk/">University College London</a>. While my role in each course varied, in general, I gave lectures, led problem solving seminars, guided students through practical workshops and marked coursework material. The relevant course codes are provided below with a short description and are linked to the full course content:</p>
 
-<table>
+<div class="table-scroll" role="region" aria-label="University College London courses" tabindex="0">
+<table class="course-table">
 <thead>
   <tr>
     <th><strong>Course</strong></th>
@@ -108,20 +87,18 @@ My teaching philosophy centers around the belief that learning in the physical s
   </tr>
 </tbody>
 </table>
+</div>
 
-</p>
 <hr>
   <h2 id="workshops">Workshops and Tutorials</h2>
 
-<div style="max-width: 100%; height: auto; overflow: hidden; border-radius: 10px;">
-  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_ieee.png" alt="Jack S. Baker at IEEE quantum week 2022 in Broomfield Colarado giving a talk on workflow orchestration in quantum machine learning and classical machine learning" style="width: 100%; height: 100%; object-fit: cover;">
-</div>
-<div style="text-align: center;">
-  <figcaption style="display: block;"><i>IEEE Quantum week 2022, Broomfield Colarado.</i></figcaption>
-</div>
+<figure class="media-card wide">
+  <img src="/assets/img/jack_at_ieee.png" alt="Jack S. Baker speaking about quantum and classical machine-learning workflow orchestration at IEEE Quantum Week 2022">
+  <figcaption class="media-caption">IEEE Quantum Week 2022, Broomfield, Colorado.</figcaption>
+</figure>
 <br><br>
 
-  <p>I travel within Canada and overseas to deliver workshops and tutorials on quantum algorithms, machine learning and heterogeneous workflow orchestration. Recent events are listed below with a link to content if available. 
+  <p>I travel within Canada and overseas to deliver workshops and tutorials on quantum algorithms, machine learning and heterogeneous workflow orchestration. Recent events are listed below with a link to content if available.</p>
   <ul>
 
   <li><b>Orchestrating and Managing Quantum Machine Learning Workflows with Covalent</b>: IEEE Quantum week, Broomfield, Colorado (2022). Learn how to use <a href="https://www.covalent.xyz">Covalent</a> to manage a run experiments to study the differences between classical and quantum methods for similarity learning of images. [<a href="https://github.com/AgnostiqHQ/tutorials_covalent_ieee_2022">Github</a>]</li><br><br>
@@ -133,7 +110,6 @@ My teaching philosophy centers around the belief that learning in the physical s
 
   </ul>
 
-  </p>
 <hr>
   <h2 id="advocacy">Education Advocacy and Research</h2>
   <p>Educators should strive to achieve a world where access to education is maximized and equalized for all and should be looking for new and innovative ways to deliver education. In recent years, I have made contributions towards this goal by volunteering in education programs and conducting fundamental science education research. Ongoing projects are summarized below: </p>
@@ -144,43 +120,18 @@ My teaching philosophy centers around the belief that learning in the physical s
 <li><b>Pak-UK Education Gateway</b>: The <a href="https://www.britishcouncil.pk/programmes/education/higher-education/pak-uk-education-gateway">Pak-UK Education Gateway</a> aims to enhance partnerships between the higher education sectors of Pakistan and the UK. Key areas of collaboration under this umbrella framework are: innovative and collaborative research, higher education leadership, quality assurance and standard setting, distance learning, international mobility and transnational education. I have travelled to Pakistan as an advocate for this program and continue to support its success. Our efforts were documented by <a href="https://iconn2019.lums.edu.pk/">Lahore University of Management Sciences</a> and <a href="http://pu.edu.pk/home/section/allpress/10034">University of the Punjab</a>. </li>
 </ul><br><br>
 
-<div style="max-width: 100%; height: auto; overflow: hidden; border-radius: 10px;">
-  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_at_univ_punjab.png" alt="Jack S. Baker in Pakistan at the university of the punjab as part of the Pak-UK education gateway" style="width: 100%; height: 100%; object-fit: cover;">
-</div>
-<div style="text-align: center;">
-  <figcaption style="display: block;"><i>Pak-UK education gateway 2019, University of the Punjab.</i></figcaption>
-</div>
+<figure class="media-card wide">
+  <img src="/assets/img/jack_at_univ_punjab.png" alt="Jack S. Baker at the University of the Punjab as part of the Pak-UK Education Gateway">
+  <figcaption class="media-caption">Pak-UK Education Gateway 2019, University of the Punjab.</figcaption>
+</figure>
 
 <hr>
   <h2 id="summerschool">Summer School Lectures</h2>
   <br><br>
-<style>
-  .image-container {
-    float: left;
-    margin-right: 30px; /* Adjust the margin as needed */
-    border-radius: 10px; /* Adjust the border radius for rounded edges */
-    overflow: hidden;
-  }
-  .image-container img {
-    display: block;
-    width: 250px; /* Adjust the width of the image as needed */
-    height: auto;
-    border-radius: 10px; /* Match the border radius of the container */
-  }
-  .caption {
-    clear: left;
-    text-align: center;
-    max-width: 100%;
-    word-break: break-word;
-  }
-</style>
-
-<div class="image-container">
-  <img src="https://raw.githubusercontent.com/jackbaker1001/jackbaker1001.github.io/master/assets/img/jack_with_helen.png" alt="Jack S. Baker with astronaut Helen Sharman at the ORBYTS summer school at university college london">
-  <div style="width: 250px; word-wrap: break-word;">
-  <i>Jack giving out awards with astronaut <a href="https://en.wikipedia.org/wiki/Helen_Sharman">Helen Sharman</a> at the 2017 ORBYTS Summer School hosted at University College London.</i>
-  </div>
-</div> 
+<figure class="teaching-figure align-left">
+  <img src="/assets/img/jack_with_helen.png" alt="Jack S. Baker with astronaut Helen Sharman at the ORBYTS Summer School at University College London">
+  <figcaption>Jack giving out awards with astronaut <a href="https://en.wikipedia.org/wiki/Helen_Sharman">Helen Sharman</a> at the 2017 ORBYTS Summer School hosted at University College London.</figcaption>
+</figure>
 
 <p>I have delievered undergraduate level lectures at summer schools in the UK. The scope of these lectures was to provide a spring-board into the first year of undergraduate physics, chemistry and computer science.</p> <br><br>
 
@@ -188,13 +139,10 @@ My teaching philosophy centers around the belief that learning in the physical s
 <li><b>Debtate Chamber: Introduction to Computer Science</b>:
 I designed and delivered a week-long lecture series on introductory topics in computer science for <a href="https://debatechamber.com/summerschools/">Debate Chamber Summer Schools</a>. This course covered introductory logic, the history of computer science, complexity analysis, programming in Java and smartphone app design. </li><br><br>
 
-<li><b>Original Research by Young Twinkle Students (ORBYTS): diatomic constants</b>:</li> After my first year of being an ORBYTS tutor (detailed in the previous section), I supervised and lectured students on molecular physics in the first ORBYTS summer school. This school focussed on building research skills with a goal of engineering a database of molecular diatomic constants. This course covered techniques for organizing and digesting scientific literature, presentation skills and the vibrational properties of molecules. 
+<li><b>Original Research by Young Twinkle Students (ORBYTS): diatomic constants</b>: After my first year of being an ORBYTS tutor (detailed in the previous section), I supervised and lectured students on molecular physics in the first ORBYTS summer school. This school focussed on building research skills with a goal of engineering a database of molecular diatomic constants. This course covered techniques for organizing and digesting scientific literature, presentation skills and the vibrational properties of molecules.</li>
 </ul>
 
 <br><br>
-
-
-
 
 
 
