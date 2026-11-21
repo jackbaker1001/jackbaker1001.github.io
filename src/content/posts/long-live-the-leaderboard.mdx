@@ -1,0 +1,77 @@
+---
+title: "Long live the leaderboard"
+description: "AI agents can now draft a paper in an afternoon and shave millions of gates off a quantum algorithm overnight. Some thoughts on what that means for how we share science, two open challenges worth your time, and an invitation to beat the machines."
+date: 2026-11-21
+tags: [quantum-computing, ai, agents, publishing]
+---
+
+import Figure from '../../components/Figure.astro';
+import ecdsaFrontier from '../../assets/blog/agentic-science/ecdsa-fail-frontier.png';
+import forshorHome from '../../assets/blog/agentic-science/forshor-home.png';
+import forshorBoard from '../../assets/blog/agentic-science/forshor-leaderboard.png';
+
+I have been sitting on this post for a while, mostly because every time I started writing it, something new happened that made the previous draft feel quaint. So treat what follows as a snapshot of late 2026: a few thoughts on where scientific publishing is heading, two open challenges that I think point the way, and an invitation to have a go yourself.
+
+## The flood
+
+It is hard to overstate how much AI has changed the day to day of research over the last couple of years. Half of the 2024 Nobel Prize in Chemistry went to the people behind AlphaFold. Agents now write our code, run our experiments, read the literature for us and, increasingly, write the papers too.
+
+The conference circuit is where you feel it most. ICLR 2026 received [19,525 valid submissions](https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/), roughly 70% more than the year before. When Pangram Labs ran its detector over the reviews, it flagged [around 21% of the 75,800 reviews as fully AI generated](https://www.plagiarismtoday.com/2025/12/04/ai-conference-overrun-with-ai-peer-review/), with more than half showing some sign of AI use. NeurIPS 2026 decided to [desk reject 178 position papers](https://blog.neurips.cc/2026/06/02/ai-generated-papers-in-the-neurips-2026-position-paper-track/) after a preliminary analysis gave 28% of that track the maximum possible AI score. Meanwhile, the computer science section of arXiv [stopped accepting review and position papers](https://blog.arxiv.org/2025/10/31/attention-authors-updated-practice-for-review-articles-and-position-papers-in-arxiv-cs-category/) unless they have already passed peer review, because its moderators were drowning in machine written surveys.
+
+Quantum information is not immune. QIP, the flagship theory conference in our field, now [sorts its submissions by topic](https://qipconference.org/2027/call/) simply to cope "as the number of submissions continues to grow".
+
+Part of the reason is simple. Since early this year it has been genuinely possible to "one shot" a paper: give a capable agent a question, a codebase and a compute budget, and it hands back something that reads, cites and typesets like a finished manuscript. Reviewing has gone the same way. When both sides of peer review can be automated, it is fair to ask what a journal is actually certifying, and whether the pillars of business as usual publishing (the PDF, the anonymous referee, the months of back and forth) are starting to crack.
+
+I am far from the only one asking. The [ICLR organisers' own retrospective](https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/) and the [NeurIPS blog](https://blog.neurips.cc/2026/06/02/ai-generated-papers-in-the-neurips-2026-position-paper-track/) are both worth reading for a sense of how stretched the system has become, and ICLR 2027 has added a step that desk rejects [poorly written AI generated papers](https://www.timeshighereducation.com/node/745948) before they ever reach a reviewer.
+
+At the same time, something far more exciting is happening in my corner of the world. Quantum algorithm implementations, the nuts and bolts circuits that turn an algorithm on paper into concrete counts of logical qubits and gates, are being optimised by agents at a startling pace. A few recent examples: Gu, Kemeny, Yelin and Lukin on [discovering state of the art quantum circuits with large language models](https://arxiv.org/abs/2610.22367); Crichigno and Flammia on [automating quantum circuit optimisation with AI agents](https://arxiv.org/abs/2610.31352); Anthropic and Harvard using Claude to [design leaner circuits](https://thequantuminsider.com/2026/10/17/anthropics-claude-designs-leaner-quantum-circuits-reducing-resources-needed-for-key-calculations/), including a decoding circuit that reportedly needs around twelve times fewer expensive operations, with a [later study alongside QuEra](https://thequantuminsider.com/2026/11/10/quera-harvard-anthropic-ai-quantum-circuit-resource-requirements/); and bigger visions of [AI scientists for computational quantum research](https://arxiv.org/abs/2611.02833). I won't go through them here, but the pattern is the same every time. Give an agent a well posed objective and a trustworthy way to check its work, and it will grind through a design space far larger than any of us would have the patience for.
+
+Those two threads point somewhere interesting. If a paper can be produced at the push of a button, the current publishing model is living on borrowed time, and something new will have to take its place. The people pointing agents at quantum algorithms seem to be finding that something first: research turned into a game, with open challenges and public leaderboards where results are posted, checked and beaten in plain sight. The poster child is [ECDSA.fail](https://ecdsa.fail/).
+
+## Point the agents at the problem
+
+ECDSA.fail, built by [Eigen Labs](https://eigenlabs.org/), asks one deceptively simple question. What is the cheapest reversible quantum circuit that adds two points on secp256k1, the elliptic curve that secures Bitcoin and Ethereum? Point addition is the inner loop of Shor's algorithm when it is aimed at elliptic curve cryptography, so every gate you save there is saved thousands of times over in a full attack.
+
+The rules are refreshingly concrete. You submit a circuit, and an automated harness checks it on 9,024 random inputs, chosen from a hash of your own circuit so you cannot tune it to the test set. It insists that every ancilla qubit is returned cleanly to zero and that no stray phase is left behind. Your score is the average number of Toffoli gates multiplied by the peak number of qubits, and lower is better. Anyone can play, human or agent, using a small command line tool, and every valid improvement lands on a public leaderboard.
+
+The backdrop makes it even more fun. In March, Google Quantum AI [estimated](https://arxiv.org/abs/2603.28846) that breaking secp256k1 could take around 1,200 logical qubits and 90 million Toffoli gates, but chose not to publish the circuits, releasing a [zero knowledge proof](https://research.google/blog/safeguarding-cryptocurrency-by-disclosing-quantum-vulnerabilities-responsibly/) of its claims instead. ECDSA.fail benchmarks against those private numbers, which is why its banner cheerfully tells you how far ahead of "Google's classified circuit" the community has got. At the time of writing, that figure is 70.4%.
+
+<Figure src={ecdsaFrontier} alt="The ECDSA.fail frontier page, showing 70.4% ahead of Google's classified circuit and a chart of submitted circuits trading qubits against Toffoli gates." width={900}>
+  The ECDSA.fail frontier at the time of writing. Every point is a circuit that moved the frontier of qubits against Toffoli gates down or to the left. Screenshot from [ecdsa.fail](https://ecdsa.fail/), by Eigen Labs.
+</Figure>
+
+The team behind it has already written up the first phase as a [35 author paper](https://arxiv.org/abs/2609.09582). By their July cutoff, participants had cut the score by 86%, with the best circuit using 1,151 qubits and about 1.3 million Toffoli gates per point addition, and the live frontier has kept moving since. The authors are careful to say that this is not a working attack, and that the score leaves out several costs a real run of Shor's algorithm would have to pay. That honesty is a big part of what makes it good science.
+
+What strikes me is where the "paper" lives in all of this. The result is not a PDF that a handful of referees read once. It is a leaderboard that anyone can verify, rerun and beat, and the paper comes afterwards to explain what was learned. Fault tolerant resource estimation turns out to be an almost perfect playground for this: the objective is crisp, checking a candidate is cheap and automatic, and the design space is enormous. That is exactly the shape of problem agents love.
+
+## Our turn: ForShor
+
+Which brings me to something I am rather proud of. My employer, [Zapata Quantum](https://zapataquantum.com/), together with the University of Maryland and with the [Unitary Foundation](https://unitary.fund/) as a sponsor, has just launched [ForShor](https://forshor.ai/).
+
+<Figure src={forshorHome} alt="The ForShor home page: a formally verified harness for quantum algorithm autoresearch on circuits for factoring, with links to the paper, blog, GitHub and Discord." width={900}>
+  ForShor, from Zapata Quantum and the University of Maryland. Screenshot from [forshor.ai](https://forshor.ai/).
+</Figure>
+
+ForShor brings the same spirit to factoring. Shor's order finding algorithm spends most of its effort multiplying very large numbers, and recent recursive constructions in the style of Toom-Cook bring the gate cost down from the textbook $O(n^3)$ towards $O(n^{2+\epsilon})$. How small $\epsilon$ gets depends on a dizzying number of choices about how to split the multiplication at each level of the recursion. In ForShor, one complete set of those choices is called a policy, and the challenge is to find the policy that gives the cheapest full order finding circuit for factoring a 2048 bit number, again scored as logical qubits times T gates.
+
+The part I care about most is the verification. Every submission is checked in [Lean](https://lean-lang.org/) before it counts, and the proofs cover the mathematical correctness of the construction, its asymptotic gate cost and the translation all the way down to an actual circuit. In other words, the guarantee holds for every valid policy, not just for the inputs somebody happened to test. When agents can produce candidate results faster than any human can read them, machine checked correctness is how we keep trusting what lands on the board. On top of that, every accepted submission becomes its own citable object with a permanent DOI, the top participants are invited to help write up what the community learns, and there is an [interactive explainer](https://verifiedqc.github.io/ForShor/) and a Discord for talking it all through. Credit follows the work, which is exactly how it should be.
+
+This has been a real team effort. The harness and [the paper behind it](https://arxiv.org/abs/2611.20342) come from our University of Maryland collaborators Anirudh Suresh and [Runzhou Tao](https://quics.umd.edu/people/runzhou-tao), together with our very own Joshua Courtney and Yudong Cao, and David Villarreal has been a key part of the Zapata team behind it.
+
+<Figure src={forshorBoard} alt="The ForShor leaderboard, frontier chart and scores over time for the Order Finding with PhaseProduct challenge." width={900}>
+  The ForShor leaderboard for the Order Finding with PhaseProduct challenge at the time of writing. Screenshot from [forshor.ai](https://forshor.ai/).
+</Figure>
+
+So here is my challenge to you. The current round runs to a checkpoint at 11:59pm EST on 31 December, and at the time of writing the best policy is only about 19% better than where it started. There is plenty of room at the top. Point your favourite agent at it, or (and I would genuinely love this) roll up your sleeves and try it by hand. Can we still beat the machines? Getting started takes one line:
+
+```bash
+curl -fsSL https://forshor.ai/start.sh | sh
+```
+
+Fair warning: your first submission installs Lean, which takes about twenty minutes. Perfect timing for a cup of tea.
+
+## What comes next
+
+I have been thinking a lot lately about what it would look like to gamify scientific research and contribution much more broadly, well beyond one subroutine of Shor's algorithm. Leaderboards, results anyone can verify, and credit that follows the work wherever it goes. Expect to hear more from me about it soon.
+
+I promise it will arrive faster than GTA 6 did. Then again, GTA 6 finally came out this week and reportedly [sold 32.5 million copies before it was even released](https://www.pcgamer.com/games/grand-theft-auto/grand-theft-auto-6-earned-usd3-79-billion-on-launch-day/), so if AI progress mysteriously stalls this winter, I think we all know where the researchers went. And if this blog goes suspiciously quiet for a few weeks, please assume I have joined them.

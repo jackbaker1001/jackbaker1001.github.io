@@ -18,4 +18,6 @@ export function readingTime(body?: string) {
 }
 
 export const slugifyTag = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-export const tagLabel = (t: string) => t.replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
+const ACRONYMS: Record<string, string> = { ai: 'AI', ml: 'ML', qml: 'QML', dft: 'DFT', hpc: 'HPC' };
+export const tagLabel = (t: string) =>
+  t.split('-').map((w, i) => ACRONYMS[w] ?? (i === 0 ? w.replace(/^\w/, (c) => c.toUpperCase()) : w)).join(' ');
