@@ -39,9 +39,9 @@ export default defineConfig({
   // Keep links from the old HydeJack site working.
   redirects: {
     '/blog/optimization/2022-03-22-portfolio-opt-blog':
-      'https://agnostiq.ai/blog/optimizing-financial-portfolios-on-superconducting-and-trapped-ion-quantum-computers/',
+      'https://web.archive.org/web/20240912112851/https://agnostiq.ai/blog/optimizing-financial-portfolios-on-superconducting-and-trapped-ion-quantum-computers/',
     '/blog/quantum-machine-learning/2023-05-27-qvr-tutorial':
-      'https://pennylane.ai/qml/demos/tutorial_univariate_qvr.html',
+      'https://pennylane.ai/demos/tutorial_univariate_qvr',
     '/blog/optimization': '/blog/tags/optimisation/',
     '/blog/quantum-machine-learning': '/blog/tags/quantum-machine-learning/',
     '/legal': '/about/',

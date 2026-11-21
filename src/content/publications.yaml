@@ -78,7 +78,7 @@
   type: conference
   doi: 10.1609/aaaiss.v7i1.36902
   arxiv: "2210.16438"
-  code: https://github.com/AgnostiqHQ/QuantumVariationalRewinding
+  code: https://github.com/AgnostiqHQ/Quantum-Variational-Rewinding
   summary: We train parameterized quantum time-devolution operators to detect anomalies in cryptocurrency time series and show on IBM superconducting hardware that error mitigation reduces anomaly-score errors by as much as 14% on average.
   topics: [qml, error-mitigation]
 
@@ -188,7 +188,7 @@
   details: "68(3), S64.013"
   year: 2023
   type: conference
-  url: https://meetings.aps.org/Meeting/MAR23/Session/S64.13
+  url: https://meetings-archive.aps.org/mar/2023/s64/13
   summary: We present Quantum Variational Rewinding for anomaly detection in cryptocurrency time series and demonstrate on IBM superconducting hardware that Pauli twirling and dynamical decoupling improve its performance.
   topics: [qml, error-mitigation]
 
@@ -199,7 +199,7 @@
   details: "67(3), G38.008"
   year: 2022
   type: conference
-  url: https://meetings.aps.org/Meeting/MAR22/Session/G38.8
+  url: https://meetings-archive.aps.org/mar/2022/g38/8
   summary: We use a normalized complementary Wasserstein distance to relate QAOA portfolio quality to the number of classically viable portfolios and demonstrate the method on a trapped-ion quantum computer.
   topics: [optimisation]
 
@@ -210,7 +210,7 @@
   details: "67(3), Z38.009"
   year: 2022
   type: conference
-  url: https://meetings.aps.org/Meeting/MAR22/Session/Z38.9
+  url: https://meetings-archive.aps.org/mar/2022/z38/9
   summary: We present a supervised quantum-learning method for identifying outliers in data.
   topics: [qml]
 
@@ -221,7 +221,7 @@
   details: "67(3), T00.076"
   year: 2022
   type: conference
-  url: https://meetings.aps.org/Meeting/MAR22/Session/T00.76
+  url: https://meetings-archive.aps.org/mar/2022/t00/76
   summary: We use large-scale DFT to show how built-in bias fields and engineered surface trenches can permanently control polar textures in PbTiO<sub>3</sub>/SrTiO<sub>3</sub> films.
   topics: [materials]
 

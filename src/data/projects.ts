@@ -4,7 +4,7 @@ export const PROJECTS = [
     blurb: 'Differentiable quantum programming: train variational circuits the way you train neural networks.',
     href: 'https://pennylane.ai/',
     repo: 'https://github.com/PennyLaneAI/pennylane',
-    extra: { label: 'Demos', href: 'https://github.com/PennyLaneAI/qml' },
+    extra: { label: 'Demos', href: 'https://github.com/PennyLaneAI/demos' },
     area: 'Quantum software',
   },
   {
@@ -17,21 +17,21 @@ export const PROJECTS = [
   {
     name: 'Covalent',
     blurb: 'Pythonic workflow orchestration across quantum computers, HPC clusters, GPUs and the cloud.',
-    href: 'https://www.covalent.xyz/',
+    href: 'https://github.com/AgnostiqHQ/covalent', // covalent.xyz is offline
     repo: 'https://github.com/AgnostiqHQ/covalent',
     area: 'Workflows',
   },
   {
     name: 'CONQUEST',
     blurb: 'Concurrent O(N) quantum electronic structure: linear-scaling DFT for millions of atoms on millions of cores.',
-    href: 'http://www.order-n.org/',
+    href: 'https://ordern.github.io/',
     repo: 'https://github.com/OrderN/CONQUEST-release',
     area: 'Electronic structure',
   },
   {
     name: 'ASE',
     blurb: 'The Atomic Simulation Environment: set up, run, visualise and analyse atomistic simulations in Python.',
-    href: 'https://wiki.fysik.dtu.dk/ase/',
+    href: 'https://ase-lib.org/',
     repo: 'https://gitlab.com/ase/ase',
     area: 'Atomistic simulation',
   },
