@@ -1,0 +1,17 @@
+---
+/**
+ * Spam-resistant email link: the address is not in the HTML. On click, a small script
+ * (in Base.astro) decodes EMAIL_ENC and opens the visitor's mail app.
+ */
+import Icon from './Icon.astro';
+import { EMAIL_ENC } from '../data/site';
+interface Props { variant?: 'icon' | 'btn' | 'social'; label?: string; class?: string }
+const { variant = 'icon', label = 'Email me', class: cls } = Astro.props;
+---
+{variant === 'btn' ? (
+  <button type="button" class:list={['btn', cls]} data-mail={EMAIL_ENC}><Icon name="mail" size={18} />{label}</button>
+) : variant === 'social' ? (
+  <button type="button" class:list={['social-btn tip', cls]} data-mail={EMAIL_ENC} data-tip={label} aria-label={label}><Icon name="mail" /></button>
+) : (
+  <button type="button" class:list={['icon-btn', cls]} data-mail={EMAIL_ENC} aria-label={label} title={label}><Icon name="mail" /></button>
+)}

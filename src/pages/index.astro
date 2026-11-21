@@ -7,14 +7,17 @@ import Publication from '../components/Publication.astro';
 import PostCard from '../components/PostCard.astro';
 import ThemeGlyph from '../components/ThemeGlyph.astro';
 import Icon from '../components/Icon.astro';
+import EmailButton from '../components/EmailButton.astro';
 import portrait from '../assets/portrait.jpeg';
 import { PROJECTS } from '../data/projects';
 import { SITE, SOCIAL } from '../data/site';
 import { getPosts } from '../lib/posts';
+import { graph, person, website } from '../lib/schema';
 
 const pubs = (await getCollection('publications')).sort(byNewest);
 const recent = pubs.slice(0, 4);
 const posts = (await getPosts()).slice(0, 3);
+const heroSocial = ['github', 'scholar', 'linkedin'].map((k) => SOCIAL.find((s) => s.icon === k)!);
 
 const themes = [
   {
@@ -40,7 +43,7 @@ const themes = [
   },
 ];
 ---
-<Base motion="lively">
+<Base motion="lively" schema={graph(person(), website())}>
   <section class="hero wrap">
     <div class="hero-copy">
       <p class="t-label kicker rise" style="--i:0">{SITE.tagline}</p>
@@ -54,6 +57,12 @@ const themes = [
         <a class="btn btn-primary" href="/research/">Read the research <span class="arr">→</span></a>
         <a class="btn" href="/publications/">Browse publications</a>
       </div>
+      <ul class="social-row hero-social rise" style="--i:4" aria-label="Find me elsewhere">
+        {heroSocial.map((s) => (
+          <li><a class="social-btn tip" href={s.href} target="_blank" rel="me noopener" aria-label={s.label} data-tip={s.label}><Icon name={s.icon} /></a></li>
+        ))}
+        <li><EmailButton variant="social" /></li>
+      </ul>
     </div>
 
     <div class="hero-portrait rise" style="--i:2">
@@ -146,9 +155,10 @@ const themes = [
     <div class="card cta">
       <div>
         <h2 class="t-h2">Get in touch</h2>
-        <p class="muted">For collaborations, talks or questions about the work, LinkedIn is the most reliable way to reach me.</p>
+        <p class="muted">For collaborations, talks or questions about the work, email me or find me on LinkedIn.</p>
       </div>
       <div class="cta-links">
+        <EmailButton variant="btn" class="btn-primary" />
         {SOCIAL.map((s) => (
           <a class="btn" href={s.href} target="_blank" rel="me noopener"><Icon name={s.icon} size={18} />{s.label}</a>
         ))}
@@ -160,6 +170,7 @@ const themes = [
 <style>
   .hero { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: var(--space-12); align-items: center; padding-top: var(--space-24); padding-bottom: var(--space-12); }
   .hero-copy { display: grid; gap: var(--space-6); max-width: 720px; }
+  .hero-social { margin-top: calc(var(--space-2) * -1); }
   .hero h1 { max-width: 21ch; }
   .hero .t-lead { max-width: 58ch; }
   .hero-portrait { position: relative; width: 260px; aspect-ratio: 1; justify-self: end; display: grid; place-items: center; }

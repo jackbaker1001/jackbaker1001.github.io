@@ -12,6 +12,7 @@ interface Props {
   type?: 'website' | 'article';
   published?: Date;
   noindex?: boolean;
+  schema?: object;
   /** Background movement: "lively" for the home page, "calm" (default) for reading pages. */
   motion?: 'lively' | 'calm';
 }
@@ -88,6 +89,22 @@ const { motion = 'calm', ...props } = Astro.props;
         card.style.setProperty('--mx', `${e.clientX - r.left}px`);
         card.style.setProperty('--my', `${e.clientY - r.top}px`);
       }, { passive: true });
+
+      /* ---------------- email buttons: decode the address only on click ---------------- */
+      document.addEventListener('click', (e) => {
+        const b = (e.target as Element).closest<HTMLElement>('[data-mail]');
+        if (!b) return;
+        const addr = atob(b.dataset.mail!).split('').reverse().join('');
+        window.location.href = `mailto:${addr}`;
+        // reveal the address too, for visitors without a mail app set up
+        if (b.classList.contains('tip')) {
+          b.dataset.tip = addr;
+          b.setAttribute('data-tip-show', '');
+          setTimeout(() => b.removeAttribute('data-tip-show'), 4000);
+        } else {
+          b.title = addr;
+        }
+      });
 
       /* ---------------- "Cite" buttons copy BibTeX ---------------- */
       document.addEventListener('click', async (e) => {

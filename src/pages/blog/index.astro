@@ -8,7 +8,7 @@ import { getPosts, slugifyTag, tagLabel } from '../../lib/posts';
 const posts = await getPosts();
 const tags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
 ---
-<Base title="Blog" description="Writing and tutorials on quantum computing, machine learning and computational chemistry.">
+<Base title="Blog" image="/og/page/blog.png" description="Writing and tutorials on quantum computing, machine learning and computational chemistry.">
   <PageHead kicker="Blog" title="Writing and tutorials" lead="Notes, tutorials and longer pieces on quantum computing, machine learning and chemistry. Some are hosted here; others link to where they were first published.">
     <div class="blog-tools rise" style="--i:3">
       <nav class="tag-row" aria-label="Tags">

@@ -5,13 +5,19 @@ import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
 import Publication from '../components/Publication.astro';
 import { TOPICS, PUB_TYPES } from '../data/taxonomy';
-import { SOCIAL } from '../data/site';
+import { SITE, SOCIAL } from '../data/site';
+import { graph, scholarlyArticle, PERSON_ID, WEBSITE_ID } from '../lib/schema';
 
 const pubs = (await getCollection('publications')).sort(byNewest);
 const years = [...new Set(pubs.map((p) => p.data.year))];
+const schema = graph({
+  '@type': 'CollectionPage', url: `${SITE.url}/publications/`, name: 'Publications by Jack S. Baker',
+  isPartOf: { '@id': WEBSITE_ID }, about: { '@id': PERSON_ID },
+  mainEntity: { '@type': 'ItemList', numberOfItems: pubs.length, itemListElement: pubs.map((p, i) => ({ '@type': 'ListItem', position: i + 1, item: scholarlyArticle(p) })) },
+});
 const scholar = SOCIAL.find((s) => s.icon === 'scholar')!.href;
 ---
-<Base title="Publications" description="Papers, preprints and abstracts on quantum algorithms, error mitigation, quantum machine learning and first-principles materials simulation.">
+<Base title="Publications" image="/og/page/publications.png" schema={schema} description="Papers, preprints and abstracts on quantum algorithms, error mitigation, quantum machine learning and first-principles materials simulation.">
   <PageHead
     kicker="Publications"
     title="Papers and preprints"

@@ -6,6 +6,7 @@ import Comments from '../../components/Comments.astro';
 import Icon from '../../components/Icon.astro';
 import { getPosts, isHosted, formatDate, readingTime, slugifyTag, tagLabel } from '../../lib/posts';
 import { SITE } from '../../data/site';
+import { PERSON_ID } from '../../lib/schema';
 import 'katex/dist/katex.min.css';
 
 export async function getStaticPaths() {
@@ -20,13 +21,19 @@ const { Content, headings } = await render(post);
 const d = post.data;
 const toc = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
 const url = new URL(`/blog/${post.id}/`, SITE.url).toString();
+const schema = {
+  '@context': 'https://schema.org', '@type': 'BlogPosting', headline: d.title, description: d.description,
+  datePublished: d.date.toISOString(), dateModified: (d.updated ?? d.date).toISOString(),
+  author: { '@id': PERSON_ID, '@type': 'Person', name: SITE.name, url: `${SITE.url}/` },
+  image: `${SITE.url}/og/blog/${post.id}.png`, mainEntityOfPage: url, keywords: d.tags.join(', '), inLanguage: 'en-GB',
+};
 const share = [
   { label: 'LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}` },
   { label: 'Bluesky', href: `https://bsky.app/intent/compose?text=${encodeURIComponent(`${d.title} ${url}`)}` },
   { label: 'X', href: `https://x.com/intent/post?text=${encodeURIComponent(d.title)}&url=${encodeURIComponent(url)}` },
 ];
 ---
-<Base title={d.title} description={d.description} type="article" published={d.date} image={`/og/blog/${post.id}.png`}>
+<Base title={d.title} description={d.description} type="article" published={d.date} image={`/og/blog/${post.id}.png`} schema={schema}>
   <div class="progress" aria-hidden="true"><span data-progress></span></div>
   <article class="wrap post">
     <header class="post-head">

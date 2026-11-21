@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { SITE, SOCIAL } from '../data/site';
+import { SITE } from '../data/site';
 
 interface Props {
   title?: string;
@@ -9,30 +9,24 @@ interface Props {
   type?: 'website' | 'article';
   published?: Date;
   noindex?: boolean;
+  /** schema.org JSON-LD for this page (an object or a @graph). */
+  schema?: object;
 }
-const { title, description = SITE.description, image = '/og-default.png', type = 'website', published, noindex } = Astro.props;
+const { title, description = SITE.description, image = '/og-default.png', type = 'website', published, noindex, schema } = Astro.props;
 const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} · ${SITE.tagline}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image, Astro.site);
-const person = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: SITE.name,
-  url: SITE.url,
-  jobTitle: SITE.role,
-  worksFor: { '@type': 'Organization', name: SITE.org },
-  affiliation: { '@type': 'CollegeOrUniversity', name: SITE.visiting.org },
-  alumniOf: [{ '@type': 'CollegeOrUniversity', name: 'University College London' }, { '@type': 'CollegeOrUniversity', name: 'University of Leicester' }],
-  knowsAbout: ['Quantum computing', 'Quantum chemistry', 'Machine learning', 'Density functional theory', 'Condensed matter physics'],
-  sameAs: SOCIAL.map((s) => s.href),
-};
+const robots = noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+// Bump when the icons change: browsers cache favicons stubbornly (HydeJack's icon lived at another path).
+const v = '?v=2';
 ---
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
-{noindex && <meta name="robots" content="noindex" />}
+<meta name="robots" content={robots} />
+{SITE.googleSiteVerification && <meta name="google-site-verification" content={SITE.googleSiteVerification} />}
 
 <!-- Theme before first paint: stored choice wins, otherwise follow the OS. -->
 <script is:inline>
@@ -47,10 +41,12 @@ const person = {
 <link rel="preload" href="/fonts/NewCM10-Book.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/cmunss.woff2" as="font" type="font/woff2" crossorigin />
 
-<link rel="icon" href="/favicon.ico" sizes="48x48" />
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
+<link rel="icon" href={`/favicon.ico${v}`} sizes="48x48" />
+<link rel="icon" href={`/favicon.svg${v}`} type="image/svg+xml" />
+<link rel="icon" href={`/favicon-32.png${v}`} type="image/png" sizes="32x32" />
+<link rel="icon" href={`/favicon-16.png${v}`} type="image/png" sizes="16x16" />
+<link rel="apple-touch-icon" href={`/apple-touch-icon.png${v}`} />
+<link rel="manifest" href={`/site.webmanifest${v}`} />
 <meta name="theme-color" content="#F6F6F3" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#111216" media="(prefers-color-scheme: dark)" />
 <meta name="color-scheme" content="light dark" />
@@ -67,6 +63,7 @@ const person = {
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_GB" />
+<meta property="og:image:alt" content={title ? `${title}: Jack S. Baker` : 'Jack S. Baker: quantum computing in the age of AI'} />
 {published && <meta property="article:published_time" content={published.toISOString()} />}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title ?? SITE.name} />
@@ -74,4 +71,4 @@ const person = {
 <meta name="twitter:image" content={ogImage} />
 <meta name="author" content={SITE.name} />
 <meta name="generator" content={Astro.generator} />
-{Astro.url.pathname === '/' && <script type="application/ld+json" set:html={JSON.stringify(person)} />}
+{schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}

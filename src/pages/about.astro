@@ -2,8 +2,10 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
+import EmailButton from '../components/EmailButton.astro';
 import portrait from '../assets/portrait.jpeg';
-import { SOCIAL } from '../data/site';
+import { SITE, SOCIAL } from '../data/site';
+import { graph, person, PERSON_ID, WEBSITE_ID } from '../lib/schema';
 
 const roles = [
   { when: 'Now', org: 'Zapata Quantum', href: 'https://zapataquantum.com/', role: 'Lead Quantum Applications Scientist', text: '' },
@@ -19,7 +21,7 @@ const education = [
   { degree: 'MPhys, Physics & Nanotechnology', org: 'University of Leicester', text: '', href: 'https://le.ac.uk/' },
 ];
 ---
-<Base title="About" description="Jack S. Baker is a British-Canadian computational physicist and Lead Quantum Applications Scientist at Zapata Quantum, based in Toronto.">
+<Base title="About" image="/og/page/about.png" schema={graph({ '@type': 'ProfilePage', url: `${SITE.url}/about/`, name: 'About Jack S. Baker', isPartOf: { '@id': WEBSITE_ID }, mainEntity: { '@id': PERSON_ID } }, person())} description="Jack S. Baker is a British-Canadian computational physicist and Lead Quantum Applications Scientist at Zapata Quantum, based in Toronto.">
   <section class="wrap about">
     <div class="about-photo rise">
       <Image src={portrait} alt="Jack S. Baker" widths={[320, 640]} sizes="320px" loading="eager" />
@@ -48,6 +50,7 @@ const education = [
         <p>Away from the blackboard and the code editor, you will find me fishing the salmon run in northern Ontario.</p>
       </div>
       <div class="btn-row rise" style="--i:3">
+        <EmailButton variant="btn" class="btn-primary" />
         {SOCIAL.map((s) => <a class="btn" href={s.href} target="_blank" rel="me noopener"><Icon name={s.icon} size={18} />{s.label}</a>)}
       </div>
     </div>

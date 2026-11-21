@@ -3,12 +3,14 @@ export const SITE = {
   url: 'https://www.jackstephenbaker.com',
   tagline: 'Quantum computing in the age of AI',
   description:
-    'Jack S. Baker is a quantum applications scientist working on quantum algorithms for simulating materials, molecules and fluids, machine learning for electronic structure, and large-scale first-principles simulation.',
+    'Jack Stephen Baker is a quantum applications scientist at Zapata Quantum and the University of Toronto, working on quantum algorithms for simulating materials, molecules and fluids, and on AI for science.',
   role: 'Lead Quantum Applications Scientist',
   org: 'Zapata Quantum',
   /** Side role, shown alongside the main one. */
   visiting: { role: 'Visiting Scientist', org: 'University of Toronto', group: 'Matter Lab', lead: 'Alán Aspuru-Guzik' },
   location: 'Toronto, Canada',
+  /** Paste the content value from Google Search Console's HTML-tag verification, if you use it. */
+  googleSiteVerification: '',
 };
 
 export const NAV = [
@@ -42,3 +44,10 @@ export const GISCUS = {
   category: 'Announcements',
   categoryId: '',
 };
+
+/**
+ * Contact email, stored reversed and base64-encoded so it never appears as plain text in
+ * the page source (or in this public repo). It is decoded only when someone clicks an
+ * EmailButton. To change it: printf 'you@example.com' | rev | base64
+ */
+export const EMAIL_ENC = 'bW9jLmxpYW1nQDEwMDFyZWthYnNq';

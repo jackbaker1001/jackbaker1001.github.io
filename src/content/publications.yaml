@@ -44,6 +44,7 @@
   year: 2026
   type: journal
   doi: 10.1103/x8gd-fbtr
+  arxiv: "2508.13281"
   summary: We propose two quantum algorithms that screen spin defects for optically detected magnetic resonance activity without directly calculating costly intersystem-crossing rates, with resource estimates for the negatively charged boron vacancy in hexagonal boron nitride.
   topics: [quantum-algorithms, materials]
 
@@ -62,9 +63,11 @@
 - id: naranjo2026designing
   title: Designing quantum technologies with a quantum computer
   authors: [J. Naranjo, T. H. Kyaw, G. Saxena, K. Ferreira, J. S. Baker]
-  venue: arXiv preprint
+  venue: Quantum Science and Technology
+  details: "11(3), 035054"
   year: 2026
-  type: preprint
+  type: journal
+  doi: 10.1088/2058-9565/ae89de
   arxiv: "2601.22091"
   summary: We develop a quantum-computer-aided framework for simulating and optimizing solid-state spin technologies, combining efficient encodings and Krylov fast-forwarding to model realistic long-time dynamics of the nitrogen-vacancy center in diamond.
   topics: [quantum-algorithms, materials]
@@ -153,7 +156,7 @@
   title: "High Dielectric Constants in BaTiO<sub>3</sub> Due to Phonon Mode Softening Induced by Lattice Strains: First Principles Calculations"
   authors: [H. Guo, J. S. Baker, W. Wu, K. L. Choy]
   venue: Advanced Physics Research
-  details: "2300001"
+  details: "2(9), 2300001"
   year: 2023
   type: journal
   doi: 10.1002/apxr.202300001
