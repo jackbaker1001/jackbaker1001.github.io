@@ -68,9 +68,9 @@ The comment box follows the site's light/dark theme, using `public/giscus/light.
 
 ## Deploying
 
-`.github/workflows/deploy.yml` builds and publishes to GitHub Pages on every push to `master` or `main`.
+`.github/workflows/deploy.yml` builds and publishes to GitHub Pages on every push to `main`.
 In the repository settings, set **Pages → Source** to **GitHub Actions**. `public/CNAME` keeps the custom domain
-`www.jackstephenbaker.com`. Old HydeJack URLs (`/blog/optimization/…`, `/legal/`) redirect to their new homes.
+`www.jackstephenbaker.com`. Old HydeJack URLs (`/blog/optimization/…`, `/legal/`) redirect to their new homes. The HydeJack site itself is kept in the `hydejack-archive` tag.
 
 ## Fonts
 
