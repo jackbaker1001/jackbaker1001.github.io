@@ -1,0 +1,214 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import { byNewest } from '../lib/bibtex';
+import Base from '../layouts/Base.astro';
+import Publication from '../components/Publication.astro';
+import PostCard from '../components/PostCard.astro';
+import ThemeGlyph from '../components/ThemeGlyph.astro';
+import Icon from '../components/Icon.astro';
+import portrait from '../assets/portrait.jpeg';
+import { PROJECTS } from '../data/projects';
+import { SITE, SOCIAL } from '../data/site';
+import { getPosts } from '../lib/posts';
+
+const pubs = (await getCollection('publications')).sort(byNewest);
+const recent = pubs.slice(0, 4);
+const posts = (await getPosts()).slice(0, 3);
+
+const themes = [
+  {
+    kind: 'quantum' as const,
+    kicker: 'Quantum algorithms',
+    title: 'Simulating chemistry and materials on quantum computers',
+    text: 'Early fault-tolerant algorithms: first-quantised simulation and state preparation, phase estimation for spin defects, and error mitigation that also certifies the hardware it runs on.',
+    href: '/research/#quantum',
+  },
+  {
+    kind: 'ml' as const,
+    kicker: 'Machine learning',
+    title: 'Learning where physics is expensive',
+    text: 'Neural exchange–correlation functionals with GradDFT, quantum kernels for time series, and what increasingly capable AI means for how science gets done.',
+    href: '/research/#ml',
+  },
+  {
+    kind: 'materials' as const,
+    kicker: 'Materials',
+    title: 'Ferroics from first principles, at scale',
+    text: 'Linear-scaling DFT of ferroelectrics and antiferroelectrics on up to 200,000 cores: polar vortices, domain walls and soft-mode phase transitions.',
+    href: '/research/#materials',
+  },
+];
+---
+<Base motion="lively">
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <p class="t-label kicker rise" style="--i:0">{SITE.tagline}</p>
+      <h1 class="t-display rise" style="--i:1">Accelerating quantum algorithms for simulating nature with AI.</h1>
+      <p class="t-lead rise" style="--i:2">
+        I’m Lead Quantum Applications Scientist at Zapata Quantum, and a visiting scientist in Alán Aspuru-Guzik’s
+        Matter Lab at the University of Toronto, working on quantum computational fluid dynamics. Before that I led
+        fault-tolerant quantum simulation of chemistry at LG Electronics’ Toronto AI Lab.
+      </p>
+      <div class="btn-row rise" style="--i:3">
+        <a class="btn btn-primary" href="/research/">Read the research <span class="arr">→</span></a>
+        <a class="btn" href="/publications/">Browse publications</a>
+      </div>
+    </div>
+
+    <div class="hero-portrait rise" style="--i:2">
+      <svg class="orbit" viewBox="-110 -110 220 220" aria-hidden="true">
+        <g class="orbit-spin">
+          {Array.from({ length: 6 }, (_, k) => {
+            const a = (k * Math.PI) / 3 - Math.PI / 2, b = ((k + 1) * Math.PI) / 3 - Math.PI / 2;
+            return <line x1={102 * Math.cos(a)} y1={102 * Math.sin(a)} x2={102 * Math.cos(b)} y2={102 * Math.sin(b)} class={k % 2 ? 'e' : 'e e2'} />;
+          })}
+          {Array.from({ length: 6 }, (_, k) => {
+            const a = (k * Math.PI) / 3 - Math.PI / 2;
+            return <circle cx={102 * Math.cos(a)} cy={102 * Math.sin(a)} r={k === 0 ? 5 : 4} class={k === 0 ? 'n hot' : 'n'} style={`--k:${k}`} />;
+          })}
+        </g>
+      </svg>
+      <Image src={portrait} alt="Jack S. Baker" widths={[240, 480]} sizes="240px" loading="eager" class="avatar" />
+    </div>
+  </section>
+
+  <section class="wrap facts rise" style="--i:4" aria-label="At a glance">
+    <dl>
+      <div><dt class="t-label">Now</dt><dd>Lead Quantum Applications Scientist, Zapata Quantum</dd></div>
+      <div><dt class="t-label">Visiting</dt><dd>Matter Lab, University of Toronto: quantum computational fluid dynamics</dd></div>
+      <div><dt class="t-label">Before</dt><dd>LG Toronto AI Lab · Xanadu · Agnostiq · McLaren Applied · Diamond Light Source</dd></div>
+      <div><dt class="t-label">Trained</dt><dd>PhD, UCL &amp; London Centre for Nanotechnology</dd></div>
+    </dl>
+  </section>
+
+  <section class="section wrap" aria-labelledby="themes-h">
+    <div class="section-head">
+      <h2 id="themes-h" class="t-h2">Research</h2>
+      <a class="arrow-link" href="/research/"><span class="lbl">All research</span><span class="arr">→</span></a>
+    </div>
+    <div class="grid grid-3">
+      {themes.map((t) => (
+        <a class="card spot theme-card" href={t.href}>
+          <ThemeGlyph kind={t.kind} />
+          <p class="t-label kicker">{t.kicker}</p>
+          <h3 class="card-title t-h3">{t.title}</h3>
+          <p class="muted theme-text">{t.text}</p>
+          <span class="arrow-link"><span class="lbl">Explore</span><span class="arr">→</span></span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="pubs-h">
+    <div class="section-head">
+      <h2 id="pubs-h" class="t-h2">Recent publications</h2>
+      <a class="arrow-link" href="/publications/"><span class="lbl">All publications</span><span class="arr">→</span></a>
+    </div>
+    <div class="pub-list">
+      {recent.map((p, i) => <Publication pub={p} compact isNew={i === 0} />)}
+    </div>
+  </section>
+
+  {posts.length > 0 && (
+    <section class="section wrap" aria-labelledby="blog-h">
+      <div class="section-head">
+        <h2 id="blog-h" class="t-h2">From the blog</h2>
+        <a class="arrow-link" href="/blog/"><span class="lbl">All posts</span><span class="arr">→</span></a>
+      </div>
+      <div class="grid grid-3">
+        {posts.map((p) => <PostCard post={p} />)}
+      </div>
+    </section>
+  )}
+
+  <section class="section wrap" aria-labelledby="oss-h">
+    <div class="section-head">
+      <h2 id="oss-h" class="t-h2">Open source</h2>
+      <p class="muted t-small">Software I contribute to or help maintain.</p>
+    </div>
+    <div class="grid grid-3 oss">
+      {PROJECTS.map((p) => (
+        <div class="card spot oss-card">
+          <p class="t-label">{p.area}</p>
+          <h3 class="t-h3"><a class="link" href={p.href} target="_blank" rel="noopener">{p.name}</a></h3>
+          <p class="muted oss-text">{p.blurb}</p>
+          <div class="oss-links">
+            <a class="arrow-link" href={p.repo} target="_blank" rel="noopener"><Icon name="code" size={16} /><span class="lbl">Source</span></a>
+            {p.extra && <a class="arrow-link" href={p.extra.href} target="_blank" rel="noopener"><span class="lbl">{p.extra.label}</span></a>}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="card cta">
+      <div>
+        <h2 class="t-h2">Get in touch</h2>
+        <p class="muted">For collaborations, talks or questions about the work, LinkedIn is the most reliable way to reach me.</p>
+      </div>
+      <div class="cta-links">
+        {SOCIAL.map((s) => (
+          <a class="btn" href={s.href} target="_blank" rel="me noopener"><Icon name={s.icon} size={18} />{s.label}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: var(--space-12); align-items: center; padding-top: var(--space-24); padding-bottom: var(--space-12); }
+  .hero-copy { display: grid; gap: var(--space-6); max-width: 720px; }
+  .hero h1 { max-width: 21ch; }
+  .hero .t-lead { max-width: 58ch; }
+  .hero-portrait { position: relative; width: 260px; aspect-ratio: 1; justify-self: end; display: grid; place-items: center; }
+  .orbit { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .orbit .e { stroke: var(--line-strong); stroke-width: 1; opacity: .55; }
+  .orbit .e2 { stroke-dasharray: 2 4; }
+  .orbit .n { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1.2; transition: fill .4s, stroke .4s; transition-delay: calc(var(--k) * 80ms); }
+  .orbit .n.hot { fill: var(--nitrogen); stroke: var(--nitrogen); }
+  .orbit-spin { transform-origin: 0 0; animation: orbit 90s linear infinite; }
+  .hero-portrait:hover .orbit-spin { animation-duration: 24s; }
+  .hero-portrait:hover .n { fill: var(--nitrogen); stroke: var(--nitrogen); }
+  @keyframes orbit { to { transform: rotate(360deg); } }
+  .avatar { width: 188px; height: 188px; border-radius: var(--radius-full); object-fit: cover; border: 1px solid var(--line); transition: transform .6s var(--ease); }
+  .hero-portrait:hover .avatar { transform: scale(1.03); }
+
+  .facts dl { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .facts dl > div { padding: var(--space-4) var(--space-4) var(--space-4) 0; }
+  .facts dl > div + div { padding-left: var(--space-4); border-left: 1px solid var(--line); }
+  .facts dt { margin-bottom: 4px; }
+  .facts dd { margin: 0; font-size: 16px; line-height: 24px; }
+
+  .theme-card { display: flex; flex-direction: column; gap: var(--space-3); }
+  .theme-card .glyph { margin-bottom: var(--space-2); }
+  .theme-text { font-size: 16px; line-height: 25px; flex: 1; }
+  .theme-card:hover .arrow-link .lbl { background-size: 100% 1px; }
+  .theme-card:hover .arrow-link .arr { transform: translateX(4px); }
+
+  .pub-list { border-bottom: 1px solid var(--line); }
+
+  .oss-card { display: flex; flex-direction: column; gap: var(--space-2); }
+  .oss-text { font-size: 16px; line-height: 25px; flex: 1; }
+  .oss-links { display: flex; gap: var(--space-6); margin-top: var(--space-2); }
+
+  .cta { display: grid; grid-template-columns: 1fr auto; gap: var(--space-8); align-items: center; padding: var(--space-8); }
+  .cta .muted { margin-top: var(--space-2); max-width: 52ch; }
+  .cta-links { display: flex; flex-wrap: wrap; gap: var(--space-2); justify-content: flex-end; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding-top: var(--space-12); }
+    .hero-portrait { grid-row: 1; justify-self: start; width: 180px; }
+    .avatar { width: 128px; height: 128px; }
+    .facts dl { grid-template-columns: 1fr 1fr; }
+    .facts dl > div:nth-child(3) { padding-left: 0; border-left: 0; }
+    .facts dl > div:nth-child(n + 3) { border-top: 1px solid var(--line); }
+    .cta { grid-template-columns: 1fr; }
+    .cta-links { justify-content: flex-start; }
+  }
+  @media (max-width: 520px) {
+    .facts dl { grid-template-columns: 1fr; }
+    .facts dl > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  }
+</style>

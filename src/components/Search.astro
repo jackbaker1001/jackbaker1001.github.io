@@ -1,0 +1,90 @@
+---
+/**
+ * Site search, powered by Pagefind (indexes the built site in `npm run build`).
+ * Opens with ⌘K / Ctrl+K or "/". In `npm run dev` there is no index yet, so it says so.
+ */
+import Icon from './Icon.astro';
+---
+<dialog class="search" data-search-dialog aria-label="Search">
+  <form method="dialog" class="search-box" role="search">
+    <Icon name="search" />
+    <input type="search" placeholder="Search papers, posts and pages" autocomplete="off" spellcheck="false" aria-label="Search" data-search-input />
+    <button class="esc" value="close" aria-label="Close search">Esc</button>
+  </form>
+  <ol class="search-results" data-search-results aria-live="polite"></ol>
+  <p class="search-foot t-label" data-search-foot>Type to search</p>
+</dialog>
+
+<style is:global>
+  .search {
+    width: min(640px, calc(100vw - 32px)); max-height: min(70vh, 640px); padding: 0; margin: 12vh auto auto;
+    border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface-raised); color: var(--ink);
+    overflow: hidden; display: none; flex-direction: column;
+  }
+  .search[open] { display: flex; animation: search-in .28s var(--ease); }
+  .search::backdrop { background: color-mix(in srgb, var(--surface-sunken) 55%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+  @keyframes search-in { from { opacity: 0; transform: translateY(-8px) scale(.98); } }
+  .search-box { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-6); border-bottom: 1px solid var(--line); color: var(--ink-muted); }
+  .search-box input { flex: 1; border: 0; outline: 0; background: none; color: var(--ink); font: 21px/1.3 var(--font-serif); }
+  .search-box input::-webkit-search-cancel-button { display: none; }
+  .search-box .esc { font: 11px var(--font-sans); letter-spacing: .06em; padding: 3px 6px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: none; color: var(--ink-muted); cursor: pointer; }
+  .search-results { list-style: none; margin: 0; padding: var(--space-2); overflow-y: auto; }
+  .search-results a { display: block; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); color: inherit; text-decoration: none; }
+  .search-results a:hover, .search-results a[aria-selected='true'] { background: var(--nitrogen-soft); }
+  .search-results .r-title { font-size: 18px; line-height: 26px; }
+  .search-results a[aria-selected='true'] .r-title { color: var(--nitrogen); }
+  .search-results .r-ex { font-size: 15px; line-height: 22px; color: var(--ink-muted); margin-top: 2px; }
+  .search-results mark { background: none; color: var(--ink); font-weight: 700; }
+  .search-foot { padding: var(--space-3) var(--space-6); border-top: 1px solid var(--line); margin: 0; }
+</style>
+
+<script>
+  type PF = { init: () => Promise<void>; debouncedSearch: (q: string) => Promise<{ results: { data: () => Promise<any> }[] } | null> };
+  const dlg = document.querySelector<HTMLDialogElement>('[data-search-dialog]')!;
+  const input = dlg.querySelector<HTMLInputElement>('[data-search-input]')!;
+  const list = dlg.querySelector<HTMLOListElement>('[data-search-results]')!;
+  const foot = dlg.querySelector<HTMLElement>('[data-search-foot]')!;
+  let pf: PF | null = null, failed = false, sel = -1;
+
+  async function load() {
+    if (pf || failed) return pf;
+    try {
+      const url = '/pagefind/pagefind.js';
+      pf = await import(/* @vite-ignore */ url);
+      await pf!.init();
+    } catch { failed = true; foot.textContent = 'Search works on the built site (npm run build && npm run preview)'; }
+    return pf;
+  }
+  function open() { if (!dlg.open) { dlg.showModal(); input.select(); load(); } }
+  document.addEventListener('click', (e) => { if ((e.target as Element).closest('[data-search-open]')) open(); });
+  document.addEventListener('keydown', (e) => {
+    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test((e.target as Element).tagName);
+    if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !typing)) { e.preventDefault(); open(); }
+  });
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+
+  const items = () => [...list.querySelectorAll('a')];
+  function select(i: number) {
+    const a = items(); if (!a.length) return;
+    sel = (i + a.length) % a.length;
+    a.forEach((el, j) => el.setAttribute('aria-selected', String(j === sel)));
+    a[sel].scrollIntoView({ block: 'nearest' });
+  }
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); select(sel + 1); }
+    if (e.key === 'ArrowUp') { e.preventDefault(); select(sel - 1); }
+    if (e.key === 'Enter' && sel >= 0) { e.preventDefault(); items()[sel]?.click(); }
+  });
+  input.addEventListener('input', async () => {
+    const q = input.value.trim();
+    const p = await load();
+    if (!p) return;
+    if (!q) { list.innerHTML = ''; foot.textContent = 'Type to search'; return; }
+    const res = await p.debouncedSearch(q);
+    if (!res) return; // superseded by a newer query
+    const data = await Promise.all(res.results.slice(0, 8).map((r) => r.data()));
+    sel = -1;
+    list.innerHTML = data.map((d) => `<li><a href="${d.url}"><div class="r-title">${d.meta?.title ?? d.url}</div><div class="r-ex">${d.excerpt}</div></a></li>`).join('');
+    foot.textContent = res.results.length ? `${res.results.length} result${res.results.length === 1 ? '' : 's'} · ↑↓ to move · ↵ to open` : 'No results';
+  });
+</script>

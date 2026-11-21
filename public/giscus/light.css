@@ -1,0 +1,50 @@
+/* giscus theme matched to the Graph State palette (light). Served from the site so giscus can fetch it. */
+main {
+  --color-prettylights-syntax-comment: #5b5e67;
+  --color-prettylights-syntax-constant: #b8322a;
+  --color-prettylights-syntax-entity: #1f3590;
+  --color-prettylights-syntax-keyword: #2e4bc6;
+  --color-prettylights-syntax-string: #b8322a;
+  --color-prettylights-syntax-variable: #1a1b1f;
+  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-bg: #2e4bc6;
+  --color-btn-primary-border: #2e4bc6;
+  --color-btn-primary-hover-bg: #2a43b0;
+  --color-btn-primary-hover-border: #2a43b0;
+  --color-btn-primary-disabled-text: #ffffffcc;
+  --color-btn-primary-disabled-bg: #2e4bc699;
+  --color-btn-text: #1a1b1f;
+  --color-btn-bg: #ffffff;
+  --color-btn-border: #d9dad5;
+  --color-btn-hover-bg: #eeeeea;
+  --color-btn-hover-border: #7f828a;
+  --color-btn-selected-bg: #eeeeea;
+  --color-fg-default: #1a1b1f;
+  --color-fg-muted: #5b5e67;
+  --color-fg-subtle: #7f828a;
+  --color-canvas-default: #ffffff;
+  --color-canvas-overlay: #ffffff;
+  --color-canvas-inset: #eeeeea;
+  --color-canvas-subtle: #f6f6f3;
+  --color-border-default: #d9dad5;
+  --color-border-muted: #e5e5e0;
+  --color-neutral-muted: #d9dad566;
+  --color-accent-fg: #2e4bc6;
+  --color-accent-emphasis: #2e4bc6;
+  --color-accent-muted: #2e4bc666;
+  --color-accent-subtle: #e5e9fa;
+  --color-success-fg: #2e4bc6;
+  --color-attention-fg: #9a6b00;
+  --color-attention-muted: #c98f0a66;
+  --color-attention-subtle: #fbf1d8;
+  --color-danger-fg: #b8322a;
+  --color-danger-muted: #b8322a66;
+  --color-danger-subtle: #f8e4e1;
+  --color-primer-shadow-inset: none;
+  --color-scale-gray-7: #5b5e67;
+  --color-scale-blue-8: #1f3590;
+  --color-social-reaction-bg-hover: #eeeeea;
+  --color-social-reaction-bg-reacted-hover: #d6ddfa;
+}
+main .pagination-loader-container { background-image: none; }
+main .gsc-loading-image { background-image: none; }

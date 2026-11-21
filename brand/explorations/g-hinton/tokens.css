@@ -1,0 +1,91 @@
+/* Hinton — brand tokens for jackstephenbaker.com
+   Palette "Viridis". Light is the default; dark follows the OS
+   unless <html data-theme="light|dark"> overrides it. */
+
+@font-face {
+  font-family: 'CMU Sans Serif Demi Condensed';
+  src: url('./fonts/cmunssdc.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Serif';
+  src: url('./fonts/cmunrm.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Serif';
+  src: url('./fonts/cmunti.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Serif';
+  src: url('./fonts/cmunbx.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Sans Serif';
+  src: url('./fonts/cmunss.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Typewriter Text';
+  src: url('./fonts/cmuntt.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-bg: #F4F4F7;
+  --color-surface: #FFFFFF;
+  --color-text: #17141F;
+  --color-muted: #5C5868;
+  --color-rule: #D9D7E0;
+  --color-accent: #19706B;
+  --color-accent2: #3B528B;
+  --color-viridis-yellow: #FDE725;  /* graphics only */
+  --color-viridis-teal: #21918C;  /* graphics only */
+  --font-display: 'CMU Sans Serif Demi Condensed', 'CMU Sans Serif', 'Arial Narrow', system-ui, sans-serif;
+  --font-body: 'CMU Serif', 'Latin Modern Roman', Georgia, serif;
+  --font-label: 'CMU Sans Serif', 'Latin Modern Sans', system-ui, sans-serif;
+  --font-mono: 'CMU Typewriter Text', 'Latin Modern Mono', ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #0F0D17;
+    --color-surface: #181524;
+    --color-text: #ECEAF2;
+    --color-muted: #9C97AD;
+    --color-rule: #2A2639;
+    --color-accent: #5EC962;
+    --color-accent2: #9DB2F0;
+    --color-viridis-yellow: #FDE725;  /* graphics only */
+    --color-viridis-teal: #21918C;  /* graphics only */
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #0F0D17;
+  --color-surface: #181524;
+  --color-text: #ECEAF2;
+  --color-muted: #9C97AD;
+  --color-rule: #2A2639;
+  --color-accent: #5EC962;
+  --color-accent2: #9DB2F0;
+  --color-viridis-yellow: #FDE725;  /* graphics only */
+  --color-viridis-teal: #21918C;  /* graphics only */
+  color-scheme: dark;
+}

@@ -1,0 +1,97 @@
+/* Polar Vortex — brand tokens for jackstephenbaker.com
+   Palette "Perovskite". Light is the default; dark follows the OS
+   unless <html data-theme="light|dark"> overrides it. */
+
+@font-face {
+  font-family: 'New Computer Modern';
+  src: url('./fonts/NewCM10-Book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'New Computer Modern';
+  src: url('./fonts/NewCM10-BookItalic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'New Computer Modern';
+  src: url('./fonts/NewCM10-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'New Computer Modern Sans';
+  src: url('./fonts/NewCMSans10-Book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'New Computer Modern Sans';
+  src: url('./fonts/NewCMSans10-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'New Computer Modern Mono';
+  src: url('./fonts/NewCMMono10-Book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-bg: #F3F6F8;
+  --color-surface: #FFFFFF;
+  --color-text: #0C1626;
+  --color-muted: #4F5D72;
+  --color-rule: #D5DCE4;
+  --color-accent: #0B6E8A;
+  --color-accent2: #3B4FD8;
+  --phase-0: #0E7C99;
+  --phase-1: #3B4FD8;
+  --phase-2: #C03A6E;
+  --phase-3: #C8860F;
+  --font-display: 'New Computer Modern', 'Latin Modern Roman', Georgia, serif;
+  --font-body: 'New Computer Modern', 'Latin Modern Roman', Georgia, serif;
+  --font-label: 'New Computer Modern Sans', 'Latin Modern Sans', system-ui, sans-serif;
+  --font-mono: 'New Computer Modern Mono', 'Latin Modern Mono', ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #0A0F19;
+    --color-surface: #121A28;
+    --color-text: #E3E9F2;
+    --color-muted: #8E9AAF;
+    --color-rule: #233047;
+    --color-accent: #3FD0E0;
+    --color-accent2: #8C9BFF;
+    --phase-0: #3FD0E0;
+    --phase-1: #8C9BFF;
+    --phase-2: #F27BA6;
+    --phase-3: #F5B94A;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #0A0F19;
+  --color-surface: #121A28;
+  --color-text: #E3E9F2;
+  --color-muted: #8E9AAF;
+  --color-rule: #233047;
+  --color-accent: #3FD0E0;
+  --color-accent2: #8C9BFF;
+  --phase-0: #3FD0E0;
+  --phase-1: #8C9BFF;
+  --phase-2: #F27BA6;
+  --phase-3: #F5B94A;
+  color-scheme: dark;
+}

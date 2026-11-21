@@ -1,0 +1,110 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import portrait from '../assets/portrait.jpeg';
+import { SOCIAL } from '../data/site';
+
+const roles = [
+  { when: 'Now', org: 'Zapata Quantum', href: 'https://zapataquantum.com/', role: 'Lead Quantum Applications Scientist', text: '' },
+  { when: 'Visiting', org: 'University of Toronto, Matter Lab', href: 'https://www.matter.toronto.edu/', role: 'Visiting Scientist', text: 'Quantum computational fluid dynamics, in Alán Aspuru-Guzik’s group.' },
+  { when: 'Before', org: 'LG Electronics, Toronto AI Lab', href: 'https://www.lg.com/global/', role: 'Senior Quantum Research Scientist', text: 'Led work on fault-tolerant quantum simulation of chemistry.' },
+  { when: 'Before', org: 'Xanadu', href: 'https://www.xanadu.ai/', role: 'Quantum chemistry', text: 'Quantum algorithms for spin defects and machine-learned density functionals (GradDFT).' },
+  { when: 'Before', org: 'Agnostiq', href: 'https://www.agnostiq.ai/', role: 'Quantum algorithms', text: 'Machine-learning and optimisation algorithms for noisy intermediate-scale quantum computers; Covalent.' },
+  { when: 'Before', org: 'McLaren Applied', href: 'https://mclarenapplied.com/', role: 'Machine learning', text: 'Machine learning applied to biotechnology.' },
+  { when: 'Before', org: 'Diamond Light Source', href: 'https://www.diamond.ac.uk/', role: 'Research', text: 'Nanoscale measurement techniques.' },
+];
+const education = [
+  { degree: 'PhD, Computational Physics', org: 'University College London & London Centre for Nanotechnology', text: 'Supervised by Prof. David R. Bowler. Thesis: Long range order in ferroelectric and antiferroelectric perovskites meets large scale density functional theory.', href: 'https://discovery.ucl.ac.uk/id/eprint/10118419/' },
+  { degree: 'MPhys, Physics & Nanotechnology', org: 'University of Leicester', text: '', href: 'https://le.ac.uk/' },
+];
+---
+<Base title="About" description="Jack S. Baker is a British-Canadian computational physicist and Lead Quantum Applications Scientist at Zapata Quantum, based in Toronto.">
+  <section class="wrap about">
+    <div class="about-photo rise">
+      <Image src={portrait} alt="Jack S. Baker" widths={[320, 640]} sizes="320px" loading="eager" />
+    </div>
+    <div class="about-copy">
+      <p class="t-label kicker rise" style="--i:0">About</p>
+      <h1 class="t-h1 rise" style="--i:1">Jack S. Baker</h1>
+      <div class="prose rise" style="--i:2">
+        <p class="t-lead">
+          I’m a British-turned-Canadian computational physicist working on quantum computing, machine learning and
+          the simulation of molecules and materials. I live in Toronto.
+        </p>
+        <p>
+          I studied physics and nanotechnology at the <a href="https://le.ac.uk/">University of Leicester</a>, then did a PhD in
+          computational physics at <a href="https://www.ucl.ac.uk/">UCL</a> and the <a href="https://www.london-nano.com/">London Centre for Nanotechnology</a>
+          with <a href="https://www.ucl.ac.uk/physics-astronomy/people/professor-david-bowler">Prof. David R. Bowler</a>, running some of the
+          largest density functional theory simulations of ferroelectrics to date. Since then I have moved from materials towards
+          quantum algorithms, with machine learning running through both.
+        </p>
+        <p>
+          Today I am Lead Quantum Applications Scientist at <a href="https://zapataquantum.com/">Zapata Quantum</a>. On the side,
+          I am a visiting scientist at the University of Toronto in <a href="https://www.matter.toronto.edu/">Alán Aspuru-Guzik’s Matter Lab</a>,
+          working on quantum computational fluid dynamics. Before Zapata, I led work on fault-tolerant quantum simulation of
+          chemistry at LG Electronics’ Toronto AI Lab.
+        </p>
+        <p>Away from the blackboard and the code editor, you will find me fishing the salmon run in northern Ontario.</p>
+      </div>
+      <div class="btn-row rise" style="--i:3">
+        {SOCIAL.map((s) => <a class="btn" href={s.href} target="_blank" rel="me noopener"><Icon name={s.icon} size={18} />{s.label}</a>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="exp-h">
+    <div class="section-head"><h2 id="exp-h" class="t-h2">Experience</h2></div>
+    <ol class="cv">
+      {roles.map((r) => (
+        <li>
+          <span class={`t-label when ${r.when === 'Now' ? 'kicker' : ''}`}>{r.when}</span>
+          <div>
+            <h3 class="cv-title"><a class="link" href={r.href} target="_blank" rel="noopener">{r.org}</a></h3>
+            <p class="t-small muted">{r.role}</p>
+            {r.text && <p class="cv-text">{r.text}</p>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="section wrap" aria-labelledby="edu-h">
+    <div class="section-head"><h2 id="edu-h" class="t-h2">Education</h2></div>
+    <ol class="cv">
+      {education.map((e) => (
+        <li>
+          <span class="t-label when">Degree</span>
+          <div>
+            <h3 class="cv-title">{e.degree}</h3>
+            <p class="t-small muted"><a class="link" href={e.href} target="_blank" rel="noopener">{e.org}</a></p>
+            {e.text && <p class="cv-text">{e.text}</p>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="section wrap" id="privacy" aria-labelledby="priv-h">
+    <div class="card privacy">
+      <h2 id="priv-h" class="t-h3">Privacy</h2>
+      <p class="muted">
+        This site sets no cookies and runs no analytics. Your theme choice is kept in your own browser’s local storage.
+        Comments on blog posts are provided by giscus and GitHub, and load only when you scroll to them.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .about { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: var(--space-12); padding-top: var(--space-16); align-items: start; }
+  .about-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-lg); border: 1px solid var(--line); }
+  .about-copy { display: grid; gap: var(--space-6); }
+  .cv { list-style: none; margin: 0; padding: 0; max-width: 820px; }
+  .cv li { display: grid; grid-template-columns: 96px 1fr; gap: var(--space-6); padding-block: var(--space-6); border-top: 1px solid var(--line); }
+  .when { padding-top: 6px; }
+  .cv-title { font-size: 22px; line-height: 30px; }
+  .cv-text { margin-top: var(--space-2); }
+  .privacy { max-width: 820px; display: grid; gap: var(--space-3); }
+  @media (max-width: 800px) { .about { grid-template-columns: 1fr; padding-top: var(--space-12); } .about-photo { max-width: 200px; } .cv li { grid-template-columns: 1fr; gap: var(--space-2); } }
+</style>

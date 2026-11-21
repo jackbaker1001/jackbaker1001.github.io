@@ -1,0 +1,138 @@
+---
+import { render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import Comments from '../../components/Comments.astro';
+import Icon from '../../components/Icon.astro';
+import { getPosts, isHosted, formatDate, readingTime, slugifyTag, tagLabel } from '../../lib/posts';
+import { SITE } from '../../data/site';
+import 'katex/dist/katex.min.css';
+
+export async function getStaticPaths() {
+  const hosted = (await getPosts()).filter(isHosted);
+  return hosted.map((post, i) => ({
+    params: { slug: post.id },
+    props: { post, newer: hosted[i - 1], older: hosted[i + 1] },
+  }));
+}
+const { post, newer, older } = Astro.props;
+const { Content, headings } = await render(post);
+const d = post.data;
+const toc = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+const url = new URL(`/blog/${post.id}/`, SITE.url).toString();
+const share = [
+  { label: 'LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}` },
+  { label: 'Bluesky', href: `https://bsky.app/intent/compose?text=${encodeURIComponent(`${d.title} ${url}`)}` },
+  { label: 'X', href: `https://x.com/intent/post?text=${encodeURIComponent(d.title)}&url=${encodeURIComponent(url)}` },
+];
+---
+<Base title={d.title} description={d.description} type="article" published={d.date} image={`/og/blog/${post.id}.png`}>
+  <div class="progress" aria-hidden="true"><span data-progress></span></div>
+  <article class="wrap post">
+    <header class="post-head">
+      <a class="arrow-link back rise" href="/blog/"><span class="arr">←</span><span class="lbl">All posts</span></a>
+      <p class="t-label post-meta rise" style="--i:1">
+        <time datetime={d.date.toISOString()}>{formatDate(d.date)}</time>
+        <span aria-hidden="true">·</span><span>{readingTime(post.body)}</span>
+        {d.updated && <><span aria-hidden="true">·</span><span>Updated {formatDate(d.updated)}</span></>}
+        {d.draft && <span class="tag tag-oxygen">Draft</span>}
+      </p>
+      <h1 class="t-h1 rise" style="--i:2">{d.title}</h1>
+      <p class="t-lead rise" style="--i:3">{d.description}</p>
+      {d.tags.length > 0 && (
+        <div class="tag-row rise" style="--i:4">{d.tags.map((t) => <a class="tag" href={`/blog/tags/${slugifyTag(t)}/`}>{tagLabel(t)}</a>)}</div>
+      )}
+    </header>
+
+    {d.cover && (
+      <figure class="post-hero plate">
+        <Image src={d.cover} alt={d.coverAlt ?? ''} widths={[720, 1120, 1600]} sizes="(max-width: 1120px) 100vw, 1072px" loading="eager" />
+      </figure>
+    )}
+
+    <div class="post-body">
+      {toc.length > 1 && (
+        <aside class="toc" aria-label="Contents">
+          <p class="t-label">Contents</p>
+          <ol>
+            {toc.map((h) => <li class={`d${h.depth}`}><a href={`#${h.slug}`} data-toc={h.slug}>{h.text.replace(/#$/, '')}</a></li>)}
+          </ol>
+        </aside>
+      )}
+      <div class="prose" data-prose>
+        <Content />
+      </div>
+    </div>
+
+    <footer class="post-foot">
+      <div class="share">
+        <p class="t-label">Share</p>
+        <div class="share-links">
+          {share.map((s) => <a class="chip" href={s.href} target="_blank" rel="noopener">{s.label}</a>)}
+          <button class="chip" type="button" data-copy-link={url}><Icon name="copy" size={14} /> <span>Copy link</span></button>
+        </div>
+      </div>
+      <nav class="pager" aria-label="More posts">
+        {newer ? <a class="card spot" href={`/blog/${newer.id}/`}><span class="t-label">Newer</span><span class="card-title">{newer.data.title}</span></a> : <span />}
+        {older ? <a class="card spot older" href={`/blog/${older.id}/`}><span class="t-label">Older</span><span class="card-title">{older.data.title}</span></a> : <span />}
+      </nav>
+      {d.comments && <Comments />}
+    </footer>
+  </article>
+</Base>
+
+<style>
+  .progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 60; pointer-events: none; }
+  .progress span { display: block; height: 100%; background: var(--nitrogen); transform-origin: 0 50%; transform: scaleX(0); }
+  .post-head { display: grid; gap: var(--space-4); max-width: 760px; padding-top: var(--space-12); padding-bottom: var(--space-8); }
+  .back { justify-self: start; }
+  .back:hover .arr { transform: translateX(-4px); }
+  .post-meta { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+  .post-hero { margin-bottom: var(--space-12); }
+  .post-body { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: var(--space-12); align-items: start; }
+  .post-body .prose { grid-column: 1; grid-row: 1; }
+  .toc { grid-column: 2; position: sticky; top: 96px; display: grid; gap: var(--space-3); padding-left: var(--space-4); border-left: 1px solid var(--line); }
+  .toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+  .toc a { font-family: var(--font-sans); font-size: 14px; line-height: 19px; color: var(--ink-muted); text-decoration: none; display: block; transition: color .2s, transform .3s var(--ease); }
+  .toc .d3 a { padding-left: var(--space-3); font-size: 13px; }
+  .toc a:hover { color: var(--ink); transform: translateX(2px); }
+  .toc a[aria-current='true'] { color: var(--nitrogen); }
+  .post-foot { max-width: 68ch; margin-top: var(--space-16); display: grid; gap: var(--space-8); }
+  .share { display: grid; gap: var(--space-3); }
+  .share-links { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .pager { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+  .pager .card { display: grid; gap: var(--space-2); padding: var(--space-4) var(--space-6); }
+  .pager .older { text-align: right; }
+  @media (max-width: 1000px) { .post-body { grid-template-columns: 1fr; } .toc { display: none; } }
+  @media (max-width: 600px) { .pager { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  // reading progress
+  const bar = document.querySelector<HTMLElement>('[data-progress]');
+  const prose = document.querySelector<HTMLElement>('[data-prose]');
+  const onScroll = () => {
+    if (!bar || !prose) return;
+    const r = prose.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (innerHeight * 0.4 - r.top) / r.height));
+    bar.style.transform = `scaleX(${p})`;
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  // highlight the current section in the contents
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-toc]')];
+  const heads = links.map((a) => document.getElementById(a.dataset.toc!)).filter(Boolean) as HTMLElement[];
+  const onToc = () => {
+    let cur = heads[0]?.id;
+    for (const h of heads) if (h.getBoundingClientRect().top < innerHeight * 0.3) cur = h.id;
+    links.forEach((a) => a.setAttribute('aria-current', String(a.dataset.toc === cur)));
+  };
+  if (links.length) { addEventListener('scroll', onToc, { passive: true }); onToc(); }
+  // copy link
+  document.querySelector<HTMLButtonElement>('[data-copy-link]')?.addEventListener('click', async (e) => {
+    const b = e.currentTarget as HTMLButtonElement;
+    const span = b.querySelector('span')!;
+    try { await navigator.clipboard.writeText(b.dataset.copyLink!); span.textContent = 'Copied'; } catch { span.textContent = 'Copy failed'; }
+    setTimeout(() => (span.textContent = 'Copy link'), 1600);
+  });
+</script>

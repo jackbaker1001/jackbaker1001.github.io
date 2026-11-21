@@ -1,0 +1,26 @@
+---
+import Mark from './Mark.astro';
+import { SITE } from '../data/site';
+interface Props { size?: number; href?: string; tagline?: boolean }
+const { size = 30, href = '/', tagline = false } = Astro.props;
+---
+<a class="gs-logo" href={href} aria-label="Jack S. Baker, home">
+  <Mark height={size} />
+  <span class="gs-logo-words">
+    <span class="gs-logo-name" style={`font-size:${Math.round(size * 0.66)}px`}>Jack S. Baker</span>
+    {tagline && <span class="gs-logo-tag">{SITE.tagline}</span>}
+  </span>
+</a>
+<style is:global>
+  .gs-logo { display: inline-flex; align-items: center; gap: 0.6em; color: var(--ink); text-decoration: none; border-radius: var(--radius-sm); }
+  .gs-logo-words { display: grid; gap: 3px; }
+  .gs-logo-name { font-family: var(--font-serif); line-height: 1; letter-spacing: -0.005em; white-space: nowrap; }
+  .gs-logo-tag { font-family: var(--font-sans); font-size: 11px; line-height: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); white-space: nowrap; }
+  /* Hover: the double bonds resonate (Kekulé swap) and the ket brackets breathe outwards. */
+  .gs-logo:hover .kk1, .gs-logo:focus-visible .kk1 { animation: gs-res-a 1.6s ease-in-out infinite; }
+  .gs-logo:hover .kk2, .gs-logo:focus-visible .kk2 { animation: gs-res-b 1.6s ease-in-out infinite; }
+  .gs-logo:hover .kb:first-of-type { transform: translateX(-3px); }
+  .gs-logo:hover .kb:last-of-type { transform: translateX(3px); }
+  @keyframes gs-res-a { 0%, 38% { opacity: 1; } 50%, 88% { opacity: 0; } 100% { opacity: 1; } }
+  @keyframes gs-res-b { 0%, 38% { opacity: 0; } 50%, 88% { opacity: 1; } 100% { opacity: 0; } }
+</style>

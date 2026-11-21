@@ -1,0 +1,11 @@
+---
+interface Props { title?: string }
+const { title } = Astro.props;
+---
+<aside class="callout">
+  {title && <p class="t-label kicker">{title}</p>}
+  <div><slot /></div>
+</aside>
+<style is:global>
+  .callout { border: 1px solid var(--line); border-left: 2px solid var(--nitrogen); border-radius: var(--radius-md); padding: var(--space-4) var(--space-6); background: color-mix(in srgb, var(--nitrogen-soft) 45%, transparent); display: grid; gap: var(--space-2); }
+</style>

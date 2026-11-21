@@ -1,0 +1,27 @@
+---
+/** Sun/moon toggle. Clicking stores an explicit light/dark choice; the footer can reset to system. */
+---
+<button class="icon-btn theme-toggle" type="button" aria-label="Switch to dark theme" data-theme-toggle>
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+    <mask id="moon-cut"><rect width="24" height="24" fill="#fff" /><circle class="cut" cx="24" cy="4" r="7" fill="#000" /></mask>
+    <circle class="core" cx="12" cy="12" r="4.5" fill="currentColor" mask="url(#moon-cut)" />
+    <g class="rays" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" />
+    </g>
+  </svg>
+</button>
+<style is:global>
+  .theme-toggle svg { overflow: visible; }
+  .theme-toggle .core { transition: r .5s var(--ease); }
+  .theme-toggle .cut { transition: cx .5s var(--ease), cy .5s var(--ease); }
+  .theme-toggle .rays { transform-origin: 12px 12px; transition: transform .5s var(--ease), opacity .3s; }
+  .theme-toggle:hover .rays { transform: rotate(30deg); }
+  :root[data-theme='dark'] .theme-toggle .core { r: 7; }
+  :root[data-theme='dark'] .theme-toggle .cut { cx: 16; cy: 8; }
+  :root[data-theme='dark'] .theme-toggle .rays { transform: rotate(-60deg) scale(.4); opacity: 0; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) .theme-toggle .core { r: 7; }
+    :root:not([data-theme='light']) .theme-toggle .cut { cx: 16; cy: 8; }
+    :root:not([data-theme='light']) .theme-toggle .rays { transform: rotate(-60deg) scale(.4); opacity: 0; }
+  }
+</style>

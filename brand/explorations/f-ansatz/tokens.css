@@ -1,0 +1,85 @@
+/* Ansatz — brand tokens for jackstephenbaker.com
+   Palette "Verdigris". Light is the default; dark follows the OS
+   unless <html data-theme="light|dark"> overrides it. */
+
+@font-face {
+  font-family: 'Euler Math';
+  src: url('./fonts/Euler-Math.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Concrete';
+  src: url('./fonts/cmunorm.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Concrete';
+  src: url('./fonts/cmunoti.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Concrete';
+  src: url('./fonts/cmunobx.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Latin Modern Mono Prop';
+  src: url('./fonts/lmmonoprop10-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Latin Modern Mono';
+  src: url('./fonts/lmmono10-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-bg: #F8F8F5;
+  --color-surface: #EFEFEA;
+  --color-text: #18191B;
+  --color-muted: #5C5E60;
+  --color-rule: #DADAD4;
+  --color-accent: #2C7262;
+  --color-accent2: #A4502B;
+  --font-display: 'Euler Math', 'Neo Euler', 'CMU Concrete', Georgia, serif;
+  --font-body: 'CMU Concrete', 'CMU Serif', Georgia, serif;
+  --font-label: 'Latin Modern Mono Prop', 'Latin Modern Mono', ui-monospace, monospace;
+  --font-mono: 'Latin Modern Mono', 'CMU Typewriter Text', ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #111413;
+    --color-surface: #1A1E1D;
+    --color-text: #ECEEEA;
+    --color-muted: #9AA29F;
+    --color-rule: #29302E;
+    --color-accent: #6CCBB3;
+    --color-accent2: #E8916A;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #111413;
+  --color-surface: #1A1E1D;
+  --color-text: #ECEEEA;
+  --color-muted: #9AA29F;
+  --color-rule: #29302E;
+  --color-accent: #6CCBB3;
+  --color-accent2: #E8916A;
+  color-scheme: dark;
+}

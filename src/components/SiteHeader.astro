@@ -1,0 +1,74 @@
+---
+import Logo from './Logo.astro';
+import ThemeToggle from './ThemeToggle.astro';
+import Icon from './Icon.astro';
+import { NAV } from '../data/site';
+const path = Astro.url.pathname;
+const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+<header class="site-header" data-header>
+  <div class="wrap bar">
+    <Logo size={30} />
+    <nav class="main-nav t-nav" aria-label="Main">
+      {NAV.map((l) => <a class="ket" href={l.href} aria-current={isCurrent(l.href) ? 'page' : undefined}>{l.label}</a>)}
+    </nav>
+    <div class="tools">
+      <button class="search-btn" type="button" data-search-open aria-label="Search the site">
+        <Icon name="search" size={18} />
+        <span class="t-nav lbl">Search</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <ThemeToggle />
+      <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" data-menu-btn>
+        <Icon name="menu" />
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Main" hidden>
+    <div class="wrap">
+      {NAV.map((l) => <a class="ket" href={l.href} aria-current={isCurrent(l.href) ? 'page' : undefined}>{l.label}</a>)}
+    </div>
+  </nav>
+</header>
+
+<style is:global>
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--surface) 78%, transparent);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s, background-color .3s;
+  }
+  .site-header[data-scrolled] { border-bottom-color: var(--line); }
+  .site-header .bar { height: var(--header-h); display: flex; align-items: center; gap: var(--space-8); }
+  .main-nav { display: flex; gap: var(--space-8); margin-left: auto; }
+  .tools { display: flex; align-items: center; gap: var(--space-2); }
+  .search-btn {
+    display: inline-flex; align-items: center; gap: var(--space-2); height: 38px; padding: 0 10px 0 12px;
+    border-radius: var(--radius-md); border: 1px solid var(--line); background: color-mix(in srgb, var(--surface-raised) 70%, transparent);
+    color: var(--ink-muted); cursor: pointer; transition: border-color .2s, color .2s;
+  }
+  .search-btn:hover { border-color: var(--line-strong); color: var(--ink); }
+  .search-btn kbd { font-family: var(--font-sans); font-size: 11px; letter-spacing: .04em; padding: 2px 5px; border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--ink-muted); }
+  .menu-btn { display: none; }
+  .mobile-nav { border-top: 1px solid var(--line); }
+  .mobile-nav .wrap { display: grid; padding-block: var(--space-4) var(--space-6); }
+  .mobile-nav .ket { font-family: var(--font-serif); font-size: 26px; line-height: 1.2; padding: 10px 0 10px 14px; justify-self: start; }
+  @media (max-width: 1060px) { .search-btn .lbl, .search-btn kbd { display: none; } .search-btn { width: 38px; padding: 0; justify-content: center; } .main-nav { gap: var(--space-6); } }
+  @media (max-width: 860px) { .main-nav { display: none; } .menu-btn { display: inline-grid; } .tools { margin-left: auto; } }
+</style>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const btn = document.querySelector<HTMLButtonElement>('[data-menu-btn]');
+  const panel = document.getElementById('mobile-nav');
+  const onScroll = () => header?.toggleAttribute('data-scrolled', window.scrollY > 8);
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  btn?.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (panel) panel.hidden = !open;
+  });
+</script>

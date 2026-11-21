@@ -1,0 +1,123 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Background from '../components/Background.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import Search from '../components/Search.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  published?: Date;
+  noindex?: boolean;
+  /** Background movement: "lively" for the home page, "calm" (default) for reading pages. */
+  motion?: 'lively' | 'calm';
+}
+const { motion = 'calm', ...props } = Astro.props;
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <BaseHead {...props} />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Background motion={motion} />
+    <SiteHeader />
+    <main id="main" data-pagefind-body={props.noindex ? undefined : ""}>
+      <slot />
+    </main>
+    <SiteFooter />
+    <Search />
+
+    <script>
+      /* ---------------- theme: toggle, footer set, circular reveal ---------------- */
+      const root = document.documentElement;
+      const mq = matchMedia('(prefers-color-scheme: dark)');
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+      const effective = () => (root.dataset.theme as 'light' | 'dark') || (mq.matches ? 'dark' : 'light');
+      const stored = () => { try { return localStorage.getItem('theme') || 'system'; } catch { return 'system'; } };
+
+      function sync() {
+        const eff = effective();
+        document.querySelectorAll('[data-theme-toggle]').forEach((b) => b.setAttribute('aria-label', `Switch to ${eff === 'dark' ? 'light' : 'dark'} theme`));
+        document.querySelectorAll<HTMLButtonElement>('[data-theme-set]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.themeSet === stored())));
+        window.dispatchEvent(new CustomEvent('themechange', { detail: eff }));
+      }
+      function apply(t: string) {
+        try {
+          if (t === 'system') { delete root.dataset.theme; localStorage.removeItem('theme'); }
+          else { root.dataset.theme = t; localStorage.setItem('theme', t); }
+        } catch { if (t !== 'system') root.dataset.theme = t; }
+        sync();
+      }
+      function switchTo(t: string, from?: Element) {
+        const before = effective();
+        const run = () => apply(t);
+        const changes = (t === 'system' ? (mq.matches ? 'dark' : 'light') : t) !== before;
+        if (!changes || reduce.matches || !('startViewTransition' in document)) return run();
+        const r = from?.getBoundingClientRect();
+        const x = r ? r.left + r.width / 2 : innerWidth / 2, y = r ? r.top + r.height / 2 : 0;
+        const end = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+        root.classList.add('theme-vt');
+        const vt = (document as any).startViewTransition(run);
+        vt.ready.then(() => root.animate(
+          { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${end}px at ${x}px ${y}px)`] },
+          { duration: 620, easing: 'cubic-bezier(.2,.7,.2,1)', pseudoElement: '::view-transition-new(root)' },
+        ));
+        vt.finished.finally(() => root.classList.remove('theme-vt'));
+      }
+      document.addEventListener('click', (e) => {
+        const el = e.target as Element;
+        const tog = el.closest('[data-theme-toggle]');
+        if (tog) return switchTo(effective() === 'dark' ? 'light' : 'dark', tog);
+        const set = el.closest<HTMLElement>('[data-theme-set]');
+        if (set) switchTo(set.dataset.themeSet!, set);
+      });
+      mq.addEventListener('change', sync);
+      sync();
+
+      /* ---------------- pointer spotlight on .spot cards ---------------- */
+      document.addEventListener('pointermove', (e) => {
+        const card = (e.target as Element).closest?.<HTMLElement>('.spot');
+        if (!card) return;
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        card.style.setProperty('--my', `${e.clientY - r.top}px`);
+      }, { passive: true });
+
+      /* ---------------- "Cite" buttons copy BibTeX ---------------- */
+      document.addEventListener('click', async (e) => {
+        const b = (e.target as Element).closest<HTMLButtonElement>('[data-bib]');
+        if (!b) return;
+        const lbl = b.querySelector('.lbl')!;
+        try { await navigator.clipboard.writeText(b.dataset.bib!); lbl.textContent = 'BibTeX copied'; b.dataset.done = ''; }
+        catch { lbl.textContent = 'Copy failed'; }
+        setTimeout(() => { lbl.textContent = 'Cite'; delete b.dataset.done; }, 1800);
+      });
+
+      /* ---------------- copy buttons on code blocks ---------------- */
+      document.querySelectorAll('pre.astro-code').forEach((pre) => {
+        const wrap = document.createElement('div');
+        wrap.className = 'code-wrap';
+        pre.parentNode!.insertBefore(wrap, pre);
+        wrap.appendChild(pre);
+        const b = document.createElement('button');
+        b.className = 'copy-btn'; b.type = 'button'; b.textContent = 'Copy';
+        b.addEventListener('click', async () => {
+          try { await navigator.clipboard.writeText((pre as HTMLElement).innerText); b.textContent = 'Copied'; b.dataset.done = ''; }
+          catch { b.textContent = 'Press ⌘C'; }
+          setTimeout(() => { b.textContent = 'Copy'; delete b.dataset.done; }, 1600);
+        });
+        wrap.appendChild(b);
+      });
+    </script>
+    <style is:global>
+      html.theme-vt::view-transition-old(root), html.theme-vt::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+      html.theme-vt .site-header, html.theme-vt #bg-canvas { view-transition-name: none; }
+    </style>
+  </body>
+</html>

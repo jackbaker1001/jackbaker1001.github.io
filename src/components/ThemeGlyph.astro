@@ -1,0 +1,47 @@
+---
+/** Small line drawings for the three research themes; nodes light up on card hover. */
+interface Props { kind: 'quantum' | 'ml' | 'materials' }
+const { kind } = Astro.props;
+---
+<svg class={`glyph glyph-${kind}`} viewBox="0 0 120 64" aria-hidden="true">
+  {kind === 'quantum' && (
+    <g>
+      {[14, 32, 50].map((y) => <line x1="4" y1={y} x2="116" y2={y} class="g-edge" />)}
+      <rect x="18" y="7" width="14" height="14" rx="2" class="g-box" /><text x="25" y="17.5" class="g-txt">H</text>
+      <line x1="48" y1="14" x2="48" y2="32" class="g-edge" /><circle cx="48" cy="14" r="2.6" class="g-node" style="--d:1" /><circle cx="48" cy="32" r="2.6" class="g-node" style="--d:2" />
+      <line x1="70" y1="32" x2="70" y2="50" class="g-edge" /><circle cx="70" cy="32" r="2.6" class="g-node" style="--d:3" /><circle cx="70" cy="50" r="2.6" class="g-node" style="--d:4" />
+      <rect x="88" y="43" width="14" height="14" rx="2" class="g-box" /><path d="M91 53a4 4 0 0 1 8 0M95 53l3-5" class="g-edge" />
+    </g>
+  )}
+  {kind === 'ml' && (
+    <g>
+      {[[16, [16, 32, 48]], [60, [10, 24, 40, 54]], [104, [24, 40]]].flatMap(([x, ys], li, all) =>
+        li < all.length - 1 ? (ys as number[]).flatMap((y) => ((all[li + 1][1]) as number[]).map((y2) => <line x1={x as number} y1={y} x2={all[li + 1][0] as number} y2={y2} class="g-edge" />)) : [])}
+      {[[16, [16, 32, 48]], [60, [10, 24, 40, 54]], [104, [24, 40]]].flatMap(([x, ys], li) =>
+        (ys as number[]).map((y, i) => <circle cx={x as number} cy={y} r="3.4" class="g-node" style={`--d:${li * 2 + i * 0.5}`} />))}
+    </g>
+  )}
+  {kind === 'materials' && (
+    <g>
+      <path d="M30 18h40v40H30z M50 6h40v40H50z" class="g-edge g-dash" />
+      <path d="M30 18 50 6M70 18l20-12M70 58l20-12M30 58l20-12" class="g-edge g-dash" />
+      <path d="M60 32 42 32M60 32h18M60 32l-8-10M60 32l8 10M60 32l-4 14M60 32l4-14" class="g-edge" />
+      {[[42, 32], [78, 32], [52, 22], [68, 42], [56, 46], [64, 18]].map(([x, y], i) => <circle cx={x} cy={y} r="2.6" class="g-node g-o" style={`--d:${i * 0.6}`} />)}
+      <circle cx="60" cy="32" r="3.6" class="g-node g-b" style="--d:0" />
+      {[[30, 18], [70, 18], [30, 58], [70, 58], [50, 6], [90, 6], [90, 46]].map(([x, y]) => <circle cx={x} cy={y} r="3.2" class="g-a" />)}
+    </g>
+  )}
+</svg>
+<style is:global>
+  .glyph { width: 120px; height: 64px; overflow: visible; }
+  .glyph .g-edge { stroke: var(--line-strong); stroke-width: 1; fill: none; opacity: .7; }
+  .glyph .g-dash { stroke-dasharray: 2 3; opacity: .5; }
+  .glyph .g-box { fill: var(--surface-raised); stroke: var(--line-strong); }
+  .glyph .g-txt { font: 11px var(--font-serif); fill: var(--ink-muted); text-anchor: middle; }
+  .glyph .g-node { fill: var(--surface-raised); stroke: var(--line-strong); stroke-width: 1.2; transition: fill .3s, stroke .3s; transition-delay: calc(var(--d, 0) * 70ms); }
+  .glyph .g-b { fill: var(--sulfur); stroke: none; opacity: .8; }
+  .glyph .g-o { fill: var(--oxygen); stroke: none; opacity: .55; }
+  .glyph .g-a { fill: var(--ink-muted); opacity: .45; }
+  a:hover .glyph .g-node:not(.g-b):not(.g-o) { fill: var(--nitrogen); stroke: var(--nitrogen); }
+  a:hover .glyph .g-o { opacity: .9; }
+</style>

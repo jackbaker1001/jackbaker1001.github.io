@@ -1,0 +1,40 @@
+---
+/** Outline icons (1.5px strokes, currentColor) plus monochrome service glyphs. */
+interface Props { name: string; size?: number; class?: string; label?: string }
+const { name, size = 20, class: cls, label } = Astro.props;
+const stroke: Record<string, string> = {
+  search: '<circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>',
+  menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+  close: '<path d="M6 6l12 12M18 6 6 18"/>',
+  arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  external: '<path d="M8 16 16 8M9.5 8H16v6.5"/>',
+  rss: '<path d="M5 5a14 14 0 0 1 14 14M5 11a8 8 0 0 1 8 8"/><circle cx="6" cy="18" r="1.2" fill="currentColor" stroke="none"/>',
+  mail: '<rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="m4 7 8 6 8-6"/>',
+  copy: '<rect x="8.5" y="8.5" width="11" height="11" rx="1.5"/><path d="M15.5 8.5v-2A1.5 1.5 0 0 0 14 5H6.5A1.5 1.5 0 0 0 5 6.5V14a1.5 1.5 0 0 0 1.5 1.5h2"/>',
+  check: '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+  doc: '<path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/>',
+  code: '<path d="m9 7-5 5 5 5M15 7l5 5-5 5"/>',
+  quote: '<path d="M9.5 7H6a1 1 0 0 0-1 1v4h4.5V7zM19 7h-3.5a1 1 0 0 0-1 1v4H19zM9.5 12c0 3-1.5 5-4.5 5M19 12c0 3-1.5 5-4.5 5"/>',
+  monitor: '<rect x="3.5" y="4.5" width="17" height="12" rx="1.5"/><path d="M9 20h6M12 16.5V20"/>',
+  'arrow-up': '<path d="M12 19V5M6 11l6-6 6 6"/>',
+};
+const fill: Record<string, string> = {
+  github: '<path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.7c-2.7.6-3.2-1.2-3.2-1.2-.4-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.1-.2-4.4-1.1-4.4-4.7 0-1 .4-1.9 1-2.6-.1-.2-.4-1.2.1-2.5 0 0 .8-.3 2.6 1a9 9 0 0 1 4.8 0c1.8-1.3 2.6-1 2.6-1 .5 1.3.2 2.3.1 2.5.6.7 1 1.6 1 2.6 0 3.7-2.3 4.5-4.4 4.7.3.3.7.9.7 1.8v2.7c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5z"/>',
+  scholar: '<path d="M12 3 1.5 10.5h3.7a7 7 0 0 0 13.6 0h3.7zM12 20.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>',
+  linkedin: '<path d="M4.5 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 9h3v11.5H3zM8.5 9h2.9v1.6c.4-.8 1.4-1.8 3.2-1.8 3.1 0 3.9 2 3.9 4.7v6H15.4v-5.3c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8v5.4h-3z"/>',
+  researchgate: '<path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm4.6 4.6c-1.8 0-2.6 1-2.6 2.6v.5c0 1.5.7 2.4 2 2.6L6 18h1.6l1.9-4.5h.9V18h1.4V7.7c-.9-.1-2-.1-3.2-.1zm.6 1.2h1.2v3.6h-1c-1 0-1.6-.5-1.6-1.6v-.5c0-1 .4-1.5 1.4-1.5zm6.9 1.1c-1.4 0-2.1.8-2.1 2.1v2.6c0 1.4.7 2.1 2.1 2.1 1.4 0 2-.7 2-2v-1.6h-2v1h.9v.6c0 .6-.3.9-.9.9s-.9-.3-.9-1v-2.6c0-.7.3-1 .9-1s.9.3.9.9h1.1c0-1.3-.7-2-2-2z"/>',
+};
+const isFill = name in fill;
+const body = isFill ? fill[name] : stroke[name] ?? '';
+---
+<svg
+  class={cls}
+  width={size} height={size} viewBox="0 0 24 24"
+  fill={isFill ? 'currentColor' : 'none'}
+  stroke={isFill ? 'none' : 'currentColor'}
+  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+  role={label ? 'img' : undefined}
+  aria-label={label}
+  aria-hidden={label ? undefined : 'true'}
+  set:html={body}
+/>

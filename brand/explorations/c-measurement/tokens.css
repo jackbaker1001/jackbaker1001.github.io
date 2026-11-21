@@ -1,0 +1,74 @@
+/* Measurement — brand tokens for jackstephenbaker.com
+   Palette "Cryostat". Light is the default; dark follows the OS
+   unless <html data-theme="light|dark"> overrides it. */
+
+@font-face {
+  font-family: 'CMU Concrete';
+  src: url('./fonts/cmunorm.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Concrete';
+  src: url('./fonts/cmunoti.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Concrete';
+  src: url('./fonts/cmunobx.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Typewriter Text';
+  src: url('./fonts/cmuntt.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-bg: #F7F7F5;
+  --color-surface: #FFFFFF;
+  --color-text: #141518;
+  --color-muted: #5D5B56;
+  --color-rule: #DEDCD5;
+  --color-accent: #8A6212;
+  --color-accent2: #A4471E;
+  --color-gold: #E3B35A;  /* brand gold: fills, never text on light */
+  --font-display: 'CMU Concrete', 'CMU Serif', Georgia, serif;
+  --font-body: 'CMU Concrete', 'CMU Serif', Georgia, serif;
+  --font-label: 'CMU Typewriter Text', 'Latin Modern Mono', ui-monospace, monospace;
+  --font-mono: 'CMU Typewriter Text', 'Latin Modern Mono', ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #0E0F11;
+    --color-surface: #17191D;
+    --color-text: #EEEAE2;
+    --color-muted: #9D988E;
+    --color-rule: #2A2C31;
+    --color-accent: #E3B35A;
+    --color-accent2: #E5835A;
+    --color-gold: #E3B35A;  /* brand gold: fills, never text on light */
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #0E0F11;
+  --color-surface: #17191D;
+  --color-text: #EEEAE2;
+  --color-muted: #9D988E;
+  --color-rule: #2A2C31;
+  --color-accent: #E3B35A;
+  --color-accent2: #E5835A;
+  --color-gold: #E3B35A;  /* brand gold: fills, never text on light */
+  color-scheme: dark;
+}

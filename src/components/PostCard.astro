@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { formatDate, readingTime } from '../lib/posts';
+
+interface Props { post: CollectionEntry<'posts'>; showCover?: boolean }
+const { post, showCover = true } = Astro.props;
+const d = post.data;
+const ext = d.external;
+const href = ext ? ext.url : `/blog/${post.id}/`;
+---
+<a class="card spot post-card" href={href} {...(ext ? { target: '_blank', rel: 'noopener' } : {})}>
+  {showCover && d.cover && (
+    <div class="post-cover"><Image src={d.cover} alt={d.coverAlt ?? ''} widths={[400, 720]} sizes="(max-width: 700px) 100vw, 360px" /></div>
+  )}
+  <p class="t-label post-meta">
+    <time datetime={d.date.toISOString()}>{formatDate(d.date)}</time>
+    <span aria-hidden="true">·</span>
+    {ext ? <span class="ext">On {ext.site} <Icon name="external" size={14} /></span> : <span>{readingTime(post.body)}</span>}
+    {d.draft && <span class="tag tag-oxygen">Draft</span>}
+  </p>
+  <h3 class="card-title post-title">{d.title}</h3>
+  <p class="post-desc muted">{d.description}</p>
+  <span class="arrow-link post-go">
+    <span class="lbl">{ext ? `Read on ${ext.site}` : 'Read the post'}</span>
+    <span class="arr">{ext ? '↗' : '→'}</span>
+  </span>
+</a>
+<style is:global>
+  .post-card { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4) var(--space-4) var(--space-6); }
+  .post-card > :not(.post-cover) { margin-inline: var(--space-2); }
+  .post-cover { border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 16 / 9; background: #fff; border: 1px solid var(--line); }
+  .post-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+  .post-card:hover .post-cover img { transform: scale(1.03); }
+  .post-meta { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+  .post-meta .ext { display: inline-flex; align-items: center; gap: 2px; }
+  .post-title { font-size: 22px; line-height: 30px; }
+  .post-desc { font-size: 16px; line-height: 25px; flex: 1; }
+  .post-go { margin-top: var(--space-2); }
+  .post-card:hover .post-go .lbl { background-size: 100% 1px; }
+  .post-card:hover .post-go .arr { transform: translateX(4px); }
+</style>

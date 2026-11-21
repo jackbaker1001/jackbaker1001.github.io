@@ -1,0 +1,46 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { NAV, SOCIAL, SITE } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <Logo size={34} tagline />
+        <p class="t-small muted">{SITE.role}, {SITE.org}. {SITE.visiting.role}, {SITE.visiting.org}. Based in {SITE.location}.</p>
+      </div>
+      <nav class="foot-nav t-nav" aria-label="Footer">
+        {NAV.map((l) => <a class="link" href={l.href}>{l.label}</a>)}
+      </nav>
+      <div class="foot-social">
+        {SOCIAL.map((s) => (
+          <a class="icon-btn" href={s.href} rel="me noopener" target="_blank" aria-label={s.label} title={s.label}><Icon name={s.icon} /></a>
+        ))}
+        <a class="icon-btn" href="/rss.xml" aria-label="RSS feed for the blog" title="RSS"><Icon name="rss" /></a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p class="t-label">© {year} Jack S. Baker · Set in New Computer Modern · No cookies or tracking</p>
+      <div class="theme-set" role="group" aria-label="Colour theme">
+        <button type="button" data-theme-set="light">Light</button>
+        <button type="button" data-theme-set="dark">Dark</button>
+        <button type="button" data-theme-set="system">System</button>
+      </div>
+    </div>
+  </div>
+</footer>
+<style is:global>
+  .site-footer { margin-top: var(--space-24); border-top: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 82%, transparent); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr auto; gap: var(--space-8); padding-block: var(--space-12); align-items: start; }
+  .foot-brand { display: grid; gap: var(--space-4); }
+  .foot-nav { display: grid; gap: var(--space-2); justify-items: start; color: var(--ink-muted); }
+  .foot-social { display: flex; gap: var(--space-1); }
+  .foot-base { display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); flex-wrap: wrap; padding-block: var(--space-4) var(--space-6); border-top: 1px solid var(--line); }
+  .theme-set { display: inline-flex; border: 1px solid var(--line); border-radius: var(--radius-full); padding: 2px; }
+  .theme-set button { font: 12px/16px var(--font-sans); letter-spacing: .06em; padding: 4px 10px; border: 0; border-radius: var(--radius-full); background: none; color: var(--ink-muted); cursor: pointer; transition: background-color .2s, color .2s; }
+  .theme-set button:hover { color: var(--ink); }
+  .theme-set button[aria-pressed='true'] { background: var(--surface-sunken); color: var(--ink); }
+  @media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr; } }
+</style>

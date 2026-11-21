@@ -1,0 +1,10 @@
+---
+interface Props { kicker?: string; title: string; lead?: string }
+const { kicker, title, lead } = Astro.props;
+---
+<header class="page-head wrap">
+  {kicker && <p class="t-label kicker rise" style="--i:0">{kicker}</p>}
+  <h1 class="t-h1 rise" style="--i:1">{title}</h1>
+  {lead && <p class="t-lead rise" style="--i:2" set:html={lead} />}
+  <slot />
+</header>

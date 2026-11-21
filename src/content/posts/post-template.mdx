@@ -1,0 +1,70 @@
+---
+title: "Post template: everything a post can do"
+description: A draft that shows the building blocks available to hosted posts. It appears in local development only and is never published.
+date: 2026-11-21
+tags: [meta]
+draft: true
+---
+
+import Figure from '../../components/Figure.astro';
+import Callout from '../../components/Callout.astro';
+import portfolio from '../../assets/blog/portfolio-opt.png';
+
+This file lives at `src/content/posts/post-template.mdx`. Because it has `draft: true`
+it shows up when you run `npm run dev`, marked as a draft, and is left out of the
+production build. Copy it (or run `npm run new-post "My title"`) to start a new post.
+
+## Text and links
+
+Paragraphs are set in New Computer Modern at a comfortable measure. Links look like
+[this one to arXiv](https://arxiv.org/), and footnotes work too.[^1]
+
+## Mathematics
+
+Inline maths uses dollar signs: the variational principle says
+$E_0 \le \langle \psi | \hat H | \psi \rangle$ for any normalised $|\psi\rangle$.
+Display maths uses double dollars:
+
+$$
+\hat H = -\sum_i \frac{\nabla_i^2}{2} - \sum_{i,A} \frac{Z_A}{|\mathbf r_i - \mathbf R_A|}
+       + \sum_{i<j} \frac{1}{|\mathbf r_i - \mathbf r_j|}
+$$
+
+## Code
+
+```python
+import pennylane as qml
+
+dev = qml.device("default.qubit", wires=2)
+
+@qml.qnode(dev)
+def bell(theta: float):
+    qml.Hadamard(wires=0)
+    qml.CNOT(wires=[0, 1])
+    qml.RY(theta, wires=1)
+    return qml.expval(qml.PauliZ(0) @ qml.PauliZ(1))  # ⟨Z⊗Z⟩
+```
+
+Inline code such as `qml.qnode` is set in the mono face.
+
+## Figures
+
+<Figure src={portfolio} alt="QAOA performance against circuit depth on two quantum computers.">
+  QAOA portfolio-optimisation performance on IonQ and Rigetti hardware. Images placed
+  through `Figure` are resized and served in modern formats automatically.
+</Figure>
+
+## Callouts
+
+<Callout title="Note">
+  Use a callout for an aside the reader can skip. Keep them rare.
+</Callout>
+
+> Block quotes are for quoting other people, set off with a nitrogen rule.
+
+| Method | Qubits | Depth |
+| ------ | -----: | ----: |
+| QPE    |    100 | 10⁶   |
+| VQE    |     20 | 10²   |
+
+[^1]: Footnotes collect at the end of the post.

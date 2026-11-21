@@ -1,0 +1,93 @@
+/* Jack S. Baker — Graph State brand tokens. Light is default; dark follows the OS
+   unless <html data-theme="light|dark"> overrides it. */
+
+@font-face { font-family: 'New Computer Modern'; src: url('/fonts/NewCM10-Book.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'New Computer Modern'; src: url('/fonts/NewCM10-BookItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'New Computer Modern'; src: url('/fonts/NewCM10-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'CMU Sans Serif'; src: url('/fonts/cmunss.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'New Computer Modern Mono'; src: url('/fonts/NewCMMono10-Book.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'New Computer Modern Math'; src: url('/fonts/NewCMMath-Book.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+
+:root {
+  --surface: #F6F6F3;
+  --surface-raised: #FFFFFF;
+  --surface-sunken: #EEEEEA;
+  --line: #D9DAD5;
+  --line-strong: #7F828A;
+  --ink: #1A1B1F;
+  --ink-muted: #5B5E67;
+  --nitrogen: #2E4BC6;
+  --nitrogen-soft: #E5E9FA;
+  --on-nitrogen: #FFFFFF;
+  --oxygen: #B8322A;
+  --oxygen-soft: #F8E4E1;
+  --sulfur: #C98F0A;
+  --focus-ring: var(--nitrogen);
+  --font-serif: 'New Computer Modern', 'Latin Modern Roman', 'CMU Serif', Georgia, serif;
+  --font-sans: 'CMU Sans Serif', 'Latin Modern Sans', system-ui, sans-serif;
+  --font-mono: 'New Computer Modern Mono', 'Latin Modern Mono', ui-monospace, Menlo, monospace;
+  --font-math: 'New Computer Modern Math', 'Latin Modern Math', 'STIX Two Math', math;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface: #111216;
+    --surface-raised: #1A1C21;
+    --surface-sunken: #0B0C0F;
+    --line: #2A2D34;
+    --line-strong: #6A6E79;
+    --ink: #ECECE7;
+    --ink-muted: #9A9DA6;
+    --nitrogen: #8EA2FF;
+    --nitrogen-soft: #1C2448;
+    --on-nitrogen: #111216;
+    --oxygen: #FF7B6F;
+    --oxygen-soft: #3A1A18;
+    --sulfur: #F2C94C;
+    --focus-ring: var(--nitrogen);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --surface: #111216;
+  --surface-raised: #1A1C21;
+  --surface-sunken: #0B0C0F;
+  --line: #2A2D34;
+  --line-strong: #6A6E79;
+  --ink: #ECECE7;
+  --ink-muted: #9A9DA6;
+  --nitrogen: #8EA2FF;
+  --nitrogen-soft: #1C2448;
+  --on-nitrogen: #111216;
+  --oxygen: #FF7B6F;
+  --oxygen-soft: #3A1A18;
+  --sulfur: #F2C94C;
+  --focus-ring: var(--nitrogen);
+  color-scheme: dark;
+}
+
+.t-display { font-family: var(--font-serif); font-size: 56px; line-height: 60px; font-weight: 400; letter-spacing: -0.01em; }  /* Hero headline, once per page. */
+.t-h1 { font-family: var(--font-serif); font-size: 44px; line-height: 50px; font-weight: 400; letter-spacing: -0.005em; }  /* Page titles. */
+.t-h2 { font-family: var(--font-serif); font-size: 32px; line-height: 40px; font-weight: 400; letter-spacing: 0; }  /* Section headings. */
+.t-h3 { font-family: var(--font-serif); font-size: 24px; line-height: 32px; font-weight: 400; letter-spacing: 0; }  /* Sub-sections, publication titles in lists. */
+.t-lead { font-family: var(--font-serif); font-size: 21px; line-height: 33px; font-weight: 400; letter-spacing: 0; }  /* Standfirst under a page title. */
+.t-body { font-family: var(--font-serif); font-size: 18px; line-height: 29px; font-weight: 400; letter-spacing: 0; }  /* Running text. Never smaller than 17px on screen. */
+.t-small { font-family: var(--font-serif); font-size: 15px; line-height: 23px; font-weight: 400; letter-spacing: 0; }  /* Author lists, captions, footnotes. */
+.t-nav { font-family: var(--font-sans); font-size: 15px; line-height: 20px; font-weight: 400; letter-spacing: 0.01em; }  /* Navigation and UI controls. */
+.t-label { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; }  /* Kickers and section labels, set uppercase. */
+.t-code { font-family: var(--font-mono); font-size: 14px; line-height: 22px; font-weight: 400; letter-spacing: 0; }  /* Code blocks and inline code. */

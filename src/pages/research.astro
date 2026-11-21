@@ -1,0 +1,167 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Figure from '../components/Figure.astro';
+import aps from '../assets/teaching/jack_at_aps.jpg';
+import qaoa from '../assets/research/qaoa_mvpo.png';
+import qmp from '../assets/research/qmp_washington.png';
+import qvr from '../assets/research/qvr_loop.png';
+import flux from '../assets/research/flux_closure_pto_sto.png';
+import scaling from '../assets/research/scaling_behaviour.png';
+import soft from '../assets/research/softdispersion.png';
+import vortex from '../assets/research/vortex_pzo.png';
+
+const sections = [
+  { id: 'quantum', label: 'Quantum algorithms' },
+  { id: 'ml', label: 'Machine learning' },
+  { id: 'materials', label: 'Materials from first principles' },
+];
+---
+<Base title="Research" description="Quantum algorithms for chemistry and materials, machine learning for electronic structure, and large-scale first-principles simulation of ferroelectrics and antiferroelectrics.">
+  <PageHead
+    kicker="Research"
+    title="Where quantum theory meets computation"
+    lead="If quantum theory can be put to good use in a field, I want to work on it. In practice that means algorithms for quantum computers, machine learning for electronic structure, and first-principles simulation of materials at very large scale."
+  >
+    <nav class="jump rise" style="--i:3" aria-label="On this page">
+      {sections.map((s) => <a class="chip" href={`#${s.id}`}>{s.label}</a>)}
+    </nav>
+  </PageHead>
+
+  <section id="quantum" class="section wrap block">
+    <div class="block-head">
+      <p class="t-label kicker">01 · Quantum algorithms</p>
+      <h2 class="t-h2">Simulating chemistry and materials on quantum computers</h2>
+    </div>
+    <div class="cols">
+      <div class="prose">
+        <p>
+          Most of my time now goes on algorithms for early fault-tolerant quantum computers, with molecules and
+          quantum materials as the target. In first-quantised simulation I have worked on
+          <a href="https://arxiv.org/abs/2510.07278">universal initial-state preparation</a> for fermions, bosons and
+          paraparticles, and on <a href="https://arxiv.org/abs/2606.25029">circuits that convert coherently between first- and second-quantised representations</a>.
+          For materials, I have combined quantum defect embedding with block-encoding and phase estimation to
+          <a href="https://doi.org/10.1103/PhysRevA.110.032606">compute the optical properties of spin defects</a>,
+          proposed algorithms that <a href="https://doi.org/10.1103/x8gd-fbtr">screen defects for ODMR activity</a>, and
+          used a quantum computer to <a href="https://arxiv.org/abs/2601.22091">model the long-time dynamics of the NV centre in diamond</a>.
+        </p>
+        <p>
+          Beyond chemistry, I am working on quantum algorithms for computational fluid dynamics as a visiting scientist in
+          <a href="https://www.matter.toronto.edu/">Alán Aspuru-Guzik’s Matter Lab</a> at the University of Toronto.
+        </p>
+        <p>
+          Results on today’s hardware still need care. With colleagues at LG I developed
+          <a href="https://doi.org/10.1088/2058-9565/ae5555">physics-inspired extrapolation</a>, a low-overhead error-mitigation
+          protocol whose fitted slope also measures hardware noise, demonstrated on 84-qubit IBM quantum dynamics.
+          The same toolkit made possible <a href="https://doi.org/10.1021/acs.jctc.5c01911">multicomponent simulations beyond the Born–Oppenheimer approximation</a>
+          on IBM Heron hardware, with ground-state energies within chemical accuracy.
+        </p>
+        <h3>Near-term algorithms</h3>
+        <p>
+          Before fault tolerance, the question is what a limited number of noisy qubits can usefully do. I have built
+          quantum machine-learning methods for time-series classification, anomaly detection and outlier detection, using
+          hybrid quantum–classical architectures and multiple-kernel learning, and I care about the open problems that stand
+          in the way: barren plateaus, efficient training and generalisation.
+        </p>
+        <p>
+          I have also benchmarked approximate optimisation (QAOA and quantum annealing) on superconducting and trapped-ion
+          hardware for portfolio optimisation, using <a href="https://arxiv.org/abs/2202.06782">Wasserstein distances</a> to judge
+          solution quality. Algorithm-agnostic tricks matter too: quantum multi-programming runs many circuits in parallel
+          across a large chip, much as MPI distributes classical work, and error mitigation such as dynamical decoupling and
+          Pauli twirling improves application-level results.
+        </p>
+        <p><a class="arrow-link" href="/publications/?topic=quantum-algorithms"><span class="lbl">Related publications</span><span class="arr">→</span></a></p>
+      </div>
+      <div class="figs">
+        <Figure src={aps} alt="Jack S. Baker presenting on quantum machine learning at the APS March Meeting" photo width={520}>APS March Meeting 2023, Las Vegas, Nevada.</Figure>
+        <Figure src={qaoa} alt="Schematic of the quantum approximate optimisation algorithm applied to portfolio optimisation" width={520}>The quantum approximate optimisation algorithm applied to portfolio optimisation.</Figure>
+        <Figure src={qmp} alt="Qubit layout of parallel circuits on the 127-qubit ibm_washington processor" width={520}>Many circuits run in parallel across the 127-qubit transmon processor <i>ibm_washington</i>.</Figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="ml" class="section wrap block">
+    <div class="block-head">
+      <p class="t-label kicker">02 · Machine learning</p>
+      <h2 class="t-h2">Learning where physics is expensive</h2>
+    </div>
+    <div class="cols">
+      <div class="prose">
+        <p>
+          Density functional theory lives or dies by its exchange–correlation functional. At Xanadu I co-developed
+          <a href="https://doi.org/10.1063/5.0181037">GradDFT</a>, a JAX library for designing neural functionals: fully
+          differentiable, just-in-time compiled self-consistent-field loops, direct optimisation of Kohn–Sham orbitals, and
+          many of the known constraints of the exact functional built in.
+        </p>
+        <p>
+          On the quantum side, I have used time-evolution operators to build a trainable, time-dependent inner product for
+          <a href="https://doi.org/10.1007/s42484-024-00149-0">kernelised time-series classification</a> on 127-qubit hardware,
+          and <a href="https://doi.org/10.1609/aaaiss.v7i1.36902">Quantum Variational Rewinding</a> for anomaly detection,
+          where error mitigation reduced anomaly-score errors by up to 14% on average.
+        </p>
+        <p>
+          More broadly, I am interested in what increasingly capable AI will mean for how computational science gets done,
+          from learned models of electronic structure to automated searches for better algorithms.
+        </p>
+        <p><a class="arrow-link" href="/publications/?topic=ml-chemistry"><span class="lbl">Related publications</span><span class="arr">→</span></a></p>
+      </div>
+      <div class="figs">
+        <Figure src={qvr} alt="The training loop of Quantum Variational Rewinding, alternating classical and quantum processing" width={420}>Quantum Variational Rewinding: a classical optimiser trains time-devolution circuits run on a QPU.</Figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="materials" class="section wrap block">
+    <div class="block-head">
+      <p class="t-label kicker">03 · Materials</p>
+      <h2 class="t-h2">Ferroics from first principles, at scale</h2>
+    </div>
+    <div class="cols">
+      <div class="prose">
+        <h3 id="textures">Polar textures</h3>
+        <p>
+          A polar morphology is a pattern of electric dipoles in a solid, and some of them (polar vortices, skyrmions, waves
+          and chiral bubbles) bring properties such as negative capacitance and giant electromechanical response. Capturing
+          them atom by atom needs thousands to millions of atoms, beyond standard DFT. With the linear-scaling code
+          <a href="https://doi.org/10.1063/5.0005074">CONQUEST</a> on national supercomputers, I simulated these textures directly.
+        </p>
+        <p>
+          That work uncovered the mechanism behind <a href="https://doi.org/10.1002/adts.202000154">polar waves in thin PbTiO<sub>3</sub> films</a>,
+          critical thicknesses for flux-closure domains, and <a href="https://doi.org/10.1103/PhysRevLett.127.247601">why ferroelectric domain walls align with surface trenches</a>:
+          dipoles arrange themselves to minimise trench-induced depolarising fields, a mechanism that can be used to engineer
+          textures in other nanostructures.
+        </p>
+        <h3 id="afe">Phase transitions in antiferroelectrics</h3>
+        <p>
+          Seventy years after antiferroelectricity was found in PbZrO<sub>3</sub>, there is still no agreed mechanism for the
+          transition, nor even a settled definition. Much of my work here studies phonons: imaginary modes signal dynamical
+          instabilities whose displacement patterns point to lower-symmetry phases. Following long-wavelength instabilities in
+          <a href="https://doi.org/10.1103/PhysRevB.100.224305">PZT</a> and PbZrO<sub>3</sub>, we found
+          <a href="https://arxiv.org/abs/2102.08856">structures of PbZrO<sub>3</sub> and PbHfO<sub>3</sub> lower in energy</a> than the accepted ground state.
+        </p>
+        <p>
+          Why many of these structures are not seen in experiment is open. Quantum nuclear effects that suppress certain modes,
+          and strain gradients that stabilise exotic patterns, are two candidates; answering them may need million-atom molecular
+          dynamics with machine-learned interatomic potentials.
+        </p>
+        <p><a class="arrow-link" href="/publications/?topic=materials"><span class="lbl">Related publications</span><span class="arr">→</span></a></p>
+      </div>
+      <div class="figs">
+        <Figure src={flux} alt="Polar vortex–antivortex pairs in PbTiO3 films on SrTiO3" width={520}>Polar vortex–antivortex pairs in PbTiO<sub>3</sub> films on SrTiO<sub>3</sub>, from first-principles atomic structures.</Figure>
+        <Figure src={scaling} alt="Strong, linear and weak scaling of the CONQUEST code up to 200,000 cores" width={520}>CONQUEST scaling with PbTiO<sub>3</sub>: (a) strong scaling, (b) linear scaling with system size, (c) weak scaling to 200,000 cores.</Figure>
+        <Figure src={soft} alt="Phonon dispersions of PbZrO3 and PbHfO3 showing unstable modes" width={520}>Unstable phonons in PbZrO<sub>3</sub> and PbHfO<sub>3</sub>: (a) cubic paraelectric; (b) antiferroelectric <i>Pbam</i>, with an instability remaining near Z.</Figure>
+        <Figure src={vortex} alt="Dipolar vortices in antiferroelectric PbZrO3" width={420}>Dipolar vortices in antiferroelectric PbZrO<sub>3</sub> and PbHfO<sub>3</sub>.</Figure>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .jump { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
+  .block { scroll-margin-top: 80px; }
+  .block-head { display: grid; gap: var(--space-3); margin-bottom: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--line); }
+  .cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 400px); gap: var(--space-12); align-items: start; }
+  .figs { display: grid; gap: var(--space-8); }
+  .prose h3 { scroll-margin-top: 88px; }
+  @media (max-width: 900px) { .cols { grid-template-columns: 1fr; } .figs { position: static; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
+</style>

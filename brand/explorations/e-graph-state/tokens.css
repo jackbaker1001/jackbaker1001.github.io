@@ -1,0 +1,81 @@
+/* Graph State — brand tokens for jackstephenbaker.com
+   Palette "CPK". Light is the default; dark follows the OS
+   unless <html data-theme="light|dark"> overrides it. */
+
+@font-face {
+  font-family: 'New Computer Modern';
+  src: url('./fonts/NewCM10-Book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'New Computer Modern';
+  src: url('./fonts/NewCM10-BookItalic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'New Computer Modern';
+  src: url('./fonts/NewCM10-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CMU Sans Serif';
+  src: url('./fonts/cmunss.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'New Computer Modern Mono';
+  src: url('./fonts/NewCMMono10-Book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-bg: #F6F6F3;
+  --color-surface: #FFFFFF;
+  --color-text: #1A1B1F;
+  --color-muted: #5B5E67;
+  --color-rule: #D9DAD5;
+  --color-accent: #2E4BC6;
+  --color-accent2: #B8322A;
+  --color-sulfur: #C98F0A;  /* graphics only */
+  --font-display: 'New Computer Modern', 'Latin Modern Roman', Georgia, serif;
+  --font-body: 'New Computer Modern', 'Latin Modern Roman', Georgia, serif;
+  --font-label: 'CMU Sans Serif', 'Latin Modern Sans', system-ui, sans-serif;
+  --font-mono: 'New Computer Modern Mono', 'Latin Modern Mono', ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #111216;
+    --color-surface: #1A1C21;
+    --color-text: #ECECE7;
+    --color-muted: #9A9DA6;
+    --color-rule: #2A2D34;
+    --color-accent: #8EA2FF;
+    --color-accent2: #FF7B6F;
+    --color-sulfur: #F2C94C;  /* graphics only */
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #111216;
+  --color-surface: #1A1C21;
+  --color-text: #ECECE7;
+  --color-muted: #9A9DA6;
+  --color-rule: #2A2D34;
+  --color-accent: #8EA2FF;
+  --color-accent2: #FF7B6F;
+  --color-sulfur: #F2C94C;  /* graphics only */
+  color-scheme: dark;
+}

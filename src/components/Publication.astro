@@ -1,0 +1,64 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { PUB_TYPES, TOPICS } from '../data/taxonomy';
+import { bibtex, pubLinks, primaryHref, stripTags } from '../lib/bibtex';
+
+interface Props { pub: CollectionEntry<'publications'>; compact?: boolean; isNew?: boolean }
+const { pub, compact = false, isNew = false } = Astro.props;
+const d = pub.data;
+const ME = 'J. S. Baker';
+const href = primaryHref(pub);
+const searchText = [stripTags(d.title), d.authors.join(' '), d.venue, d.year, stripTags(d.summary), d.topics.map((t) => TOPICS[t]).join(' ')].join(' ').toLowerCase();
+---
+<article
+  class="pub"
+  data-pub
+  data-topics={d.topics.join(' ')}
+  data-type={d.type}
+  data-year={d.year}
+  data-first={d.authors[0] === ME ? '1' : '0'}
+  data-search={searchText}
+>
+  <p class="pub-meta t-label">
+    {isNew && <span class="tag tag-oxygen">New</span>}
+    <span>{PUB_TYPES[d.type]}</span><span aria-hidden="true">·</span><span>{d.year}</span>
+  </p>
+  <h3 class="pub-title">
+    {href ? <a href={href} target="_blank" rel="noopener" set:html={d.title} /> : <span set:html={d.title} />}
+  </h3>
+  <p class="pub-authors">
+    {d.authors.map((a, i) => (
+      <>{a === ME ? <strong>{a}</strong> : a}{i < d.authors.length - 2 ? ', ' : i === d.authors.length - 2 ? ' and ' : ''}</>
+    ))}
+  </p>
+  <p class="pub-venue"><em set:html={d.venue} />{d.details && <span> {d.details}</span>}</p>
+  {!compact && <p class="pub-summary" set:html={d.summary} />}
+  <div class="pub-links">
+    {pubLinks(pub).map((l) => <a class="arrow-link" href={l.href} target="_blank" rel="noopener"><span class="lbl">{l.label}</span></a>)}
+    {!compact && (
+      <button class="cite-btn arrow-link" type="button" data-bib={bibtex(pub)} aria-label={`Copy BibTeX for ${stripTags(d.title)}`}>
+        <span class="lbl">Cite</span>
+      </button>
+    )}
+  </div>
+</article>
+
+<style is:global>
+  .pub { position: relative; display: grid; gap: 6px; padding: var(--space-6) 0 var(--space-6) var(--space-6); border-top: 1px solid var(--line); }
+  .pub::before {
+    content: ''; position: absolute; left: 0; top: var(--space-6); bottom: var(--space-6); width: 2px; border-radius: 2px;
+    background: var(--nitrogen); transform: scaleY(0); transform-origin: top; transition: transform .45s var(--ease);
+  }
+  .pub:hover::before { transform: scaleY(1); }
+  .pub-meta { display: flex; gap: var(--space-2); align-items: center; }
+  .pub-title { font-size: 22px; line-height: 30px; }
+  .pub-title a { color: var(--ink); text-decoration: none; background: linear-gradient(var(--nitrogen), var(--nitrogen)) 0 100% / 0 1px no-repeat; transition: color .2s, background-size .4s var(--ease); }
+  .pub-title a:hover { color: var(--nitrogen); background-size: 100% 1px; }
+  .pub-authors { font-size: 15px; line-height: 23px; color: var(--ink-muted); }
+  .pub-authors strong { color: var(--ink); font-weight: 700; }
+  .pub-venue { font-size: 15px; line-height: 23px; color: var(--ink-muted); }
+  .pub-summary { margin-top: 4px; max-width: 70ch; }
+  .pub-links { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); margin-top: 4px; }
+  .cite-btn { background: none; border: 0; padding: 0; cursor: pointer; }
+  .cite-btn[data-done] .lbl { color: var(--ink); }
+</style>

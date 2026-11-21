@@ -1,0 +1,27 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import PostCard from '../../../components/PostCard.astro';
+import { getPosts, slugifyTag, tagLabel } from '../../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  const tags = [...new Set(posts.flatMap((p) => p.data.tags))];
+  return tags.map((t) => ({ params: { tag: slugifyTag(t) }, props: { label: t } }));
+}
+const { label } = Astro.props;
+const posts = (await getPosts()).filter((p) => p.data.tags.includes(label));
+const all = await getPosts();
+const tags = [...new Set(all.flatMap((p) => p.data.tags))].sort();
+---
+<Base title={`${tagLabel(label)} · Blog`} description={`Posts tagged ${tagLabel(label)}.`}>
+  <PageHead kicker="Blog" title={tagLabel(label)} lead={`${posts.length} post${posts.length === 1 ? '' : 's'} with this tag.`}>
+    <nav class="tag-row rise" style="--i:3" aria-label="Tags">
+      <a class="chip" href="/blog/">All <span class="n">{all.length}</span></a>
+      {tags.map((t) => <a class="chip" href={`/blog/tags/${slugifyTag(t)}/`} aria-current={t === label ? 'page' : undefined}>{tagLabel(t)}</a>)}
+    </nav>
+  </PageHead>
+  <section class="wrap">
+    <div class="grid grid-3">{posts.map((p) => <PostCard post={p} />)}</div>
+  </section>
+</Base>

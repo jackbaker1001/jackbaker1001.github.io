@@ -1,0 +1,12 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+interface Props { src: ImageMetadata; alt: string; photo?: boolean; width?: number; class?: string }
+const { src, alt, photo = false, width = 900, class: cls } = Astro.props;
+---
+<figure class:list={['fig', cls]}>
+  <div class:list={['plate', { photo }]}>
+    <Image src={src} alt={alt} widths={[Math.round(width / 2), width, Math.min(width * 2, src.width)]} sizes={`(max-width: 760px) 100vw, ${width}px`} />
+  </div>
+  {Astro.slots.has('default') && <figcaption><slot /></figcaption>}
+</figure>

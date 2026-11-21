@@ -1,0 +1,362 @@
+# Publications, newest first. Within a year, order here is the order shown.
+# Titles may use <sub>, <sup> and <i>. Mark yourself as "J. S. Baker" so it is highlighted.
+# topics: quantum-algorithms, error-mitigation, quantum-information, qml, optimisation,
+#         ml-chemistry, materials, education
+# type:   journal, preprint, conference, thesis
+
+- id: salazar2026stabilizer
+  title: "Stabilizer Statistical Mechanics: A Framework for Efficient Quantification and Classification of Magic States"
+  authors: [W. E. Salazar, G. Saxena, J. S. Baker, L. C. Kwek, T. H. Kyaw]
+  venue: arXiv preprint
+  year: 2026
+  type: preprint
+  arxiv: "2608.14798"
+  summary: We develop a statistical-mechanical framework for quantum magic based on an efficiently estimable stabilizer partition function and stabilizer work, which continuously connects stabilizer 2-Rényi entropy with stabilizer nullity.
+  topics: [quantum-information]
+
+- id: baker2026conversion
+  title: Efficient Quantum Circuits for Coherent Conversion Between General First- and Second-Quantized Many-Body Representations
+  authors: [J. S. Baker, G. Saxena, T. H. Kyaw]
+  venue: arXiv preprint
+  year: 2026
+  type: preprint
+  arxiv: "2606.25029"
+  summary: We introduce polynomial-complexity quantum circuits that coherently convert fixed-particle many-body states between first- and second-quantized representations while resolving exchange symmetry for bosons, fermions, and parastatistical sectors.
+  topics: [quantum-algorithms]
+
+- id: diezvalle2026pie
+  title: Physics-inspired extrapolation for efficient error mitigation and hardware certification
+  authors: [P. Díez-Valle, G. Saxena, J. S. Baker, J.-H. Lee, T. H. Kyaw]
+  venue: Quantum Science and Technology
+  details: "11(2), 025032"
+  year: 2026
+  type: journal
+  doi: 10.1088/2058-9565/ae5555
+  arxiv: "2505.07977"
+  summary: We develop Physics-Inspired Extrapolation, a low-overhead and low-variance error-mitigation protocol whose fitted slope also quantifies hardware noise through max-relative entropy, and demonstrate it on 84-qubit IBM quantum dynamics.
+  topics: [error-mitigation]
+
+- id: casares2026odmr
+  title: Quantum algorithms to identify optically detected magnetic resonance-active defects for quantum sensing applications
+  authors: [P. A. M. Casares, Y. Zhou, U. Azad, S. Fomichev, J. S. Baker, C. Ling, D. Banerjee, A. Delgado, J. M. Arrazola]
+  venue: Physical Review A
+  details: "113, 052454"
+  year: 2026
+  type: journal
+  doi: 10.1103/x8gd-fbtr
+  summary: We propose two quantum algorithms that screen spin defects for optically detected magnetic resonance activity without directly calculating costly intersystem-crossing rates, with resource estimates for the negatively charged boron vacancy in hexagonal boron nitride.
+  topics: [quantum-algorithms, materials]
+
+- id: cabral2026multicomponent
+  title: Error-Mitigation Enabled Multicomponent Quantum Simulations beyond the Born–Oppenheimer Approximation
+  authors: [D. G. A. Cabral, B. Allen, F. Pavošević, S. Hammes-Schiffer, P. Díez-Valle, J. S. Baker, G. Saxena, T. H. Kyaw, V. S. Batista]
+  venue: Journal of Chemical Theory and Computation
+  details: "22(4), 1760–1769"
+  year: 2026
+  type: journal
+  doi: 10.1021/acs.jctc.5c01911
+  arxiv: "2511.11941"
+  summary: We introduce a multicomponent unitary coupled-cluster framework and demonstrate the first error-mitigated correlated simulations of coupled electronic and nuclear quantum effects on IBM Heron hardware with ground-state energies within chemical accuracy.
+  topics: [quantum-algorithms, error-mitigation]
+
+- id: naranjo2026designing
+  title: Designing quantum technologies with a quantum computer
+  authors: [J. Naranjo, T. H. Kyaw, G. Saxena, K. Ferreira, J. S. Baker]
+  venue: arXiv preprint
+  year: 2026
+  type: preprint
+  arxiv: "2601.22091"
+  summary: We develop a quantum-computer-aided framework for simulating and optimizing solid-state spin technologies, combining efficient encodings and Krylov fast-forwarding to model realistic long-time dynamics of the nitrogen-vacancy center in diamond.
+  topics: [quantum-algorithms, materials]
+
+- id: baker2025qvr
+  title: Quantum Variational Rewinding for Time Series Anomaly Detection
+  authors: [J. S. Baker, H. Horowitz, S. K. Radha, S. Fernandes, C. Jones, N. Noorani, V. Skavysh, P. Lamontagne, B. C. Sanders]
+  venue: Proceedings of the AAAI Symposium Series
+  details: "7(1), 330–338"
+  year: 2025
+  type: conference
+  doi: 10.1609/aaaiss.v7i1.36902
+  arxiv: "2210.16438"
+  code: https://github.com/AgnostiqHQ/QuantumVariationalRewinding
+  summary: We train parameterized quantum time-devolution operators to detect anomalies in cryptocurrency time series and show on IBM superconducting hardware that error mitigation reduces anomaly-score errors by as much as 14% on average.
+  topics: [qml, error-mitigation]
+
+- id: baker2025initial
+  title: Universal initial state preparation for first quantized quantum simulations
+  authors: [J. S. Baker, G. Saxena, T. H. Kyaw]
+  venue: arXiv preprint
+  year: 2025
+  type: preprint
+  arxiv: "2510.07278"
+  summary: We present an efficient universal method for mapping polynomial-size superpositions of occupation-number configurations into first-quantized states for fermions, bosons, and Green’s paraparticles in arbitrary single-particle bases.
+  topics: [quantum-algorithms]
+
+- id: saxena2025resilience
+  title: "Quantum Resilience: Canadian Innovations in Quantum Error Correction and Quantum Error Mitigation"
+  authors: [G. Saxena, J. S. Baker, P. Díez-Valle, W. E. Salazar, K. Ferreira, T. H. Kyaw]
+  venue: arXiv preprint
+  year: 2025
+  type: preprint
+  arxiv: "2505.20534"
+  summary: We survey landmark Canadian contributions to quantum error correction and error mitigation across academia and industry, highlighting emerging approaches for reducing or eliminating errors in quantum computation.
+  topics: [error-mitigation]
+
+- id: baker2024spin
+  title: Simulating optically active spin defects with a quantum computer
+  authors: [J. S. Baker, P. A. M. Casares, M. S. Zini, J. Thik, D. Banerjee, C. Ling, A. Delgado, J. M. Arrazola]
+  venue: Physical Review A
+  details: "110, 032606"
+  year: 2024
+  type: journal
+  doi: 10.1103/PhysRevA.110.032606
+  arxiv: "2405.13115"
+  summary: We combine quantum defect embedding theory, block-encoding, and quantum phase estimation to calculate the emission spectra and radiative properties of spin-active quantum defects in materials.
+  topics: [quantum-algorithms, materials]
+
+- id: casares2024graddft
+  title: "GradDFT: a software library for machine learning enhanced density functional theory"
+  authors: [P. A. M. Casares, J. S. Baker, M. Medvidović, R. D. Reis, J. M. Arrazola]
+  venue: The Journal of Chemical Physics
+  details: "160, 062501"
+  year: 2024
+  type: journal
+  doi: 10.1063/5.0181037
+  arxiv: "2309.15127"
+  code: https://github.com/XanaduAI/GradDFT
+  summary: We introduce a Pythonic playground for experimentation with exchange and correlation functionals in DFT based on neural networks.
+  topics: [ml-chemistry]
+
+- id: baker2024parallel
+  title: Parallel hybrid quantum-classical machine learning for kernelized time-series classification
+  authors: [J. S. Baker, G. Park, K. Yu, A. Ghukasyan, O. Goktas, S. K. Radha]
+  venue: Quantum Machine Intelligence
+  details: "6, 18"
+  year: 2024
+  type: journal
+  doi: 10.1007/s42484-024-00149-0
+  arxiv: "2305.05881"
+  summary: A trainable time-dependent inner product space is devised using time evolution operators from quantum mechanics and used to define a time-series Hamiltonian kernel which, alongside a classical SVM, classifies time series on 127-qubit superconducting transmon chips. Kernel matrices are computed in parallel using many quantum threads spread across the chip.
+  topics: [qml]
+
+- id: ghukasyan2023mkl
+  title: Quantum-Classical Multiple Kernel Learning
+  authors: [A. Ghukasyan, J. S. Baker, O. Goktas, J. Carrasquilla, S. K. Radha]
+  venue: arXiv preprint
+  year: 2023
+  type: preprint
+  arxiv: "2305.17707"
+  summary: We classify quantum–quantum, classical–classical, and quantum–classical multiple-kernel learning and introduce QCC-nets, a trainable architecture that learns weighted combinations of parameterized classical and quantum kernels.
+  topics: [qml]
+
+- id: guo2023batio3
+  title: "High Dielectric Constants in BaTiO<sub>3</sub> Due to Phonon Mode Softening Induced by Lattice Strains: First Principles Calculations"
+  authors: [H. Guo, J. S. Baker, W. Wu, K. L. Choy]
+  venue: Advanced Physics Research
+  details: "2300001"
+  year: 2023
+  type: journal
+  doi: 10.1002/apxr.202300001
+  summary: Hybrid DFT calculations show that certain strains enhance the dielectric constant of BaTiO<sub>3</sub> through softening of a zone-centre phonon mode.
+  topics: [materials]
+
+- id: roleder2023pzo
+  title: Weak low-temperature polarity in a PbZrO<sub>3</sub> single crystal
+  authors: [K. Roleder, G. Catalan, A. M. Glazer, J. S. Baker, J. H. Ko, F. H. Naqvi, S. B. Junaid, A. Majchrowski, Z. Trybuła, J. Zaręba, I. Lazar, D. Kajewski, J. Koperski, A. Soszyński]
+  venue: Physical Review B
+  details: "107, L140102"
+  year: 2023
+  type: journal
+  doi: 10.1103/PhysRevB.107.L140102
+  summary: We find experimental evidence for a new low-temperature phase transition to a polar state in the purported archetypal antiferroelectric PbZrO<sub>3</sub>.
+  topics: [materials]
+
+- id: hughes2023representative
+  title: A Quantum-Inspired Binary Optimization Algorithm for Representative Selection
+  authors: [A. G. Hughes, J. S. Baker, S. K. Radha]
+  venue: arXiv preprint
+  year: 2023
+  type: preprint
+  arxiv: "2301.01836"
+  summary: We develop a new binary objective function for representative selection and use it to perform portfolio diversification and index reconstruction using D-Wave quantum annealers.
+  topics: [optimisation]
+
+- id: baker2023aps
+  title: Time series anomaly detection using superconducting transmon quantum computers and error mitigation
+  authors: [J. S. Baker, S. K. Radha, B. C. Sanders, P. Lamontagne, H. Horowitz, S. Fernandes, C. Jones, N. Noorani, V. Skavysh]
+  venue: APS March Meeting Abstracts
+  details: "68(3), S64.013"
+  year: 2023
+  type: conference
+  url: https://meetings.aps.org/Meeting/MAR23/Session/S64.13
+  summary: We present Quantum Variational Rewinding for anomaly detection in cryptocurrency time series and demonstrate on IBM superconducting hardware that Pauli twirling and dynamical decoupling improve its performance.
+  topics: [qml, error-mitigation]
+
+- id: baker2022apsqaoa
+  title: A bridge between quantum and classical difficulty in portfolio optimization using the Quantum Approximate Optimization Algorithm
+  authors: [J. S. Baker, S. K. Radha, W. Cunningham]
+  venue: APS March Meeting Abstracts
+  details: "67(3), G38.008"
+  year: 2022
+  type: conference
+  url: https://meetings.aps.org/Meeting/MAR22/Session/G38.8
+  summary: We use a normalized complementary Wasserstein distance to relate QAOA portfolio quality to the number of classically viable portfolios and demonstrate the method on a trapped-ion quantum computer.
+  topics: [optimisation]
+
+- id: hughes2022outlier
+  title: Quantum Supervised Learning Method for Outlier Detection
+  authors: [A. Hughes, S. K. Radha, J. S. Baker]
+  venue: APS March Meeting Abstracts
+  details: "67(3), Z38.009"
+  year: 2022
+  type: conference
+  url: https://meetings.aps.org/Meeting/MAR22/Session/Z38.9
+  summary: We present a supervised quantum-learning method for identifying outliers in data.
+  topics: [qml]
+
+- id: baker2022apstextures
+  title: "Permanent manipulation of polar textures in thin ferroelectric films: insights from large scale density functional theory"
+  authors: [J. S. Baker, D. R. Bowler]
+  venue: APS March Meeting Abstracts
+  details: "67(3), T00.076"
+  year: 2022
+  type: conference
+  url: https://meetings.aps.org/Meeting/MAR22/Session/T00.76
+  summary: We use large-scale DFT to show how built-in bias fields and engineered surface trenches can permanently control polar textures in PbTiO<sub>3</sub>/SrTiO<sub>3</sub> films.
+  topics: [materials]
+
+- id: baker2022wasserstein
+  title: "Wasserstein solution quality and the quantum approximate optimization algorithm: a portfolio optimization case study"
+  authors: [J. S. Baker, S. K. Radha]
+  venue: arXiv preprint
+  year: 2022
+  type: preprint
+  arxiv: "2202.06782"
+  summary: We explore a new way of judging the quality of solutions from approximate optimisation algorithms such as QAOA and quantum annealing using Wasserstein distances, and use it to benchmark several superconducting transmon and trapped-ion quantum computers.
+  topics: [optimisation]
+
+- id: baker2021pnam
+  title: "A re-examination of antiferroelectric PbZrO<sub>3</sub> and PbHfO<sub>3</sub>: an 80-atom <i>Pnam</i> structure"
+  authors: [J. S. Baker, M. Paściak, J. K. Shenton, P. Vales-Castro, B. Xu, J. Hlinka, P. Márton, R. G. Burkovsky, G. Catalan, A. M. Glazer, D. R. Bowler]
+  venue: arXiv preprint
+  year: 2021
+  type: preprint
+  arxiv: "2102.08856"
+  summary: The long-standing antiferroelectric ground states of PbZrO<sub>3</sub> and PbHfO<sub>3</sub> each turn out to have an unstable phonon mode at 0 K. Its displacement pattern points to a new lower-symmetry structure whose energy is lower, according to DFT, than the presently supposed ground state.
+  topics: [materials]
+
+- id: baker2021trenches
+  title: Origin of ferroelectric domain wall alignment with surface trenches in ultrathin films
+  authors: [J. S. Baker, D. R. Bowler]
+  venue: Physical Review Letters
+  details: "127, 247601"
+  year: 2021
+  type: journal
+  doi: 10.1103/PhysRevLett.127.247601
+  arxiv: "2104.12750"
+  summary: We reveal the microscopic mechanism by which ferroelectric domain walls align with surface trenches in ferroelectric films, using large-scale DFT calculations with thousands of atoms on thousands of cores of the UK national supercomputer, ARCHER2.
+  topics: [materials]
+
+- id: baker2020morphologies
+  title: "Polar morphologies from first principles: PbTiO<sub>3</sub> films on SrTiO<sub>3</sub> substrates and the p(2 × Λ) surface reconstruction"
+  authors: [J. S. Baker, D. R. Bowler]
+  venue: Advanced Theory and Simulations
+  details: "3(11), 2000154"
+  year: 2020
+  type: journal
+  doi: 10.1002/adts.202000154
+  arxiv: "2007.00787"
+  summary: Large-scale DFT simulations are used to investigate polar vortices and polar waves in thin ferroelectric films. We find that asymmetrical polar textures can arise from broken inversion symmetries.
+  topics: [materials]
+
+- id: nakata2020conquest
+  title: Large scale and linear scaling DFT with the CONQUEST code
+  authors: [A. Nakata, J. S. Baker, S. Y. Mujahed, J. T. L. Poulton, S. Arapan, J. Lin, Z. Raza, S. Yadav, L. Truflandier, T. Miyazaki, D. R. Bowler]
+  venue: The Journal of Chemical Physics
+  details: "152(16), 164112"
+  year: 2020
+  type: journal
+  doi: 10.1063/5.0005074
+  arxiv: "2002.07704"
+  code: https://github.com/OrderN/CONQUEST-release
+  summary: A review of the large-scale DFT code CONQUEST, covering the theory behind the code and recent use cases.
+  topics: [materials]
+
+- id: baker2020pao
+  title: "The pseudoatomic orbital basis: electronic accuracy and soft-mode distortions in ABO<sub>3</sub> perovskites"
+  authors: [J. S. Baker, T. Miyazaki, D. R. Bowler]
+  venue: Electronic Structure
+  details: "2(2), 025002"
+  year: 2020
+  type: journal
+  doi: 10.1088/2516-1075/ab950e
+  arxiv: "2003.05327"
+  summary: Using a selection of technologically relevant ferroelectric and antiferroelectric perovskite oxides, we study how well DFT with pseudoatomic orbital basis sets describes their properties.
+  topics: [materials]
+
+- id: baker2020thesis
+  title: Long Range Order in Ferroelectric and Antiferroelectric Perovskites Meets Large Scale Density Functional Theory
+  authors: [J. S. Baker]
+  venue: PhD thesis, University College London
+  year: 2020
+  type: thesis
+  url: https://discovery.ucl.ac.uk/id/eprint/10118419/
+  summary: My PhD thesis, on long-range behaviour in ferroelectric and antiferroelectric perovskite oxides studied with conventional and large-scale DFT. Systems include bulk PZT, PbZrO<sub>3</sub>, PbHfO<sub>3</sub> and thin films of PbTiO<sub>3</sub>; findings include exotic polarisation textures, new low-energy structures in PbZrO<sub>3</sub>, and the mechanism behind domain-wall alignment with engineered surface trenches.
+  topics: [materials]
+
+- id: baker2019pzt
+  title: First-principles soft-mode lattice dynamics of PbZr<sub>0.5</sub>Ti<sub>0.5</sub>O<sub>3</sub> and shortcomings of the virtual crystal approximation
+  authors: [J. S. Baker, D. R. Bowler]
+  venue: Physical Review B
+  details: "100, 224305"
+  year: 2019
+  type: journal
+  doi: 10.1103/PhysRevB.100.224305
+  arxiv: "1910.01685"
+  summary: New long-wavelength lattice instabilities are found in the industrial piezoelectric PZT using DFT phonon calculations, and we show why the popular virtual crystal approximation cannot describe such patterns in PZT and similar materials.
+  topics: [materials]
+
+- id: bowler2019basis
+  title: Highly accurate local basis sets for large-scale DFT calculations in CONQUEST
+  authors: [D. R. Bowler, J. S. Baker, J. T. L. Poulton, S. Y. Mujahed, J. Lin, S. Yadav, Z. Raza, T. Miyazaki]
+  venue: Japanese Journal of Applied Physics
+  details: "58(10), 100503"
+  year: 2019
+  type: journal
+  doi: 10.7567/1347-4065/ab45af
+  arxiv: "1908.02707"
+  summary: We develop new heuristics for generating reliable pseudoatomic orbital basis sets for DFT calculations in CONQUEST, and test their accuracy on several popular materials.
+  topics: [materials]
+
+- id: dunn2018orbyts
+  title: Involving school students in exoplanet research through the Twinkle Space Mission—ORBYTS
+  authors: [W. Dunn, K. L. Chubb, M. Tessenyi, J. Tennyson, T. James, D. Darby, M. Niculescu-Duvaz, R. Meyer, J. Holdship, J. S. Baker, J. Smutna, M. Virdee, S. Brannan, G. Tinetti, A. Heward, C. Sousa-Silva, M. Gorman, L. K. McKemmish, T. Rivlin]
+  venue: European Planetary Science Congress
+  details: EPSC2018-970
+  year: 2018
+  type: conference
+  url: https://research.aber.ac.uk/en/publications/involving-school-students-in-exoplanet-research-through-the-twink/
+  summary: We describe how ORBYTS pairs researchers with secondary schools so pupils can contribute to publishable exoplanet research connected to the Twinkle space mission.
+  topics: [education]
+
+- id: sousasilva2018orbyts
+  title: "Original Research By Young Twinkle Students (ORBYTS): when can students start performing original research?"
+  authors: [C. Sousa-Silva, L. K. McKemmish, K. L. Chubb, M. N. Gorman, J. S. Baker, E. J. Barton, T. Rivlin, J. Tennyson]
+  venue: Physics Education
+  details: "53(1), 015020"
+  year: 2018
+  type: journal
+  doi: 10.1088/1361-6552/aa8f2a
+  summary: We outline how ORBYTS teaches research skills to school-aged scientists and supports them in publishing peer-reviewed work under the supervision of early-career researchers.
+  topics: [education]
+
+- id: mckemmish2017orbyts
+  title: Bringing pupils into the ORBYTS of research
+  authors: [L. K. McKemmish, K. L. Chubb, T. Rivlin, J. S. Baker, M. Gorman, A. Heward, W. Dunn, M. Tessenyi]
+  venue: Astronomy & Geophysics
+  details: "58(5), 5.11"
+  year: 2017
+  type: journal
+  doi: 10.1093/astrogeo/atx169
+  summary: The Twinkle ORBYTS team discuss their approach to conducting original research with school-aged scientists.
+  topics: [education]

@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import PostCard from '../../components/PostCard.astro';
+import Icon from '../../components/Icon.astro';
+import { getPosts, slugifyTag, tagLabel } from '../../lib/posts';
+
+const posts = await getPosts();
+const tags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
+---
+<Base title="Blog" description="Writing and tutorials on quantum computing, machine learning and computational chemistry.">
+  <PageHead kicker="Blog" title="Writing and tutorials" lead="Notes, tutorials and longer pieces on quantum computing, machine learning and chemistry. Some are hosted here; others link to where they were first published.">
+    <div class="blog-tools rise" style="--i:3">
+      <nav class="tag-row" aria-label="Tags">
+        <a class="chip" href="/blog/" aria-current="page">All <span class="n">{posts.length}</span></a>
+        {tags.map((t) => <a class="chip" href={`/blog/tags/${slugifyTag(t)}/`}>{tagLabel(t)}</a>)}
+      </nav>
+      <a class="arrow-link" href="/rss.xml"><Icon name="rss" size={16} /><span class="lbl">Subscribe by RSS</span></a>
+    </div>
+  </PageHead>
+  <section class="wrap">
+    <div class="grid grid-3">
+      {posts.map((p) => <PostCard post={p} />)}
+    </div>
+  </section>
+</Base>
+<style>
+  .blog-tools { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; margin-top: var(--space-2); }
+</style>

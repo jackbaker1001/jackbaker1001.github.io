@@ -1,0 +1,137 @@
+---
+import { getCollection } from 'astro:content';
+import { byNewest } from '../lib/bibtex';
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Publication from '../components/Publication.astro';
+import { TOPICS, PUB_TYPES } from '../data/taxonomy';
+import { SOCIAL } from '../data/site';
+
+const pubs = (await getCollection('publications')).sort(byNewest);
+const years = [...new Set(pubs.map((p) => p.data.year))];
+const scholar = SOCIAL.find((s) => s.icon === 'scholar')!.href;
+---
+<Base title="Publications" description="Papers, preprints and abstracts on quantum algorithms, error mitigation, quantum machine learning and first-principles materials simulation.">
+  <PageHead
+    kicker="Publications"
+    title="Papers and preprints"
+    lead={`Journal papers, preprints, conference abstracts and my thesis, newest first. Filter by topic or search, and copy a BibTeX entry with one click. Citations are on <a class="link" href="${scholar}">Google Scholar</a>.`}
+  />
+
+  <section class="wrap pubs" data-pubs>
+    <div class="filters" role="group" aria-label="Filter publications">
+      <label class="search-field">
+        <span class="sr-only">Search publications</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+        <input type="search" placeholder="Search titles, authors, venues…" data-q />
+      </label>
+      <div class="chips">
+        <button class="chip" type="button" data-topic="" aria-pressed="true">All topics</button>
+        {Object.entries(TOPICS).map(([k, label]) => (
+          <button class="chip" type="button" data-topic={k} aria-pressed="false">{label}</button>
+        ))}
+      </div>
+      <div class="row2">
+        <div class="types" role="group" aria-label="Type">
+          <button class="chip" type="button" data-ptype="" aria-pressed="true">Any type</button>
+          {Object.entries(PUB_TYPES).map(([k, label]) => <button class="chip" type="button" data-ptype={k} aria-pressed="false">{label}</button>)}
+        </div>
+        <label class="first-toggle t-nav"><input type="checkbox" data-first /> First author only</label>
+      </div>
+      <p class="t-label status" aria-live="polite" data-status></p>
+    </div>
+
+    <div class="years">
+      {years.map((y) => (
+        <section class="year" data-year-group={y} aria-labelledby={`y-${y}`}>
+          <h2 id={`y-${y}`} class="year-label">{y}</h2>
+          <div class="year-items">
+            {pubs.filter((p) => p.data.year === y).map((p) => <Publication pub={p} />)}
+          </div>
+        </section>
+      ))}
+      <p class="empty muted" data-empty hidden>Nothing matches those filters. <button class="link reset" type="button" data-reset>Clear filters</button></p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .filters { position: sticky; top: var(--header-h); z-index: 5; display: grid; gap: var(--space-3); padding-block: var(--space-4); margin-bottom: var(--space-4);
+    background: color-mix(in srgb, var(--surface) 86%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .search-field { display: flex; align-items: center; gap: var(--space-2); max-width: 520px; padding: 8px 14px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface-raised); color: var(--ink-muted); transition: border-color .2s; }
+  .search-field:focus-within { border-color: var(--nitrogen); }
+  .search-field input { flex: 1; border: 0; outline: 0; background: none; font: 17px/1.4 var(--font-serif); color: var(--ink); }
+  .chips, .types { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .row2 { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-6); align-items: center; justify-content: space-between; }
+  .types .chip { padding: 4px 10px; font-size: 13px; }
+  .first-toggle { display: inline-flex; gap: var(--space-2); align-items: center; color: var(--ink-muted); cursor: pointer; }
+  .first-toggle input { accent-color: var(--nitrogen); width: 16px; height: 16px; }
+  .status { margin: 0; }
+  .year { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: var(--space-6); }
+  .year-label { font-size: 32px; line-height: 40px; color: var(--ink-muted); padding-top: var(--space-6); align-self: start; font-variant-numeric: oldstyle-nums; }
+  .year-items { border-bottom: 1px solid var(--line); }
+  .pub[hidden], .year[hidden] { display: none; }
+  .reset { background: none; border: 0; padding: 0; font: inherit; cursor: pointer; color: var(--nitrogen); }
+  @media (max-width: 720px) {
+    .filters { position: static; }
+    .year { grid-template-columns: 1fr; gap: 0; }
+    .year-label { position: static; padding-top: var(--space-8); font-size: 26px; }
+  }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-pubs]')!;
+  const q = root.querySelector<HTMLInputElement>('[data-q]')!;
+  const first = root.querySelector<HTMLInputElement>('[data-first]')!;
+  const status = root.querySelector<HTMLElement>('[data-status]')!;
+  const empty = root.querySelector<HTMLElement>('[data-empty]')!;
+  const items = [...root.querySelectorAll<HTMLElement>('[data-pub]')];
+  const groups = [...root.querySelectorAll<HTMLElement>('[data-year-group]')];
+  const params = new URLSearchParams(location.search);
+  let topic = params.get('topic') ?? '';
+  let type = params.get('type') ?? '';
+  q.value = params.get('q') ?? '';
+  first.checked = params.get('first') === '1';
+
+  function press(attr: string, val: string) {
+    root.querySelectorAll<HTMLButtonElement>(`[${attr}]`).forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute(attr) === val)));
+  }
+  function update(push = true) {
+    const terms = q.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    let shown = 0;
+    for (const el of items) {
+      const ok = (!topic || el.dataset.topics!.split(' ').includes(topic))
+        && (!type || el.dataset.type === type)
+        && (!first.checked || el.dataset.first === '1')
+        && terms.every((t) => el.dataset.search!.includes(t));
+      el.hidden = !ok;
+      if (ok) shown++;
+    }
+    groups.forEach((g) => (g.hidden = !g.querySelector('[data-pub]:not([hidden])')));
+    // only report a count while filtering, never the overall total
+    const filtering = Boolean(topic || type || terms.length || first.checked);
+    status.textContent = filtering && shown ? `${shown} matching` : '';
+    empty.hidden = shown > 0;
+    press('data-topic', topic);
+    press('data-ptype', type);
+    if (push) {
+      const p = new URLSearchParams();
+      if (topic) p.set('topic', topic);
+      if (type) p.set('type', type);
+      if (q.value.trim()) p.set('q', q.value.trim());
+      if (first.checked) p.set('first', '1');
+      history.replaceState(null, '', p.size ? `?${p}` : location.pathname);
+    }
+  }
+  root.addEventListener('click', (e) => {
+    const el = e.target as Element;
+    const t = el.closest<HTMLElement>('[data-topic]');
+    if (t) { topic = t.dataset.topic!; update(); }
+    const ty = el.closest<HTMLElement>('[data-ptype]');
+    if (ty) { type = ty.dataset.ptype!; update(); }
+    if (el.closest('[data-reset]')) { topic = ''; type = ''; q.value = ''; first.checked = false; update(); }
+  });
+  q.addEventListener('input', () => update());
+  first.addEventListener('change', () => update());
+  update(false);
+</script>

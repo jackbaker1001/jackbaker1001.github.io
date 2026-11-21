@@ -1,0 +1,60 @@
+---
+/**
+ * giscus comments (GitHub Discussions). Configure in src/data/site.ts → GISCUS.
+ * Loads lazily when scrolled near, and follows the site's light/dark theme.
+ */
+import { GISCUS, SITE } from '../data/site';
+const configured = Boolean(GISCUS.categoryId);
+const themeBase = `${SITE.url}/giscus`;
+---
+<section class="comments" aria-labelledby="comments-h">
+  <h2 id="comments-h" class="t-h3">Comments</h2>
+  {configured ? (
+    <>
+      <p class="t-small muted">Comments are powered by GitHub Discussions. Sign in with GitHub to join in.</p>
+      <div class="giscus-slot" data-giscus
+        data-repo={GISCUS.repo} data-repo-id={GISCUS.repoId}
+        data-category={GISCUS.category} data-category-id={GISCUS.categoryId}
+        data-theme-base={themeBase}></div>
+    </>
+  ) : (
+    import.meta.env.DEV
+      ? <p class="t-small muted setup">Comments are not switched on yet. Follow the three steps above <code>GISCUS</code> in <code>src/data/site.ts</code> and they will appear here.</p>
+      : <p class="t-small muted">Comments are coming soon. In the meantime, I would love to hear from you on <a class="link" href="https://www.linkedin.com/in/jack-s-baker-7596b2235">LinkedIn</a>.</p>
+  )}
+</section>
+
+<style is:global>
+  .comments { margin-top: var(--space-16); padding-top: var(--space-8); border-top: 1px solid var(--line); display: grid; gap: var(--space-3); }
+  .giscus-slot { min-height: 160px; margin-top: var(--space-3); }
+  .giscus-slot iframe { width: 100%; border: 0; color-scheme: normal; }
+  .comments .setup { border: 1px dashed var(--line-strong); border-radius: var(--radius-md); padding: var(--space-4); }
+</style>
+
+<script>
+  const slot = document.querySelector<HTMLElement>('[data-giscus]');
+  if (slot) {
+    const isProd = location.hostname.endsWith('jackstephenbaker.com');
+    const themeFor = (t: string) => (isProd ? `${slot.dataset.themeBase}/${t}.css` : t === 'dark' ? 'dark_dimmed' : 'light');
+    const effective = () => document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const load = () => {
+      const s = document.createElement('script');
+      s.src = 'https://giscus.app/client.js';
+      s.async = true;
+      s.crossOrigin = 'anonymous';
+      Object.entries({
+        repo: slot.dataset.repo!, 'repo-id': slot.dataset.repoId!, category: slot.dataset.category!,
+        'category-id': slot.dataset.categoryId!, mapping: 'pathname', strict: '1', 'reactions-enabled': '1',
+        'emit-metadata': '0', 'input-position': 'top', theme: themeFor(effective()), lang: 'en', loading: 'lazy',
+      }).forEach(([k, v]) => s.setAttribute(`data-${k}`, v));
+      slot.appendChild(s);
+    };
+    new IntersectionObserver((entries, io) => {
+      if (entries.some((e) => e.isIntersecting)) { io.disconnect(); load(); }
+    }, { rootMargin: '600px' }).observe(slot);
+    window.addEventListener('themechange', (e) => {
+      const frame = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
+      frame?.contentWindow?.postMessage({ giscus: { setConfig: { theme: themeFor((e as CustomEvent).detail) } } }, 'https://giscus.app');
+    });
+  }
+</script>
