@@ -45,7 +45,7 @@ const themeBase = `${SITE.url}/giscus`;
       Object.entries({
         repo: slot.dataset.repo!, 'repo-id': slot.dataset.repoId!, category: slot.dataset.category!,
         'category-id': slot.dataset.categoryId!, mapping: 'pathname', strict: '1', 'reactions-enabled': '1',
-        'emit-metadata': '0', 'input-position': 'top', theme: themeFor(effective()), lang: 'en', loading: 'lazy',
+        'emit-metadata': '0', 'input-position': 'top', theme: themeFor(effective()), lang: 'en',
       }).forEach(([k, v]) => s.setAttribute(`data-${k}`, v));
       slot.appendChild(s);
     };

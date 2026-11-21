@@ -35,14 +35,15 @@ export const SOCIAL = [
  *  2. install the giscus app on that repo: https://github.com/apps/giscus;
  *  3. visit https://giscus.app, enter the repo, pick the "Announcements" category,
  *     and copy the data-category-id it shows into `categoryId`.
- * Until `categoryId` is set, posts show a short "comments coming soon" note in dev
- * and nothing in production.
+ * Switched on (Discussions enabled and the giscus app installed, November 2026).
+ * Each hosted post's thread is a Discussion in the "Announcements" category, created
+ * by giscus on the first comment. Moderate them in the repo's Discussions tab.
  */
 export const GISCUS = {
   repo: 'jackbaker1001/jackbaker1001.github.io',
   repoId: 'R_kgDOJdQ8NQ',
   category: 'Announcements',
-  categoryId: '',
+  categoryId: 'DIC_kwDOJdQ8Nc4DLq2r',
 };
 
 /**

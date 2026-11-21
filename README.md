@@ -57,7 +57,8 @@ External posts appear in the blog list and RSS feed, and link straight to the or
 ## Comments
 
 Comments use [giscus](https://giscus.app), which stores each post's thread as a GitHub Discussion on the site's repository.
-Commenters sign in with GitHub. To switch them on:
+Commenters sign in with GitHub. They are switched on; moderate them in the repository's Discussions tab.
+Each thread is created in the *Announcements* category on a post's first comment. To set them up on another repository:
 
 1. enable **Discussions** on the repository (Settings → General → Features);
 2. install the giscus app on that repository: <https://github.com/apps/giscus>;
