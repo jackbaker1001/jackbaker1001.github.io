@@ -8,8 +8,8 @@
  *              and forth (a soft phonon mode), a diamond unit cell with an NV centre,
  *              and an hBN bilayer with a boron vacancy.
  *  Chemistry – caffeine, benzene and water turning in perspective.
- *  Reciprocal space – the first Brillouin zone of simple-cubic Pm-3m (the cubic perovskite),
- *              with Γ, X, M, R, the lines between them and a k-point tracing the band path.
+ *  Reciprocal space – the first Brillouin zone of the fcc lattice (Fd-3m, diamond): a truncated
+ *              octahedron, sparsely labelled, with a k-point tracing part of the band path.
  *  AI        – a multilayer perceptron with forward-pass pulses; self-attention arcs;
  *              message passing that hops along chemical bonds like a graph neural network.
  *  Notation  – a few faint lines of maths.
@@ -245,7 +245,7 @@ function scene(): Thing[] {
     T({ kind: 'mol', mol: hbnBilayer(), x: 0.37, y: 0.9, size: 0.1, depth: 0.6, rot: [1.05, 0, 0.3], spin: [0, 0, 0.05], minWidth: 900 }),
     // molecules
     // reciprocal space
-    T({ kind: 'bz', x: 0.885, y: 0.24, size: 0.058, depth: 0.85, rot: [0.62, 0.55, 0], spin: [0, 0.07, 0] }),
+    T({ kind: 'bz', x: 0.885, y: 0.23, size: 0.078, depth: 0.85, rot: [0.5, 0.35, 0], spin: [0, 0.07, 0] }),
     T({ kind: 'mol', mol: caffeine(), x: 0.7, y: 0.42, size: 0.085, depth: 0.55, rot: [0.6, -0.4, 0.2], spin: [0.03, 0.07, 0.015], minWidth: 720 }),
     T({ kind: 'mol', mol: benzene(), x: 0.31, y: 0.13, size: 0.045, depth: 0.55, rot: [0.9, 0.3, 0], spin: [0.04, 0.11, 0.03], minWidth: 900 }),
     T({ kind: 'mol', mol: water(), x: 0.05, y: 0.45, size: 0.02, depth: 0.4, rot: [0, 1, 0], spin: [0.15, 0.25, 0.2] }),
@@ -677,29 +677,23 @@ export function startBackground(canvas: HTMLCanvasElement, opts: { calm?: boolea
   }
 
   /* ------------------------------------------------- Brillouin zone */
-  // Simple cubic (Pm-3m) first Brillouin zone in units of π/a: a cube with corners at (±1, ±1, ±1).
-  const BZ_PTS: Record<string, V3> = { 'Γ': [0, 0, 0], X: [0, 1, 0], M: [1, 1, 0], R: [1, 1, 1] };
-  const BZ_PATH: [string, string, string][] = [ // from, to, line label (Bilbao/Bradley–Cracknell)
-    ['Γ', 'X', 'Δ'], ['X', 'M', 'Z'], ['M', 'Γ', 'Σ'], ['Γ', 'R', 'Λ'], ['R', 'X', 'S'], ['M', 'R', 'T'],
-  ];
+  // First Brillouin zone of the face-centred-cubic lattice (Fd-3m, diamond; also Fm-3m), in units
+  // of 2π/a: a truncated octahedron whose 24 vertices are the W points, the permutations of (±1, ±½, 0).
+  const BZ_VERTS: V3[] = [];
+  for (const perm of [[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]])
+    for (const s1 of [1, -1]) for (const s2 of [1, -1]) {
+      const v: V3 = [0, 0, 0];
+      v[perm[0]] = s1; v[perm[1]] = s2 * 0.5; v[perm[2]] = 0;
+      if (!BZ_VERTS.some((w) => dist(w, v) < 1e-6)) BZ_VERTS.push(v);
+    }
+  const BZ_EDGES: [number, number][] = [];
+  for (let i = 0; i < BZ_VERTS.length; i++) for (let j = i + 1; j < BZ_VERTS.length; j++)
+    if (Math.abs(dist(BZ_VERTS[i], BZ_VERTS[j]) - Math.SQRT1_2) < 1e-6) BZ_EDGES.push([i, j]);
+  const BZ_PTS: Record<string, V3> = { 'Γ': [0, 0, 0], X: [1, 0, 0], W: [1, 0.5, 0], K: [0.75, 0.75, 0], L: [0.5, 0.5, 0.5] };
+  const BZ_LABELLED = ['Γ', 'X', 'K', 'L']; // kept sparse on purpose
+  const BZ_PATH: [string, string][] = [['Γ', 'X'], ['X', 'W'], ['W', 'K'], ['K', 'Γ'], ['Γ', 'L']];
   const BZ_LEN = BZ_PATH.map(([a, b]) => dist(BZ_PTS[a], BZ_PTS[b]));
   const BZ_TOTAL = BZ_LEN.reduce((x, y) => x + y, 0);
-
-  function label(text: string, x: number, y: number, size: number, colour: string, italic = false) {
-    // tiny renderer for k_{x}-style subscripts, centred on (x, y)
-    const parts: { s: string; sub: boolean }[] = [];
-    text.replace(/([^_]+)|_\{([^}]*)\}/g, (_m, a, b) => { parts.push(a ? { s: a, sub: false } : { s: b, sub: true }); return ''; });
-    const font = (sub: boolean) => `${italic ? 'italic ' : ''}${sub ? size * 0.7 : size}px "New Computer Modern", "Latin Modern Roman", serif`;
-    let w = 0;
-    parts.forEach((p) => { ctx!.font = font(p.sub); w += ctx!.measureText(p.s).width; });
-    let cx = x - w / 2;
-    ctx!.fillStyle = colour; ctx!.textBaseline = 'middle'; ctx!.textAlign = 'left';
-    for (const p of parts) {
-      ctx!.font = font(p.sub);
-      ctx!.fillText(p.s, cx, y + (p.sub ? size * 0.28 : 0));
-      cx += ctx!.measureText(p.s).width;
-    }
-  }
 
   function arrowHead(x0: number, y0: number, x1: number, y1: number, len: number, fill: string) {
     const a = Math.atan2(y1 - y0, x1 - x0);
@@ -713,107 +707,70 @@ export function startBackground(canvas: HTMLCanvasElement, opts: { calm?: boolea
 
   function drawBZ(th: Thing, t: number) {
     const [cx, cy] = centre(th, t);
-    const R = th.size * M; // half the cube edge, in px
+    const R = th.size * M; // px per 2π/a
     const yaw = th.rot![1] + th.spin![1] * t, tilt = th.rot![0];
     const k = th.depth * S();
-    // k = (kx, ky, kz) with kz up; yaw about kz, then tilt towards the viewer
+    // kz up; yaw about kz, then tilt towards the viewer; gentle perspective
     const proj = (p: V3) => {
-      let x = p[0], y = p[1], z = p[2];
-      let t1 = x * Math.cos(yaw) - y * Math.sin(yaw); y = x * Math.sin(yaw) + y * Math.cos(yaw); x = t1;
+      let x = p[0], y = p[1];
+      const z = p[2];
+      const t1 = x * Math.cos(yaw) - y * Math.sin(yaw); y = x * Math.sin(yaw) + y * Math.cos(yaw); x = t1;
       const depth = y * Math.cos(tilt) - z * Math.sin(tilt), up = y * Math.sin(tilt) + z * Math.cos(tilt);
       const s = 9 / (9 + depth);
       return { x: cx + x * R * s, y: cy - up * R * s, z: depth };
     };
-    const P = (n: string) => proj(BZ_PTS[n]);
+    const V = BZ_VERTS.map(proj);
 
-    // cube edges: far edges dotted and fainter
-    const corners: V3[] = [];
-    for (const x of [-1, 1]) for (const y of [-1, 1]) for (const z of [-1, 1]) corners.push([x, y, z]);
+    // zone edges: the far side dotted and fainter, so it reads as a solid
     ctx!.lineWidth = 1;
-    for (let i = 0; i < 8; i++) for (let j = i + 1; j < 8; j++) {
-      const a = corners[i], b = corners[j];
-      if ([0, 1, 2].filter((q) => a[q] !== b[q]).length !== 1) continue;
-      const pa = proj(a), pb = proj(b), far = (pa.z + pb.z) / 2 > 0.2;
+    for (const [i, j] of BZ_EDGES) {
+      const far = (V[i].z + V[j].z) / 2 > 0.05;
       ctx!.setLineDash(far ? [2, 3] : []);
-      ctx!.strokeStyle = rgba(C.strong, (far ? 0.2 : 0.38) * k);
-      line(pa.x, pa.y, pb.x, pb.y);
+      ctx!.strokeStyle = rgba(C.strong, (far ? 0.18 : 0.4) * k);
+      line(V[i].x, V[i].y, V[j].x, V[j].y);
     }
     ctx!.setLineDash([]);
+    for (const v of V) dot(v.x, v.y, 1.6, rgba(C.strong, (v.z > 0.05 ? 0.25 : 0.5) * k));
 
-    // reciprocal axes k_x, k_y, k_z from Γ, dotted inside the zone
-    const axes: [V3, string][] = [[[1.55, 0, 0], 'k_{x}'], [[0, 1.55, 0], 'k_{y}'], [[0, 0, 1.55], 'k_{z}']];
-    const g = P('Γ');
-    const axisLabels: { x: number; y: number }[] = [];
-    for (const [tip, name] of axes) {
-      const face = proj([tip[0] / 1.55, tip[1] / 1.55, tip[2] / 1.55]), end = proj(tip);
-      ctx!.strokeStyle = rgba(C.strong, 0.3 * k);
-      ctx!.setLineDash([1.5, 3]); line(g.x, g.y, face.x, face.y); ctx!.setLineDash([]);
-      line(face.x, face.y, end.x, end.y);
-      arrowHead(face.x, face.y, end.x, end.y, 6, rgba(C.strong, 0.45 * k));
-      const dx = end.x - g.x, dy = end.y - g.y, L = Math.hypot(dx, dy) || 1;
-      const lx = end.x + (dx / L) * 11, ly = end.y + (dy / L) * 11;
-      label(name, lx, ly, 12, rgba(C.ink, 0.42 * k), true);
-      axisLabels.push({ x: lx, y: ly });
-    }
-
-    // the high-symmetry path, with an arrowhead mid-way along each segment
-    ctx!.lineWidth = 1.3;
+    // a short high-symmetry path, Γ–X–W–K–Γ–L, with a k-point travelling along it
+    const P = (n: string) => proj(BZ_PTS[n]);
+    ctx!.lineWidth = 1.2;
     for (const [a, b] of BZ_PATH) {
       const pa = P(a), pb = P(b);
-      ctx!.strokeStyle = rgba(C.n, 0.5 * k);
+      ctx!.strokeStyle = rgba(C.n, 0.42 * k);
       line(pa.x, pa.y, pb.x, pb.y);
-      const mx = (pa.x + pb.x) / 2, my = (pa.y + pb.y) / 2;
-      arrowHead(pa.x, pa.y, mx + (pb.x - pa.x) * 0.06, my + (pb.y - pa.y) * 0.06, 6, rgba(C.n, 0.6 * k));
+      if (a === 'Γ') {
+        const mx = (pa.x + pb.x) / 2, my = (pa.y + pb.y) / 2;
+        arrowHead(pa.x, pa.y, mx + (pb.x - pa.x) * 0.06, my + (pb.y - pa.y) * 0.06, 5, rgba(C.n, 0.55 * k));
+      }
     }
-
-    // a k-point tracing Γ–X–M–Γ–R–X | M–R, as in a band-structure plot
     if (!reduce.matches) {
-      let d = ((t * 0.32) % BZ_TOTAL + BZ_TOTAL) % BZ_TOTAL;
+      let d = ((t * 0.25) % BZ_TOTAL + BZ_TOTAL) % BZ_TOTAL;
       let seg = 0;
       while (d > BZ_LEN[seg]) { d -= BZ_LEN[seg]; seg++; }
       const [a, b] = BZ_PATH[seg], u = d / BZ_LEN[seg];
       const pa = BZ_PTS[a], pb = BZ_PTS[b];
       const q = proj([pa[0] + (pb[0] - pa[0]) * u, pa[1] + (pb[1] - pa[1]) * u, pa[2] + (pb[2] - pa[2]) * u]);
-      dot(q.x, q.y, 6, rgba(C.n, 0.12 * k));
-      dot(q.x, q.y, 2.4, rgba(C.n, 0.85 * k));
+      dot(q.x, q.y, 5.5, rgba(C.n, 0.12 * k));
+      dot(q.x, q.y, 2.2, rgba(C.n, 0.85 * k));
     }
 
-    // high-symmetry points; their labels are pushed outward from Γ
-    const placed: { x: number; y: number; r: number }[] = [];
-    const pts = Object.keys(BZ_PTS).map((n) => ({ n, p: P(n) }));
-    for (const { n, p } of pts) {
-      dot(p.x, p.y, 3.2, rgba(C.surface, 1));
-      dot(p.x, p.y, 2.6, n === 'Γ' ? rgba(C.n, 0.8 * k) : rgba(C.ink, 0.6 * k));
-      placed.push({ x: p.x, y: p.y, r: 6 });
-    }
-    for (const { n, p } of pts) {
+    // a few labelled high-symmetry points, labels pushed outward from Γ
+    const g = P('Γ');
+    for (const n of Object.keys(BZ_PTS)) {
+      const p = P(n);
+      dot(p.x, p.y, 3, rgba(C.surface, 1));
+      dot(p.x, p.y, 2.4, n === 'Γ' ? rgba(C.n, 0.8 * k) : rgba(C.n, 0.5 * k));
+      if (!BZ_LABELLED.includes(n)) continue;
       let dx = p.x - g.x, dy = p.y - g.y;
       const L = Math.hypot(dx, dy);
-      if (L < 1) { dx = -0.7; dy = 0.7; } else { dx /= L; dy /= L; }
-      const lx = p.x + dx * 13, ly = p.y + dy * 13;
-      label(n, lx, ly, 15, rgba(C.ink, 0.6 * k));
-      placed.push({ x: lx, y: ly, r: 10 });
+      if (L < 1) { dx = -0.7; dy = 0.75; } else { dx /= L; dy /= L; }
+      ctx!.font = `14px "New Computer Modern", "Latin Modern Roman", serif`;
+      ctx!.fillStyle = rgba(C.ink, 0.55 * k);
+      ctx!.textAlign = 'center'; ctx!.textBaseline = 'middle';
+      ctx!.fillText(n, p.x + dx * 12, p.y + dy * 12);
+      ctx!.textAlign = 'left';
     }
-    for (const a of axisLabels) placed.push({ x: a.x, y: a.y, r: 9 });
-
-    // line labels (Δ Z Σ Λ S T): try a few spots beside each segment, keep the first clear one
-    const clear = (x: number, y: number) => placed.every((q) => Math.hypot(q.x - x, q.y - y) > q.r + 7);
-    const segDist = (x: number, y: number, a: { x: number; y: number }, b: { x: number; y: number }) => {
-      const vx = b.x - a.x, vy = b.y - a.y, u = Math.max(0, Math.min(1, ((x - a.x) * vx + (y - a.y) * vy) / (vx * vx + vy * vy || 1)));
-      return Math.hypot(x - a.x - vx * u, y - a.y - vy * u);
-    };
-    const segs = BZ_PATH.map(([a, b]) => [P(a), P(b)] as const);
-    BZ_PATH.forEach(([, , name], i) => {
-      const [pa, pb] = segs[i];
-      const L = Math.hypot(pb.x - pa.x, pb.y - pa.y) || 1, nx = -(pb.y - pa.y) / L, ny = (pb.x - pa.x) / L;
-      for (const [f, side] of [[0.5, 1], [0.5, -1], [0.33, 1], [0.67, 1], [0.33, -1], [0.67, -1], [0.2, 1], [0.8, -1], [0.5, 1.7], [0.5, -1.7], [0.75, 1.7], [0.75, -1.7], [0.25, 1.7], [0.25, -1.7]] as [number, number][]) {
-        const x = pa.x + (pb.x - pa.x) * f + nx * side * 10, y = pa.y + (pb.y - pa.y) * f + ny * side * 10;
-        // only where this label's own line is the nearest one, so Σ and Λ never swap
-        const own = segDist(x, y, pa, pb);
-        const nearestIsOwn = segs.every(([qa, qb], j) => j === i || segDist(x, y, qa, qb) > own + 1.5);
-        if (nearestIsOwn && clear(x, y)) { label(name, x, y, 11, rgba(C.n, 0.55 * k)); placed.push({ x, y, r: 6 }); break; }
-      }
-    });
   }
 
   /* ------------------------------------------------------------- text */
